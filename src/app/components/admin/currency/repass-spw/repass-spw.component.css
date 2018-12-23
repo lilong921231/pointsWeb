@@ -1,0 +1,23 @@
+@import "../main/main.component.css";
+@import "../myinfo/myinfo.component.css";
+@import "../../../admin/login/login.component.css";
+
+.repass-spw-div{
+  height: 155px;
+}
+input{
+  border: solid 1px #dddddd;
+  padding: 1px 6px;
+}
+span{
+  color: #ff0000;
+}
+
+.input-button{
+  padding-left: 10%;
+  width: 11%;
+  padding-top: 1%;
+}
+.input-button-width{
+  width: 59px;
+}

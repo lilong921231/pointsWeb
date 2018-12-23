@@ -1,0 +1,78 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div>
+      <div class="main-Navigation">
+        增值积分结算记录
+        <img src="../../../../../assets/images/xtgl.jpg">
+      </div>
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table news-div">
+          <div class="admin-div">
+            <div class="div-header pointlist-num-width">
+              记录编号{{number}}
+            </div>
+            <div class="div-header pointlist-date-width">
+              结算日期
+            </div>
+            <div class="div-header pointlist-before-width">
+              结算前总积分
+            </div>
+            <div class="div-header pointlist-after-width">
+              结算后总积分
+            </div>
+            <div class="div-header pointlist-ratio-width">
+              权重比例
+            </div>
+            <div class="div-header pointlist-display-width">
+              显示状态
+            </div>
+            <div class="div-header pointlist-operation-width">
+              操作
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="admin-div" *ngFor="let item of data.data;let i = index">
+            <div class="div-data pointlist-num-width data-color">
+              {{item.id}}
+              <input type="text" style="display:none" value="{{item.id}}" #pointId>
+            </div>
+            <div class="div-data pointlist-date-width data-color">
+              {{item.updateTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}
+            </div>
+            <div class="div-data pointlist-before-width data-color">
+              {{item.startPoints}}
+            </div>
+            <div class="div-data pointlist-after-width data-color">
+              {{item.endPoints}}
+            </div>
+            <div class="div-data pointlist-ratio-width">
+              {{item.ratio * 100}}%
+            </div>
+            <div class="div-data pointlist-display-width">
+             {{item.visible ? '隐藏' : '显示'}}
+            </div>
+            <div class="div-data pointlist-operation-width">
+              <a routerLink="#" (click)="pointInfo(pointId.value)">查看明细</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="#" (click)="pointVisible(pointId.value)">{{item.visible ? '前台隐藏' : '前台显示'}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="#" (click)="pointDelete(pointId.value)">强行清空</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="row ">
+            <div class="col-xs-12 col-12 div-center padding-top-15px">
+              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal" (pageChanged)="pageChanged($event)"></pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+
+.repass-input{
+  padding: 6px 20px;
+}
+input{
+  border: solid 1px #dddddd;
+  padding: 1px 6px;
+}
+span{
+  color: #ff0000;
+}
+.repass-button{
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.input-button{
+  padding-left: 15%;
+  width: 11%;
+  padding-top: 1%;
+}
+.input-button-width{
+  width: 59px;
+}

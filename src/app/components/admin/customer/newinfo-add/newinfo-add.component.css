@@ -1,0 +1,20 @@
+
+.newinfo-div-table{
+  height: 100%;
+  background: url("../../../../../assets/images/fy_bg.jpg");
+}
+.newinfo-div-input{
+  padding-left: 10%;
+  width: 11%;
+}
+
+.newinfo-div-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.newInfo-add-width{
+  height: 100%;
+  display: inherit;
+}

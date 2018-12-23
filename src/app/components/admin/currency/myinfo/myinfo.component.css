@@ -1,0 +1,44 @@
+@import "../main/main.component.css";
+
+.myinfo-div{
+  width: 97%;
+  padding: 45px 40px 0 0;
+}
+.myinfo-div-d1{
+  padding: 3px;
+  border: solid 1px #dddddd;
+  background-color: #FFFFFF;
+}
+.myinfo-div-table{
+  padding: 15px;
+  height: 100%;
+  background: url("../../../../../assets/images/fy_bg.jpg");
+}
+.myinfo-div-table-div>div{
+  width: 100%;
+  float: left;
+}
+.myinfo-div-inf{
+  float: left;
+  width: 15%;
+  height: 32px;
+  text-align: -webkit-center;
+  background: url("../../../../../assets/images/left_bg.jpg") repeat-x;
+}
+.myinfo-div-data{
+  height: 32px;
+  float: left;
+  width: 85%;
+  background: url("../../../../../assets/images/right_bg.jpg") repeat-x;
+  display: flex;
+  align-items: center;
+}
+p{
+  padding: 8px 0;
+  color: #666666;
+}
+.myinfo-div-data>p{
+  margin-bottom: 0;
+  padding: 0px 20px;
+  color: #0084ff;
+}

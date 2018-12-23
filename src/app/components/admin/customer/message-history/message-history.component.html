@@ -1,0 +1,83 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div>
+      <div class="main-Navigation">
+        会员留言
+        <img src="../../../../../assets/images/kfzx.jpg">
+        <div class="search-div">
+          <input type="text" class="search-input">
+          <input type="button" class="search-button">
+        </div>
+      </div>
+    </div>
+    <div class="myinfo-div news-div-table">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="admin-div">
+            <div class="div-header meg-history-width-checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="div-header meg-history-width-state">
+              状态
+            </div>
+            <div class="div-header meg-history-width-member">
+              留言会员
+            </div>
+            <div class="div-header meg-history-width-title">
+              留言标题
+            </div>
+            <div class="div-header meg-history-width">
+              留言内容
+            </div>
+            <div class="div-header meg-history-width-reply">
+              管理回复
+            </div>
+            <div class="div-header meg-history-width-operation">
+              操作
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="admin-div">
+            <div class="div-data meg-history-width-checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="div-data meg-history-width-state data-color">
+              [数据状态]
+            </div>
+            <div class="div-data meg-history-width-member data-color">
+              <a href="#" class="a-bottom">[会员编号]</a>
+            </div>
+            <div class="div-data meg-history-width-title data-color">
+              1234
+            </div>
+            <div class="div-data meg-history-width data-color">
+              2018-11-29 24:59:59
+            </div>
+            <div class="div-data meg-history-width-reply data-color">
+              管理员
+            </div>
+            <div class="div-data meg-history-width-operation">
+              <a routerLink="/admin/messageinfo">查看</a>&nbsp;&nbsp;
+              <a href="#" (click)="customer.del_meg()">删除</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="news-div-input">
+            <input type="button" (click)="customer.del_megs()" class="button-2 button-width message-float" value="删除选定记录">
+          </div>
+          <div class="news-div-pagaData">
+            共[数据]页[数据]条记录
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>

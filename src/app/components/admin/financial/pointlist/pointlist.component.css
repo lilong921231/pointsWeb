@@ -1,0 +1,27 @@
+.pointlist-num-width{
+  width: 10%;
+}
+.pointlist-date-width{
+  width: 22%;
+ }
+.pointlist-before-width{
+  width: 14%;
+}
+.pointlist-after-width{
+  width: 14%;
+}
+.pointlist-ratio-width{
+  width: 10%;
+}
+.pointlist-display-width{
+  width: 10%;
+}
+.pointlist-operation-width{
+  width: 19.4%;
+}
+.ceshi{
+  background-color: #f4f4f4;
+  border: 1px solid #c8c8c8;
+  padding: 0;
+  text-align: center;
+}

@@ -1,0 +1,51 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div class="main-Navigation">
+      修改管理角色
+      <img src="../../../../../assets/images/tycz.jpg">
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="myinfo-div-inf">
+            <p>角色编号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{groupData.data.id}}</p>
+            <input type="text" style="display:none" value="{{groupData.data.id}}" #admingroupId>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>角色名称</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="{{groupData.data.name}}" #name>
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>角色描述</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="{{groupData.data.description}}" #description>
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
+            </div>
+          </div>
+          <div class="repass-button">
+            <input type="button" (click)="checkInput(admingroupId.value, name.value, description.value)" class="button-1 button-width" value="确定修改">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

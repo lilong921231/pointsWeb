@@ -1,0 +1,46 @@
+.Settlement-date{
+  width: 25%;
+}
+.Membership-number{
+  width: 10%;
+}
+.Weight-ratio{
+  width: 10%;
+}
+.before-settlement{
+  width: 16%;
+}
+.after-settlement{
+  width: 16%;
+}
+.pointinfo-State{
+  width: 12%;
+}
+.pointinfo-operation{
+  width: 10%;
+}
+
+.search-div{
+  float: right;
+}
+.search-input{
+  outline: none;
+  width: 194px;
+  height: 41px;
+  line-height: 41px;
+  font-size: 12px;
+  padding-left: 18px;
+  padding-right: 11px;
+  border: none;
+  color: #666666;
+  background: url("../../../../../assets/images/search_left.jpg") no-repeat;
+}
+.search-button{
+  outline: none;
+  width: 43px;
+  float: right;
+  height: 41px;
+  border: none;
+  background: url("../../../../../assets/images/search_right.jpg") no-repeat;
+  cursor: pointer;
+}

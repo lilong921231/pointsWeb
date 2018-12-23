@@ -1,0 +1,25 @@
+.level-num-width{
+  width: 18%
+}
+.level-name-width{
+  width: 18%
+}
+.level-alias-width{
+  width: 18%
+}
+.level-integral-width{
+  width: 18%
+}
+.level-mount-width{
+  width: 18.4%;
+}
+.level-operation-width{
+  width: 9%;
+}
+.level-button{
+  float: left;
+  width: 63px;
+}
+.red-color{
+  color: red;
+}

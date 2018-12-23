@@ -1,0 +1,54 @@
+
+.textarea-div{
+  float: right;
+  width: 85%;
+}
+.textarea-div>textarea{
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100px;
+}
+
+.history-meg{
+  padding-top: 30px;
+}
+.history-meg-title{
+  font-size: 22px;
+  font-family: '微软雅黑';
+  color: #666666;
+  padding-left: 10px;
+}
+.newinfo-div-padding{
+  padding: 15px;
+}
+.newinfo-div-padding>div>div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meginfo-width-member{
+  width: 10%;
+}
+.meginfo-width-title{
+  width: 19.5%;
+}
+.meginfo-width{
+  width: 50%;
+}
+.meginfo-width-reply{
+  width: 10%;
+}
+.meginfo-width-operation{
+  width: 10%;
+}
+.meginfo-page{
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-page{
+  color: #333;
+}

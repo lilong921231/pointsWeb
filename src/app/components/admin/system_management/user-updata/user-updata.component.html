@@ -1,0 +1,95 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div class="main-Navigation">
+      修改
+      <img src="../../../../../assets/images/xtgl.jpg">
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="admin-div">
+            <div class="myinfo-div-inf">
+              <p>会员编号</p>
+            </div>
+            <div class="myinfo-div-data">
+              <p>{{dataUpdata.data.id}}</p>
+              <input type="text" style="display:none" value="{{dataUpdata.data.id}}" #userId>
+            </div>
+            <div class="myinfo-div-inf" >
+              <p>登陆账号</p>
+            </div>
+            <div class="myinfo-div-data">
+              <p>{{dataUpdata.data.account}}</p>
+            </div>
+            <div class="myinfo-div-inf">
+              <p>会员级别</p>
+            </div>
+            <div class="myinfo-div-data">
+              <div class="repass-input">
+                <input type="text" value="" #rankId>
+              </div>
+            </div>
+            <div class="myinfo-div-inf">
+              <p>真实姓名</p>
+            </div>
+            <div class="myinfo-div-data">
+              <div class="repass-input">
+                <input type="text" value="{{dataUpdata.data.account}}" #realName>
+                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
+              </div>
+            </div>
+            <div class="myinfo-div-inf">
+              <p>身份证号</p>
+            </div>
+            <div class="myinfo-div-data">
+              <div class="repass-input">
+                <input type="text" value="{{dataUpdata.data.identityNumber}}" #identityNumber>
+                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
+              </div>
+            </div>
+
+            <div class="myinfo-div-inf">
+              <p>移动电话</p>
+            </div>
+            <div class="myinfo-div-data">
+              <div class="repass-input">
+                <input type="text" value="{{dataUpdata.data.phone}}" #phone>
+              </div>
+            </div>
+            <div class="myinfo-div-inf">
+              <p>收货地址</p>
+            </div>
+            <div class="myinfo-div-data">
+              <div class="repass-input div-color">
+                <input type="text" value="" #province>
+                省
+                <input type="text" value="" #city>
+                市
+                <input type="text" value="" #address>
+              </div>
+            </div>
+
+            <div class="clear"></div>
+          </div>
+          <div class="repass-button">
+            <input type="button" (click)="updataUser(
+            userId.value, realName.value, rankId.value,
+            phone.value, province.value, city.value,
+            address.value, identityNumber.value
+            )" class="button-1 button-width" value="确定修改">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+          </div>
+          <div class="clear"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

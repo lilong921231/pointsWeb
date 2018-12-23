@@ -1,0 +1,26 @@
+@import "../../currency/main/main.component.css";
+@import "../../currency/myinfo/myinfo.component.css";
+@import "../../../admin/login/login.component.css";
+
+.deldata-div{
+  height: 64px;
+}
+.deldata-div-font{
+  padding-left: 3px;
+  height: 32px;
+  display:flex;
+  align-items:center;
+}
+.deldata-div-button{
+  width: 62px;
+}
+.myinfo-div-table>div>.deldata-div-font{
+  display:flex;
+  align-items:center;
+  justify-content: inherit;
+}
+.myinfo-div-table>div>.deldata-div-font{
+  display:flex;
+  align-items:center;
+  justify-content: inherit;
+}

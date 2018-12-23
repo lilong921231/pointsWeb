@@ -1,0 +1,23 @@
+@import "../message/message.component.css";
+
+.meg-history-width-checkbox{
+  width: 2%;
+}
+.meg-history-width-state{
+  width: 5%;
+}
+.meg-history-width-member{
+  width: 5%;
+}
+.meg-history-width-title{
+  width: 5%;
+}
+.meg-history-width{
+  width: 60%;
+}
+.meg-history-width-reply{
+  width: 17%;
+}
+.meg-history-width-operation{
+  width: 5%;
+}

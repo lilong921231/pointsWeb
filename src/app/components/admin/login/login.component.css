@@ -1,0 +1,101 @@
+.login-background{
+  width: 100%;
+  height: 100%;
+  background: url("../../../../assets/images/background.jpg") top;
+}
+.login-img{
+  width: 100%;
+  height: 100%;
+  background: url("../../../../assets/images/dl_bg.jpg") no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loing-div-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  padding: 1px 6px;
+}
+
+
+
+.div-tr{
+  display: flex;
+  justify-content: center;
+}
+
+.div-td{
+  height: 40px;
+  text-align: -webkit-right;
+  font-size: 15px;
+  color: #333333;
+  padding-right: 5px;
+}
+
+.td-1 {
+  float: right;
+  width: 162px;
+  font-size: 12px;
+  height: 17px;
+  text-align: -webkit-left;
+}
+
+.input-code {
+  float: left;
+  width: 70px;
+}
+
+#code {
+  width: 69%;
+  font-size: 12px;
+  height: 17px;
+}
+
+.code {
+  float: left;
+  width: 60px;
+  cursor: pointer;
+  padding-left: 3px;
+}
+
+#checkCode{
+  width: 60px;
+  cursor: pointer;
+  font-style: italic;
+  color: green;
+  border: 0;
+  padding: 2px 3px;
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+
+.td-3 {
+  height: 25px;
+  width: 35%;
+  padding-top: 2%;
+}
+.button-1 {
+  width: 40px;
+  height: 21px;
+  font-size: 12px;
+  color: #FFFFFF;
+  background: url(../../../../assets/images/button_bg.jpg) repeat-x;
+  border: none;
+  cursor: pointer;
+  float: left;
+}
+.button-2 {
+  width: 40px;
+  height: 21px;
+  font-size: 12px;
+  color: #FFFFFF;
+  background: url(../../../../assets/images/button_bg.jpg) repeat-x;
+  border: none;
+  cursor: pointer;
+  float: right;
+}

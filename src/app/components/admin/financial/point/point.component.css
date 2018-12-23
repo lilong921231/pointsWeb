@@ -1,0 +1,29 @@
+@import "../../currency/main/main.component.css";
+@import "../../currency/myinfo/myinfo.component.css";
+
+.point-div{
+  height: 52px;
+}
+
+.point-div-font{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height: 42%;
+}
+.point-div-now{
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0084ff;
+}
+
+.point-button{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 7px;
+  color: #0084ff;
+}
+.point-div-now>input{
+  border: none;
+}

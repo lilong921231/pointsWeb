@@ -1,0 +1,58 @@
+
+.search-div{
+  float: right;
+}
+.search-input{
+  outline: none;
+  width: 194px;
+  height: 41px;
+  line-height: 41px;
+  font-size: 12px;
+  padding-left: 18px;
+  padding-right: 11px;
+  border: none;
+  color: #666666;
+  background: url("../../../../../assets/images/search_left.jpg") no-repeat;
+}
+.search-button{
+  outline: none;
+  width: 43px;
+  float: right;
+  height: 41px;
+  border: none;
+  background: url("../../../../../assets/images/search_right.jpg") no-repeat;
+  cursor: pointer;
+}
+
+.message-width-state{
+  width: 8%;
+}
+.message-width-member{
+  width: 9%;
+}
+.message-width-title{
+  width: 18%;
+}
+.message-width{
+  width: 40%;
+}
+.message-width-reply{
+  width: 10%;
+}
+.message-width-operation{
+  width: 9%;
+}
+.a-bottom{
+  text-decoration: underline;
+}
+.message-float{
+  float: left;
+}
+.message-div-history{
+  width: 100%;
+  float: right;
+}
+.a-history{
+  float: right;
+  text-decoration: underline;
+}

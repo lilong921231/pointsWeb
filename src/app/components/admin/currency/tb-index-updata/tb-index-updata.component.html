@@ -1,0 +1,66 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div class="main-Navigation">
+      修改密码
+      <img src="../../../../../assets/images/tycz.jpg">
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="myinfo-div-inf">
+            <p>编号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{currency.tbUpdata.data.id}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>上证指数</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>
+              开盘：<input type="text" value="{{currency.tbUpdata.data.shOpenExponent}}" #shOpenExponent>
+              最高：<input type="text" value="{{currency.tbUpdata.data.shMaxExponent}}" #shMaxExponent>
+              最低：<input type="text" value="{{currency.tbUpdata.data.shMinExponent}}" #shMinExponent>
+              收盘：<input type="text" value="{{currency.tbUpdata.data.shCloseExponent}}" #shCloseExponent>
+            </p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>天宝指数</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>
+              开盘：<input type="text" value="{{currency.tbUpdata.data.tbOpenExponent}}" #tbOpenExponent>
+              最高：<input type="text" value="{{currency.tbUpdata.data.tbMaxExponent}}" #tbMaxExponent>
+              最低：<input type="text" value="{{currency.tbUpdata.data.tbMinExponent}}" #tbMinExponent>
+              收盘：<input type="text" value="{{currency.tbUpdata.data.tbCloseExponent}}" #tbCloseExponent>
+            </p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>数据日期</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p><input type="text" value="{{currency.tbUpdata.data.publishTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD'}}" #publishTime></p>
+        </div>
+          <div class="repass-button">
+            <input type="button" (click)="tbIndexAdd(
+           publishTime.value,
+            shOpenExponent.value, shMaxExponent.value,
+            shMinExponent.value, shCloseExponent.value,
+            tbOpenExponent.value, tbMaxExponent.value,
+            tbMinExponent.value, tbCloseExponent.value
+            )" class="button-1 button-width" value="保存编辑">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

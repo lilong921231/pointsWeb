@@ -1,0 +1,60 @@
+@import "../main/main.component.css";
+@import "../myinfo/myinfo.component.css";
+
+.div-header-double{
+  width: 33%;
+  float: left;
+}
+.tb-index-data-width{
+  width: 13%
+}
+.tb-index-width{
+  width: 10%;
+}
+.tb-index-double-heigth{
+  height: 64px;
+}
+.double-width-parent{
+  width: 100%;
+}
+.tb-index-operation-width{
+  width: 10.3%;
+}
+.double-width-son1{
+  width: 24.8%;
+}
+.double-width-son2{
+  width: 24.7%;
+}
+.double-width-son3{
+  width: 24.75%;
+}
+.tb-index-list-width1{
+  width: 8.2%;
+}
+.tb-index-list-width2{
+  width: 8.1%;
+}
+.td-index-list-width3{
+  width: 8.4%;
+}
+.td-index-list-date-width{
+  width: 13%
+}
+.td-index-list-operation-width {
+  width: 10.3%;
+}
+.div-header-double>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.border{
+  border-right: solid 1px #dddddd;
+  border-bottom: solid 1px
+}
+.tb-index>.div-header{
+  background: url("../../../../../assets/images/top_bg.jpg");
+  border-right: solid 1px #dddddd;
+  float: left;
+}

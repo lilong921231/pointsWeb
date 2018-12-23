@@ -1,0 +1,59 @@
+
+.news-div-table{
+  height: 100%;
+}
+.news-div{
+  padding: 15px;
+}
+
+.news-width-checkbox{
+  width: 5%;
+}
+.news-width-number{
+  width: 6%;
+}
+.news-width-title{
+  width: 25%;
+}
+.news-width-content{
+  width: 25%;
+}
+.news-width-date{
+  width: 16%;
+}
+.news-width-author{
+  width: 10%;
+}
+.news-width-operation{
+  width: 12%;
+}
+.news-div-input{
+  float: left;
+  padding-top: 13px;
+  width: 13%;
+}
+.button-1-input{
+  width: 63px;
+}
+.button-2-input{
+  width: 83px;
+}
+.data-color{
+  color: #0084ff;
+}
+
+.div-data>a{
+  color: red;
+  text-decoration:none;
+}
+.news-div-pagaData{
+  padding-top: 13px;
+  float: right;
+  width: 42%;
+}
+.page-width{
+  width: 86%;
+}
+.div-news-width{
+  width: 85%;
+}

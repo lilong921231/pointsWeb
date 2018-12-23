@@ -1,0 +1,104 @@
+<div class="background-img">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-menu></app-menu>
+  </div>
+  <div class="main-div">
+    <div>
+      <div class="main-Navigation">
+        管理用户
+        <img src="../../../../../assets/images/xtgl.jpg">
+      </div>
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="admin-div">
+            <div class="div-header admin-num-width">
+              用户编号
+            </div>
+            <div class="div-header admin-account-width">
+              登录账号
+            </div>
+            <div class="div-header admin-roles-width">
+              用户角色
+            </div>
+            <div class="div-header admin-name-width">
+              真实姓名
+            </div>
+            <div class="div-header admin-IdName-width">
+              身份证号
+            </div>
+            <div class="div-header admin-duties-width">
+              工作职务
+            </div>
+            <div class="div-header admin-contact-width">
+              联系电话
+            </div>
+            <div class="div-header admin-email-width">
+              电子邮件
+            </div>
+            <div class="div-header admin-loginTime-width">
+              最后登录时间
+            </div>
+            <div class="div-header admin-ip-width">
+              最后登录IP
+            </div>
+            <div class="div-header admin-operation-width">
+              操作
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="admin-div" *ngFor="let item of adminData.data;let i = index">
+            <div class="div-data admin-num-width data-color">
+            {{item.id}}
+              <input type="text" style="display:none" value="{{item.id}}" #adminId>
+            </div>
+            <div class="div-data admin-account-width data-color">
+              {{item.account}}
+            </div>
+            <div class="div-data admin-roles-width data-color">
+
+            </div>
+            <div class="div-data admin-name-width data-color">
+              {{item.realName}}
+            </div>
+            <div class="div-data admin-IdName-width data-color">
+              {{item.identityNumber}}
+            </div>
+            <div class="div-data admin-duties-width data-color">
+              工作职务
+            </div>
+            <div class="div-data admin-contact-width data-color">
+              {{item.phone}}
+            </div>
+            <div class="div-data admin-email-width data-color">
+              {{item.email}}
+            </div>
+            <div class="div-data admin-loginTime-width data-color">
+              最后登录时间
+            </div>
+            <div class="div-data admin-ip-width data-color">
+              最后登录IP
+            </div>
+            <div class="div-data admin-operation-width">
+              <a routerLink="#" (click)="adminUpdata(adminId.value)">修改</a>&nbsp;&nbsp;
+              <a href="#" (click)="adminDelete(adminId.value)">删除</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="news-div-input admin-input">
+            <input type="button" (click)="adminAdd()" class="button-2 button-width float-left" value="添加记录">
+          </div>
+          <div class="news-div-pagaData">
+            共[数据]页[数据]条记录
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
