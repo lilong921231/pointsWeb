@@ -1,0 +1,23 @@
+.menu-width{
+  width: 7%;
+}
+.menu-logo{
+  width: 225px;
+  height: 70px;
+  background: url("../../../../../assets/images/user-logo.jpg") no-repeat;
+  float: left;
+}
+.menu-background{
+  width: 225px;
+  height: 600px;
+  background: url("../../../../../assets/images/user-menu.jpg") no-repeat;
+  float: left;
+}
+.menu-common{
+  font-size: 14px;
+  font-weight: bold;
+  color: #2b7c98;
+  padding-top: 26px;
+  padding-left: 25px;
+  padding-bottom: 20px;
+}
