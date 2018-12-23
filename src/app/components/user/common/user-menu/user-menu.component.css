@@ -21,3 +21,22 @@
   padding-left: 25px;
   padding-bottom: 20px;
 }
+.menu-height{
+  height: 30px;
+}
+.menu-img{
+  float: left;
+  width: 27%;
+  height: 30px;
+  text-align: -webkit-center;
+}
+.menu-message{
+  width: 73%;
+  text-align: -webkit-left;
+}
+.menu-message>a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
