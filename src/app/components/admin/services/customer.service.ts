@@ -19,9 +19,11 @@ export class CustomerService {
   /**
    * 获取公告信息列表
    */
-  newInfo(data) {
-    const url = environment.apiUrl + '/announcement/list/page';
-    return this.httpServer.getParamData(url, data);
+  newInfo(pageSize, pageNo) {
+    const size = 'pageSize=' + pageSize;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/announcement/list/page?' + size + '&' + pageno;
+    return this.httpServer.getData(url);
   }
   // 未使用
   /**

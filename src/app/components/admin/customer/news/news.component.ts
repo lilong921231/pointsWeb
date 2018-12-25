@@ -15,7 +15,7 @@ export class NewsComponent implements OnInit {
   // 公告的数据总量
   newsTotal: any;
   // 当前页数
-  private pageNo: any;
+  private pageNo = 1;
   // 每页显示的数据数量
   // 公司报告页面显示数据数量固定为15
   private pageSize = 15;
@@ -28,43 +28,30 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.newListInit();
-    this.newsTotal = this.newsTotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.data = this.data.slice(0, this.pageSize);
+    this.newListInit(this.pageSize, this.pageNo);
   }
 
   /**
    * 分页计算
    * @param event 当前页数
    */
-  pageChanged(event: PageChangedEvent): void {
+  pageChanged(event: any) {
     this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.data = this.data.slice(startItem, endItem);
+    this.newListInit(this.pageSize, this.pageNo);
   }
 
   /**
    *  首页公告列表
    */
-  newListInit() {
-    // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    // 存入当前页和每页显示的数据的数量
-    const pageData = {
-      // 当前页数
-      'pageNo': this.pageNo,
-      // 每页显示的数据的数量
-      'pageSize': this.pageSize
-    };
+  newListInit(pageSize, pageNo) {
     // 请求页面数据
-    this.customer.newInfo(pageData)
+    this.customer.newInfo(pageSize, pageNo)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          console.log(response);
           this.data = response;
+          this.newsTotal = response['total'];
+          console.log(this.newsTotal);
+          console.log(this.data);
         } else {
           alert(response.message);
           return false;

@@ -32,11 +32,14 @@ export class FinancialService {
 
   /**
    * 显示用户积分信息
-   * @param data 分页数据Json
+   * @param pageSize 分页页数
+   * @param pageNo 分页数据数量
    */
-  pointList(data) {
-    const url = environment.apiUrl + '/system/bonus/list/page';
-    return this.httpService.getParamData(url, data);
+  pointList(pageSize, pageNo) {
+    const size = 'pageSize=' + pageSize;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/system/bonus/list/page?' + size + '&' + pageno;
+    return this.httpService.getData(url);
   }
 
   /**

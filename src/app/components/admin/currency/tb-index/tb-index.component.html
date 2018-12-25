@@ -103,7 +103,9 @@
             </div>
             <div class="row div-news-width">
               <div class="col-xs-12 col-12 div-center padding-top-15px">
-                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal" (pageChanged)="pageChanged($event)"></pagination>
+                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.tbIndexTotal / 2 "
+                            [maxSize]="10" (pageChanged)="pageChanged($event)"
+                            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
               </div>
               <div class="clear"></div>
             </div>

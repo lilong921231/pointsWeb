@@ -12,45 +12,34 @@ export class UserComponent implements OnInit {
 
   userdata: any;
   userTotal: any;
-  pageNo: any;
-  private pageSize = 20;
+  pageNo = 1;
+  pageSize = 20;
   constructor(
     private management: ManagementService
   ) { }
 
   ngOnInit() {
-    this.userInfo();
-    this.userTotal = this.userTotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.userdata = this.userdata.slice(0, this.pageSize);
+    this.userInfo(this.pageSize, this.pageNo);
   }
-
   /**
    * 分页计算
    * @param event 当前页数
    */
   pageChanged(event: PageChangedEvent): void {
     this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.userdata = this.userdata.slice(startItem, endItem);
+    console.log(this.pageNo + this.pageSize);
+    this.userInfo(this.pageSize, this.pageNo);
   }
 
-  userInfo() {
-    // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    // 存入当前页和每页显示的数据的数量
-    const pageData = {
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
+  userInfo(pageSize, pageNo) {
     // 访问显示会员信息服务
-    this.management.userInfo(pageData)
+    this.management.userInfo(this.pageSize, this.pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.userdata = response;
-        console.log(response);
+        this.userTotal = response['total'];
+        console.log(this.userTotal);
+        console.log(this.userdata);
       } else {
         alert(response.message);
         return false;

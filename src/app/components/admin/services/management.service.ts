@@ -24,10 +24,14 @@ export class ManagementService {
 
   /**
    * 显示已审核的会员
+   * @param pageSize 显示的页数
+   * @pagem pageNo 页面显示数量
    */
-  userInfo(pageData) {
-    const url = environment.apiUrl + '/user/list/page/audited';
-    return this.httpService.getParamData(url, pageData);
+  userInfo(pageSize, pageNo) {
+    const size = 'pageSize=' + pageSize;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/user/list/page/audited?' + size + '&' + pageno;
+    return this.httpService.getData(url);
   }
 
   /**

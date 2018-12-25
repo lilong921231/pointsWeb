@@ -12,9 +12,8 @@ export class PointlistComponent implements OnInit {
 
   data: any;
   pointtotal: any;
-  pointSelect = true;
-  private pageSize = 20;
-  private pageNo: any;
+  pageSize = 20;
+  pageNo = 1;
 
   constructor(
     private financial: FinancialService,
@@ -23,40 +22,27 @@ export class PointlistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pointList();
-    this.pointtotal = this.pointtotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.data = this.data.slice(0, this.pageSize);
+    this.pointList(this.pageSize, this.pageNo);
   }
 
   /**
    * point分页计算
    * @param event 当前页数
    */
-  pageChanged(event: PageChangedEvent): void {
+  pageChanged(event: any) {
     this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.data = this.data.slice(startItem, endItem);
-
+    this.pointList(this.pageSize, this.pageNo);
   }
 
   /**
    * 分页取得数据
    */
-  pointList() {
-    if (this.pageNo === 0 || this.pageNo === '' || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    const data = {
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
-    this.financial.pointList(data)
+  pointList(pageSize, pageNo) {
+    this.financial.pointList(this.pageSize, this.pageNo)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.data = response;
-          this.pointtotal = this.data.total;
-          console.log(response);
+          this.pointtotal = response['total'];
         } else {
           alert(response.message);
           return false;
@@ -78,7 +64,7 @@ export class PointlistComponent implements OnInit {
     this.financial.pointVisibleService(pointId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
-        this.pointList();
+        this.pointList(this.pageSize, this.pageNo);
       } else {
         alert(response.message);
         return false;
@@ -96,7 +82,7 @@ export class PointlistComponent implements OnInit {
       this.financial.pointDelete(pointId)
         .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          this.pointList();
+          this.pointList(this.pageSize, this.pageNo);
         } else {
           alert(response.message);
           return false;
@@ -106,7 +92,5 @@ export class PointlistComponent implements OnInit {
       return false;
     }
   }
-
-
 }
 

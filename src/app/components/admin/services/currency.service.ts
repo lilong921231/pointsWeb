@@ -44,12 +44,15 @@ export class CurrencyService {
 
   /**
    * 显示天宝指数
-   * @param pageData 显示的页数和页面显示数量
-   * @returns {Observable<ArrayBuffer>} 返回数据结果
+   * @param pageNo 显示的页数
+   * @pagem pageSize 页面显示数量
    */
-  tbIndexService(pageData) {
-    const url = environment.apiUrl + '/stock/list/page';
-    return this.httpService.getParamData(url, pageData);
+  tbIndexService(pageSize, pageNo) {
+    const size = 'pageSize=' + pageSize;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/stock/list/page?' + size + '&' + pageno;
+    console.log(url);
+    return this.httpService.getData(url);
   }
 
   /**

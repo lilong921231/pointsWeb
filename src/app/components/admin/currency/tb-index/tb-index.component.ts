@@ -14,13 +14,11 @@ export class TbIndexComponent implements OnInit {
   data: any;
   // 天宝指数的数据总量
   tbIndexTotal: any;
-  // 天宝指数id
-  tbExponentId: any;
   // 当前页数
-  pageNo: any;
+  pageNo = 1;
   // 每页显示的数据数量
   // 公司报告页面显示数据数量固定为20
-  private pageSize = 20;
+  pageSize = 20;
 
   constructor(
     private router: Router,
@@ -28,42 +26,29 @@ export class TbIndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tbInfo();
-    this.tbIndexTotal = this.tbIndexTotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.data = this.data.slice(0, this.pageSize);
+    this.tbInfo(this.pageSize, this.pageNo);
   }
 
   /**
    * 分页计算
    * @param event 当前页数
    */
-  pageChanged(event: PageChangedEvent): void {
-    this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.data = this.data.slice(startItem, endItem);
+  pageChanged(event: any) {
+   this.pageNo = event.page;
+   this.tbInfo(this.pageSize, this.pageNo);
   }
 
   /**
    * 显示天宝指数页面
    */
-  tbInfo() {
-    // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    // 存入当前页和每页显示的数据的数量
-    const pageData = {
-      // 当前页数
-      'pageNo': this.pageNo,
-      // 每页显示的数据的数量
-      'pageSize': this.pageSize
-    };
+  tbInfo(pageSize, pageNo) {
     // 请求页面数据
-    this.currency.tbIndexService(pageData)
+    this.currency.tbIndexService(this.pageSize, this.pageNo)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.data = response;
+          this.tbIndexTotal = response['total'];
+          console.log(response);
         } else {
           alert(response.message);
           return false;
@@ -106,7 +91,7 @@ export class TbIndexComponent implements OnInit {
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
             alert('删除成功');
-            this.tbInfo();
+            this.tbInfo(this.pageSize, this.pageNo);
           } else {
             alert(response.message);
             return false;
