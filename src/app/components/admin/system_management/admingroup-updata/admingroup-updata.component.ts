@@ -25,7 +25,7 @@ export class AdmingroupUpdataComponent implements OnInit {
    * 显示id信息
    */
   admingroupId() {
-    const admingroupId = +this.route.snapshot.paramMap.get('id');
+    const admingroupId = this.route.snapshot.paramMap.get('id');
     this.management.admingroupInfoId(admingroupId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {

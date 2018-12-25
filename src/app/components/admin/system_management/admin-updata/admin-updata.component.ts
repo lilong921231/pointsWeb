@@ -26,7 +26,7 @@ export class AdminUpdataComponent implements OnInit {
    * 显示要修改id的信息
    */
   adminUpdataIdInfo() {
-    const adminId = +this.route.snapshot.paramMap.get('id');
+    const adminId = this.route.snapshot.paramMap.get('id');
     this.management.adminUpdataIdInfo(adminId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {

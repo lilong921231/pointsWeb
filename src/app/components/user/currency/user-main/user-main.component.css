@@ -1,0 +1,11 @@
+.main-message-img{
+  height: 272px;
+  background: url("../../../../../assets/images/user-message-background.jpg") no-repeat;
+}
+.user-main-div{
+  position: absolute;
+  left: 225px;
+  width: 83%;
+  float: right;
+  padding: 88px 0 0 33px;
+}

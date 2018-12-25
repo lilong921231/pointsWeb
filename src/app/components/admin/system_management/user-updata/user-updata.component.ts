@@ -27,7 +27,7 @@ export class UserUpdataComponent implements OnInit {
    * 显示要修改会员Id的信息
    */
   userShowInfo() {
-    const userId = +this.route.snapshot.paramMap.get('id');
+    const userId = this.route.snapshot.paramMap.get('id');
     this.management.userShowId(userId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {

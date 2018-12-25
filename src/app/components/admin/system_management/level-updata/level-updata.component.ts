@@ -24,7 +24,7 @@ export class LevelUpdataComponent implements OnInit {
    * 显示要修改会员Id的信息
    */
   levelIdInfo() {
-    const levelId = +this.route.snapshot.paramMap.get('id');
+    const levelId = this.route.snapshot.paramMap.get('id');
     this.management.levelIdIService(levelId)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {

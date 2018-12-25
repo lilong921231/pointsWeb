@@ -48,7 +48,7 @@ export class PointinfoComponent implements OnInit {
       'pageNo': this.pageNo,
       'pageSize': this.pageSize
     };
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.financial.pointInfo(id, pageData)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
@@ -81,7 +81,7 @@ export class PointinfoComponent implements OnInit {
    * @param keyword 关键字
    */
   pointSearch(keyword) {
-    const sysBonusId = +this.route.snapshot.paramMap.get('id');
+    const sysBonusId = this.route.snapshot.paramMap.get('id');
     const data = {
       'sysBonusId': sysBonusId,
       'keyword': keyword,

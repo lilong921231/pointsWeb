@@ -26,7 +26,8 @@ export class UsershowComponent implements OnInit {
    * 显示查询Id的信息
    */
   userIdInfo() {
-    const userId = +this.route.snapshot.paramMap.get('id');
+    const userId = this.route.snapshot.paramMap.get('id');
+    console.log(userId);
     this.management.userShowId(userId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
