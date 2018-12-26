@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   userdata: any;
   userTotal: any;
   pageNo = 1;
-  pageSize = 20;
+  pageSize = 10;
   constructor(
     private management: ManagementService
   ) { }

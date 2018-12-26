@@ -51,6 +51,8 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
 import { UserMenuComponent } from './components/user/common/user-menu/user-menu.component';
 import { UserHeaderComponent } from './components/user/common/user-header/user-header.component';
 
+import { NgxEchartsModule } from 'ngx-echarts';
+
 /**
  * @author lilong 2018-12-23
  * 添加组件模块
@@ -108,7 +110,8 @@ import { UserHeaderComponent } from './components/user/common/user-header/user-h
     CKEditorModule,
     PaginationModule.forRoot(),
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    NgxEchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

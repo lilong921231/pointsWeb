@@ -73,10 +73,11 @@ export class FinancialService {
    * @param pointId 查询的id
    * @param pointInfoPageData 分页的数据
    */
-  pointInfo(pointId, pointInfoPageData) {
-    const url = environment.apiUrl + '/personal/bonus/list/page/' + pointId;
-    console.log(url);
-    return this.httpService.getParamData(url, pointInfoPageData);
+  pointInfo(pointId, size, pageNo) {
+    const pageSize = 'pageSize=' + size;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/personal/bonus/list/page/' + pointId + '?' + pageSize + '&' + pageno;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -89,11 +90,17 @@ export class FinancialService {
   }
 
   /**
-   * 工人积分查询
-   * @param data 数据集合
+   * 个人积分查询
+   * @param sysBonusId 系统积分id
+   * @param keyword 搜索的关键字
+   * @param pageSize 页面显示数量
+   * @param pageNo 当前页面
    */
-  pointSearchService(sysBonusId, data) {
-    const url = environment.apiUrl + '/personal/bonus/list/page /condition/' + sysBonusId;
-    return this.httpService.getParamData(url, data);
+  pointSearchService(sysBonusId, keyword, pageSize, pageNo) {
+    const keyWord = 'keyword=' + keyword;
+    const size = 'pageSize=' + pageSize;
+    const pageno = 'pageNo=' + pageNo;
+    const url = environment.apiUrl + '/personal/bonus/list/page/' + sysBonusId + '/condition/?' + keyWord + '&' + size + '&' + pageno;
+    return this.httpService.getData(url);
   }
 }

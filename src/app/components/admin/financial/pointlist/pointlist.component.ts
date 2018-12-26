@@ -17,8 +17,6 @@ export class PointlistComponent implements OnInit {
 
   constructor(
     private financial: FinancialService,
-    private router: Router,
-
   ) { }
 
   ngOnInit() {
@@ -42,7 +40,9 @@ export class PointlistComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.data = response;
+          console.log(response);
           this.pointtotal = response['total'];
+          console.log(this.pointtotal);
         } else {
           alert(response.message);
           return false;

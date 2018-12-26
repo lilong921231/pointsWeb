@@ -9,9 +9,8 @@
 }
 .menu-background{
   width: 225px;
-  height: 684px;
+  height: 600px;;
   background: url("../../../../../assets/images/user-menu.jpg") no-repeat;
-  background-size: 225px 684px;
   float: left;
 }
 .menu-common{

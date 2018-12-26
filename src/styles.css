@@ -88,6 +88,18 @@ input {
   height: 100%;
   background: url("/assets/images/user-background.jpg");
 }
-
-
+.user-div{
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.user-center{
+  width: 80%;
+  border: solid 1px #badee3;
+  background-color: #FFFFFF;
+}
+.user-padding-border{
+  padding: 3px;
+}
 

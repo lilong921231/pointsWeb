@@ -17,7 +17,7 @@
         <div class="myinfo-div-table news-div">
           <div class="admin-div">
             <div class="div-header pointlist-num-width">
-              记录编号{{number}}
+              记录编号
             </div>
             <div class="div-header pointlist-date-width">
               结算日期
@@ -68,7 +68,7 @@
           </div>
           <div class="row ">
             <div class="col-xs-12 col-12 div-center padding-top-15px">
-              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal / 2 "
+              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal / 2"
                           [maxSize]="10" (pageChanged)="pageChanged($event)"
                           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
             </div>

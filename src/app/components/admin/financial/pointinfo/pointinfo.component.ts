@@ -12,20 +12,16 @@ export class PointinfoComponent implements OnInit {
 
   data: any;
   pointInfoTotal: any;
-  pointID: number;
   private pageSize = 10;
-  private pageNo: any;
+  private pageNo = 1;
 
   constructor(
     private financial: FinancialService,
-    private routerInfo: ActivatedRoute,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.pointIdInfo();
-    this.pointInfoTotal = this.pointInfoTotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.data = this.data.slice(0, this.pageSize);
+    this.pointIdInfo(this.pageSize, this.pageNo);
   }
   /**
    * point分页计算
@@ -33,27 +29,18 @@ export class PointinfoComponent implements OnInit {
    */
   pageChanged(event: PageChangedEvent): void {
     this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.data = this.data.slice(startItem, endItem);
+    this.pointIdInfo(this.pageSize, this.pageNo);
   }
   /**
    * 显示根据id查询到的数据
    */
-  pointIdInfo() {
-    if (this.pageNo === 0 || this.pageNo === '' || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    const pageData = {
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
+  pointIdInfo(pageSize, pageNo) {
     const id = this.route.snapshot.paramMap.get('id');
-    this.financial.pointInfo(id, pageData)
+    this.financial.pointInfo(id, pageSize, pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.data = response;
-        console.log(response);
+        this.pointInfoTotal = response['total'];
       } else {
         alert(response.message);
       }
@@ -68,7 +55,7 @@ export class PointinfoComponent implements OnInit {
     this.financial.pointIdVisibleService(pointId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
-        this.pointIdInfo();
+        this.pointIdInfo(this.pageSize, this.pageNo);
       } else {
         alert(response.message);
         return false;
@@ -79,21 +66,17 @@ export class PointinfoComponent implements OnInit {
   /**
    * 模糊搜索
    * @param keyword 关键字
+   * @param pageSize 页面显示数量大小
+   * @param pageNo 当前页面
    */
-  pointSearch(keyword) {
+  pointSearch(keyword, pageSize, pageNo) {
     const sysBonusId = this.route.snapshot.paramMap.get('id');
-    const data = {
-      'sysBonusId': sysBonusId,
-      'keyword': keyword,
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
-    this.financial.pointSearchService(sysBonusId, data)
+    this.financial.pointSearchService(sysBonusId, keyword, pageSize, pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.data = response;
       } else {
-        alert(response.message);
+        alert(response.detailMsg);
         return false;
       }
       });

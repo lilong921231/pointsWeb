@@ -1,11 +1,50 @@
 .main-message-img{
+  width: 815px;
   height: 272px;
   background: url("../../../../../assets/images/user-message-background.jpg") no-repeat;
 }
 .user-main-div{
   position: absolute;
   left: 225px;
-  width: 83%;
+  width: 76%;
   float: right;
   padding: 88px 0 0 33px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.message-centon{
+  width: 72%;
+}
+.message-header{
+  padding: 16px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333333;
+}
+.message-header>img{
+  padding-right: 11px;
+}
+.message-content{
+  padding: 15px;
+  padding-left: 41px;
+}
+.message-content>img{
+  float: left;
+  width: 288px;
+  height: 158px;
+  padding: 3px;
+  border: solid 3px #cccccc;
+  background-color: #FFFFFF;
+}
+.div-content{
+  padding-top: 13px;
+  padding-left: 326px;
+}
+.message-page{
+  padding-top: 15px;
+  text-align: center;
+  margin: 10px 0;
+  color: #333;
+  font-size: 12px;
 }
