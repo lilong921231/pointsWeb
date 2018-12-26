@@ -1,4 +1,51 @@
 <div class="user-background">
-  <app-user-menu></app-user-menu>
-  <app-user-header></app-user-header>
+  <div>
+    <app-user-menu></app-user-menu>
+  </div>
+  <div>
+    <app-user-header></app-user-header>
+  </div>
+  <div class="user-div">
+    <div class="user-center">
+      <div class="user-padding-border">
+        <div class="user-top">
+          <img src="../../../../../assets/images/menu-money.png">
+          消费记录明细
+        </div>
+        <div class="user-bottom">
+          <div class="button-center">
+            <p>当前总积分：</p>
+          </div>
+          <div class="user-header-width">
+            <div class="user-header-message user-header-38">结算日期</div>
+            <div class="user-header-message user-header-15">权重比例</div>
+            <div class="user-header-message user-header-19">结算前总积分</div>
+            <div class="user-header-message user-header-19">结算后总积分</div>
+          </div>
+          <div class="user-header-width">
+            <div class="ngFor-user-header-message user-header-38">
+              测试
+            </div>
+            <div class="ngFor-user-header-message user-header-15">
+              测试
+            </div>
+            <div class="ngFor-user-header-message user-header-19">
+              测试
+            </div>
+            <div class="ngFor-user-header-message user-header-19">
+              测试
+            </div>
+          </div>
+          <div class="row " id="ceshi">
+            <div class="col-xs-12 col-12 div-center padding-top-15px">
+              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal / 2"
+                          [maxSize]="10" (pageChanged)="pageChanged($event)"
+                          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

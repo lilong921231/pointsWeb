@@ -102,4 +102,91 @@ input {
 .user-padding-border{
   padding: 3px;
 }
-
+.user-top{
+  background-image: url("assets/images/user_top.jpg");
+  padding: 11px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333333;
+}
+.user-top>img{
+  padding-right: 11px;
+}
+.user-bottom{
+  padding: 15px;
+  background-image: url("assets/images/user_bottom.jpg");
+}
+.user-left{
+  font-weight: bold;
+  color: #016682;
+  background: url("assets/images/user_left.jpg") repeat-x;
+  border-bottom: solid 1px #b8cccd;
+  width: 20%;
+  height: 31px;
+  text-align: -webkit-center;
+  float: left;
+  font-size: 12px;
+}
+.user-right{
+  float: left;
+  height: 31px;
+  width: 80%;
+  text-align: -webkit-left;
+  color: #666666;
+  background: url("assets/images/user_right.jpg") repeat-x;
+  border-bottom: solid 1px #b8cccd;
+  font-size: 12px;
+}
+.user-left>p{
+  color: #016682;
+  margin-bottom: 0;
+}
+.user-right>p{
+  padding-left: 20px;
+}
+.user-right>.user-input{
+  padding-left: 20px
+}
+.user-input>span{
+  color: #0084ff;
+}
+.button-center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.button-center>img{
+  padding-top: 15px;
+}
+.user-header-width{
+  width: 100%;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+}
+.user-header-message{
+  padding: 10px;
+  background-image: url("assets/images/user-div-header.jpg");
+  font-weight: bold;
+  color: #016682;
+  border-bottom: solid 1px #b8cccd;
+  border-right: solid 1px #b8cccd;
+  display: flex;
+  justify-content: center;
+  float: left;
+}
+.font-size{
+  font-size: 12px;
+}
+.ngFor-user-header-message{
+  display: flex;
+  justify-content: center;
+  float: left;
+  padding: 6px 10px;
+  color: #0084ff;
+  background: url("assets/images/ngfor.jpg");
+  border-bottom: solid 1px #b8cccd;
+  border-right: solid 1px #b8cccd;
+  font-size: 14px;
+  font-weight: bold;
+}
