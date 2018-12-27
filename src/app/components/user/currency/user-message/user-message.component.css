@@ -1,0 +1,37 @@
+.user-message{
+  padding: 10px;
+}
+.user-message-title{
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: url("../../../../../assets/images/message_title.jpg") repeat-x;
+  border-bottom: solid 1px #b8cccd;
+  border-right: solid 1px #b8cccd;
+}
+.user-message-center{
+  padding: 6px;
+  text-align: -webkit-center;
+}
+.message-bottom{
+  padding: 0;
+}
+.user-left>p>span{
+  color: #0084ff;
+}
+.user-message-height{
+  padding: 0;
+  min-height: 86px;
+  height: auto;
+  background-size: auto 60px;
+}
+.user-textarea-div{
+  min-height: 81px;
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 81px;
+}
+.history-message{
+  padding-top: 10px;
+}

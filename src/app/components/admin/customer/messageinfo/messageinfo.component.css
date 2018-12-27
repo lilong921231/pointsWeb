@@ -2,6 +2,7 @@
 .textarea-div{
   float: right;
   width: 85%;
+  height: auto;
 }
 .textarea-div>textarea{
   min-width: 100%;
