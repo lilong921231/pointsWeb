@@ -39,6 +39,7 @@ import { UserTbKlineComponent } from './components/user/currency/user-tb-kline/u
 import { UserPointComponent } from './components/user/currency/user-point/user-point.component';
 import { UserMessageComponent } from './components/user/currency/user-message/user-message.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
+import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
 
 /**
  * 设定路由界面
@@ -66,6 +67,8 @@ const routes: Routes = [
   { path: 'point', component: UserPointComponent },
   // 用户界面留言
   { path: 'message', component: UserMessageComponent },
+  // 查看留言详情页面
+  { path: 'messageInfo', component: UserMessageInfoComponent },
   // 管理员界面
   {
     path: 'admin',

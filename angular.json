@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/node_modules/echarts/dist/echarts.js"
+              "node_modules/echarts/dist/echarts.js"
             ]
           },
           "configurations": {

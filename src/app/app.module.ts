@@ -52,6 +52,7 @@ import { UserMenuComponent } from './components/user/common/user-menu/user-menu.
 import { UserHeaderComponent } from './components/user/common/user-header/user-header.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
+import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
 
 /**
  * @author lilong 2018-12-23
@@ -103,6 +104,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     UserLoginComponent,
     UserMenuComponent,
     UserHeaderComponent,
+    UserMessageInfoComponent,
   ],
   imports: [
     BrowserModule,
