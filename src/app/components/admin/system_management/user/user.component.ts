@@ -10,6 +10,10 @@ import * as $ from 'jquery';
 })
 export class UserComponent implements OnInit {
 
+  master:boolean = false; //默认全选按钮没有被选中
+  batchShow:boolean = true; //批量操作按钮是否可以编辑
+
+
   userdata: any;
   userTotal: any;
   pageNo = 1;
@@ -38,8 +42,6 @@ export class UserComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.userdata = response;
         this.userTotal = response['total'];
-        console.log(this.userTotal);
-        console.log(this.userdata);
       } else {
         alert(response.message);
         return false;
@@ -102,6 +104,28 @@ export class UserComponent implements OnInit {
         return false;
       }
       });
+  }
+// 全选
+  checkAll () {
+    alert(1);
+    const all = document.getElementById('allCheck');
+    alert(all);
+    const singles = document.getElementsByClassName('checkbox');
+    alert(singles);
+    for (let i = 0; i < singles.length; i++) {
+      alert(4);
+      if (all['checked']) {
+        const single = singles[i];
+        single['checked'] = true;
+      }
+    }
+    for (let i = 0; i < singles.length; i++) {
+      alert(5);
+      if (!all['checked']) {
+        const single = singles[i];
+        single['checked'] = false;
+      }
+    }
   }
 
 }

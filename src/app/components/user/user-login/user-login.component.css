@@ -1,0 +1,61 @@
+.user-background-dl{
+  height: 100%;
+  background: url("../../../../assets/images/user-dl_bg.jpg");
+}
+.user-login-background{
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background: url("../../../../assets/images/dl.gif")top center no-repeat;
+}
+.user-login-width{
+  padding-right: 11px;
+  padding-top: 55px;
+  width: 411px;
+}
+.user-div-dr{
+  width: 135px;
+  height: 60px;
+  text-align: -webkit-right;
+  color: #333333;
+  padding: 5px 0;
+  font-size: 14px;
+
+}
+.user-login-width>.div-tr{
+  height: 49px;
+  display: flex;
+  justify-content: inherit;
+}
+.td-1>input{
+  width: 228px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #FFFFFF;
+  background: url("../../../../assets/images/text1.jpg") no-repeat;
+  border: none;
+}
+.input-code>#code{
+  width: 92%;
+  font-size: 12px;
+  height: 22px;
+}
+.div-tr>.input-code{
+  padding: 5px;
+}
+.div-tr>.code{
+  padding: 7px;
+}
+.div-tr>.user-div-dr{
+  padding: 8px 0;
+}
+.code>#checkCode{
+  height:21px;
+  padding: 0 ;
+}
+.user-login-width>.button-center>img{
+  padding-top: 0;
+}

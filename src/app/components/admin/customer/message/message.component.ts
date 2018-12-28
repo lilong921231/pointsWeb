@@ -8,13 +8,37 @@ import { CustomerService } from '../../services/customer.service';
 })
 export class MessageComponent implements OnInit {
 
+  messageData: any;
   constructor(
-    private customer: CustomerService
+    private customer: CustomerService,
   ) { }
 
   ngOnInit() {
+    this.messageInfo();
   }
-  messageInfo() {
 
+  /**
+   * 表示查询未处理的留言信息
+   */
+  messageInfo() {
+    // 未处理的留言信息类型为 1
+    const typeId = 1;
+    this.customer.messageListService(typeId)
+      .subscribe((response: any) => {
+      if (response.code === 200 || response.ok) {
+        this.messageData = response;
+        console.log(response);
+      } else {
+        alert(response.message);
+        return false;
+      }
+      });
+  }
+
+  /**
+   * 根据留言的ID查看详情
+   */
+  messageIdInfo(messageId) {
+    this.customer.messageIdSkip(messageId);
   }
 }

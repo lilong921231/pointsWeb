@@ -15,7 +15,25 @@ export class CustomerService {
     private httpServer: HttpService
   ) { }
 
+  /**
+   * 获取留言信息
+   * @param typeId 查询类型 0 表示未处理和已处理均查询，1 表示查询未处理，2 表示查询已处理
+   */
+  messageListService(typeId) {
+    const type = 'type=' + typeId;
+    const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
+    return this.httpServer.getData(url);
+  }
 
+  /**
+   * 根据留言ID跳转
+   */
+  messageIdSkip(messageId) {
+    this.router.navigateByUrl('/admin/messageinfo/' + messageId);
+  }
+  /**
+   * 根据留言ID查看详情
+   */
   /**
    * 获取公告信息列表
    */
@@ -50,13 +68,13 @@ export class CustomerService {
     const url = environment.apiUrl + 'announcement/sage';
     return this.httpServer.postData(url, data);
   }
-  // 未使用
+
   /**
    * 查询留言id实情
    * @param messageId 留言id
    */
-  mesageId(messageId) {
-    const url = environment.apiUrl + '/user/message /get/' + messageId;
+  messageInfoService(messageId) {
+    const url = environment.apiUrl + '/user/message/get/' + messageId;
     return this.httpServer.getData(url);
   }
   // 未使用
@@ -67,7 +85,7 @@ export class CustomerService {
    */
   messageUpdata(messageId, data) {
     const url = environment.apiUrl + '/user/message/update/' + messageId;
-    return this.httpServer.getParamData(url, data);
+    return this.httpServer.getData(url);
   }
 
   /**

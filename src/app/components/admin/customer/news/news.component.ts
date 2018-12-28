@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../services/customer.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -23,7 +22,7 @@ export class NewsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private customer: CustomerService
+    private customer: CustomerService,
   ) {
   }
 

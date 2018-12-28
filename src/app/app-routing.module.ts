@@ -72,10 +72,11 @@ const routes: Routes = [
   // 管理员界面
   {
     path: 'admin',
+  //  component: LoginComponent,
     // 管理员界面的子界面
     children: [
       // 管理员登陆界面
-       { path: '', component: LoginComponent },
+      { path: '', component: LoginComponent },
       // 首页
       { path: 'main', component: MainComponent },
       // 个人档案
@@ -103,7 +104,7 @@ const routes: Routes = [
       // 会员留言历史 已处理状态
       { path: 'message-history', component: MessageHistoryComponent },
       // 管理回复页面
-      { path: 'messageinfo', component: MessageinfoComponent },
+      { path: 'messageinfo/:id', component: MessageinfoComponent },
       // 首页公告
       { path: 'news', component: NewsComponent },
       // 添加公告

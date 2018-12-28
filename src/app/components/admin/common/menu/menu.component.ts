@@ -13,32 +13,19 @@ export class MenuComponent implements OnInit {
   showML3: Boolean;
   showML4: Boolean;
   showML5: Boolean;
+  id = 1;
 
   constructor(
     private router: Router,
   ) { }
 
   ngOnInit() {
-    const url = location.href;
-    const http = 'http://localhost:4200/';
-    if (url === (http + 'main') || (http + 'repass') || (http + 'repass-spw') || (http + 'tb-index') || (http + 'tb-index-kline')){
-      this.showML1 = false;
-      this.showML2 = true;
-      this.showML3 = true;
-      this.showML4 = true;
-      this.showML5 = true;
-      return;
-    }
-    if ( url === (http + 'user') || (http + 'level') || (http + 'admin') || (http + 'admingroup')) {
-      this.showML1 = true;
-      this.showML2 = true;
-      this.showML3 = true;
-      this.showML4 = false;
-      this.showML5 = true;
-      return;
-    }
-
-  }
+    /*this.showML1 = false;
+    this.showML2 = true;
+    this.showML3 = true;
+    this.showML4 = true;
+    this.showML5 = true;*/
+}
 
   /**
    * menu的显示于隐藏

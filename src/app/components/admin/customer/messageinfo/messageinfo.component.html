@@ -12,50 +12,50 @@
       管理回复
       <img src="../../../../../assets/images/kfzx.jpg">
     </div>
-    <div class="myinfo-div height-div">
+    <div class="myinfo-div">
       <div class="myinfo-div-d1">
         <div class="myinfo-div-table">
           <div class="myinfo-div-inf">
             <p>留言编号</p>
           </div>
           <div class="myinfo-div-data">
-            <p>修改的编号，未填写中</p>
+            <p>{{magData.data.messageId}}</p>
           </div>
           <div class="myinfo-div-inf" >
             <p>留言时间</p>
           </div>
           <div class="myinfo-div-data">
-            <p>2018-07-27 07:57:28</p>
+            <p>{{magData.data.createTime}}</p>
           </div>
           <div class="myinfo-div-inf">
             <p>留言会员</p>
           </div>
           <div class="myinfo-div-data">
-            <p>697184</p>
+            <p>{{magData.data.sender.account}}</p>
           </div>
           <div class="myinfo-div-inf">
             <p>会员姓名</p>
           </div>
           <div class="myinfo-div-data">
-            <p>韩亚娟</p>
+            <p>{{magData.data.sender.nickName}}</p>
           </div>
           <div class="myinfo-div-inf">
             <p>联系方式</p>
           </div>
           <div class="myinfo-div-data">
-            <p>15104335758</p>
+            <p>{{magData.data.sender.phone}}</p>
           </div>
           <div class="myinfo-div-inf">
             <p>留言标题</p>
           </div>
           <div class="myinfo-div-data">
-            <p>看组员内容怎么找</p>
+            <p>{{magData.data.message.title}}</p>
           </div>
           <div class="myinfo-div-inf">
             <p>留言内容</p>
           </div>
           <div class="myinfo-div-data">
-            <p>怎么看不到组员内容</p>
+            <p>{{magData.data.message.content}}</p>
           </div>
           <div>
             <div class="myinfo-div-inf">
@@ -71,7 +71,7 @@
           </div>
           <div class="myinfo-div-data">
             <p>
-              <input type="checkbox" >
+              <input type="checkbox">
               &nbsp;勾选表示问题处理完毕
             </p>
           </div>
@@ -108,21 +108,22 @@
               </div>
               <div class="clear"></div>
             </div>
-            <div>
+            <div *ngFor="let item of magList.data;">
               <div class="div-data meginfo-width-member data-color">
-                [会员编号]
+                {{item.sender.account}}
+                <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
               </div>
               <div class="div-data meginfo-width-title data-color">
-                1234
+                {{item.message.title}}
               </div>
               <div class="div-data meginfo-width data-color">
-                2018-11-29 24:59:59
+                {{item.message.content}}
               </div>
               <div class="div-data meginfo-width-reply data-color">
                 管理员
               </div>
               <div class="div-data meginfo-width-operation">
-                <a routerLink="/messageinfo">查看</a>&nbsp;&nbsp;
+                <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
                 <a href="#" (click)="customer.del_meg()">删除</a>
               </div>
               <div class="clear"></div>
