@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCommonService } from '../user-common.service';
 
 @Component({
   selector: 'app-user-repass',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRepassComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userCommon: UserCommonService
+  ) { }
 
   ngOnInit() {
   }
@@ -23,6 +26,15 @@ export class UserRepassComponent implements OnInit {
       'oldPassword': oldPassword,
       'newpassword': newpassword,
       'sureNewPassWord': sureNewPassWord
-    }
+    };
+    this.userCommon.userRepassService(data)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          alert('修改成功');
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
   }
 }
