@@ -60,7 +60,8 @@
               <a>{{item.status ? '未处理' : '已处理' }}</a>
             </div>
             <div class="div-data message-width-member data-color">
-              <a href="#" class="a-bottom">[会员编号]</a>
+              <input type="text" style="display:none" value="{{item.sender.id}}" #userID>
+              <a routerLink="#" class="a-bottom" (click)="userIdSkip(userID.value)">{{item.sender.id}}</a>
             </div>
             <div class="div-data message-width-title data-color">
               {{item.message.title}}

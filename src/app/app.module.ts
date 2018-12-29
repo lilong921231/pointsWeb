@@ -53,6 +53,7 @@ import { UserHeaderComponent } from './components/user/common/user-header/user-h
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
+import { UserIdComponent } from './components/admin/system_management/user-id/user-id.component';
 
 /**
  * @author lilong 2018-12-23
@@ -105,6 +106,7 @@ import { UserMessageInfoComponent } from './components/user/currency/user-messag
     UserMenuComponent,
     UserHeaderComponent,
     UserMessageInfoComponent,
+    UserIdComponent,
   ],
   imports: [
     BrowserModule,

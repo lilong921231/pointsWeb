@@ -20,11 +20,11 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /*this.showML1 = false;
+    this.showML1 = true;
     this.showML2 = true;
     this.showML3 = true;
     this.showML4 = true;
-    this.showML5 = true;*/
+    this.showML5 = true;
 }
 
   /**

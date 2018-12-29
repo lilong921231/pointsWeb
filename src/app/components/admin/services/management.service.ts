@@ -196,11 +196,23 @@ export class ManagementService {
 
   /**
    * 根据搜索类型和关键字，搜索用户
-   * @param data 搜索类型，关键字等
+   * @param typeId 搜索类型，关键字等
+   * @param keyWord 关键字
    */
-  conditionService(data) {
-    const url = environment.apiUrl + '/user/list/page/condition';
-    return this.httpService.getParamData(url, data);
+  conditionService(typeId, keyWord) {
+    const type = 'type=' + typeId;
+    const keyword = 'keyword=' + keyWord;
+    const url = environment.apiUrl + '/user/list/page/condition?' + type + '&' + keyword;
+    return this.httpService.getData(url);
+  }
+
+  /**
+   * 根据userId跳转到会员档案界面
+   * @param userId 会员ID
+   */
+  userIdSkip(userId) {
+    alert(userId);
+    this.router.navigateByUrl('/admin/user/' + userId);
   }
 
   // 未使用

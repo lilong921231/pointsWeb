@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -19,7 +21,9 @@ export class UserComponent implements OnInit {
   pageNo = 1;
   pageSize = 10;
   constructor(
-    private management: ManagementService
+    private management: ManagementService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -85,47 +89,16 @@ export class UserComponent implements OnInit {
    * @param condition 关键字
    */
   condition(typeId, condition) {
-    // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    const data = {
-      'type': typeId,
-      'condition': condition,
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
-    this.management.conditionService(data)
+    this.management.conditionService(typeId, condition)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.userdata = response;
+        console.log(response);
       } else {
         alert(response.message);
         return false;
       }
       });
-  }
-// 全选
-  checkAll () {
-    alert(1);
-    const all = document.getElementById('allCheck');
-    alert(all);
-    const singles = document.getElementsByClassName('checkbox');
-    alert(singles);
-    for (let i = 0; i < singles.length; i++) {
-      alert(4);
-      if (all['checked']) {
-        const single = singles[i];
-        single['checked'] = true;
-      }
-    }
-    for (let i = 0; i < singles.length; i++) {
-      alert(5);
-      if (!all['checked']) {
-        const single = singles[i];
-        single['checked'] = false;
-      }
-    }
   }
 
 }

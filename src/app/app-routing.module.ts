@@ -40,6 +40,7 @@ import { UserPointComponent } from './components/user/currency/user-point/user-p
 import { UserMessageComponent } from './components/user/currency/user-message/user-message.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
+import { UserIdComponent } from './components/admin/system_management/user-id/user-id.component';
 
 /**
  * 设定路由界面
@@ -113,6 +114,8 @@ const routes: Routes = [
       { path: 'newinfo_updata/:id', component: NewinfoUpdataComponent },
       // 会员档案
       { path: 'user', component: UserComponent },
+      // 查询会员显示
+      { path: 'user/:id', component: UserIdComponent },
       // 查看会员档案
       { path: 'usershow/:id', component: UsershowComponent },
       // 修改会员档案

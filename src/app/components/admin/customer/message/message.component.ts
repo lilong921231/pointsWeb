@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
+import {ManagementService} from "../../services/management.service";
 
 @Component({
   selector: 'app-message',
@@ -11,6 +12,7 @@ export class MessageComponent implements OnInit {
   messageData: any;
   constructor(
     private customer: CustomerService,
+    private management: ManagementService
   ) { }
 
   ngOnInit() {
@@ -40,5 +42,12 @@ export class MessageComponent implements OnInit {
    */
   messageIdInfo(messageId) {
     this.customer.messageIdSkip(messageId);
+  }
+
+  /**
+   * 根据会员编号查询会员详情
+   */
+  userIdSkip(userId) {
+    this.management.userIdSkip(userId);
   }
 }
