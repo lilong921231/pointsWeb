@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-user-repass',
@@ -36,5 +37,13 @@ export class UserRepassComponent implements OnInit {
           return false;
         }
       })
+  }
+
+  /**
+   * 重置事件
+   */
+  reset() {
+    //  密码
+    $('input[type="password"]').prop('value', '');
   }
 }
