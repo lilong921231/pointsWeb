@@ -15,7 +15,7 @@
         <div class="myinfo-div-table">
           <div class="admin-div">
             <div class="div-header news-width-checkbox">
-              <input type="checkbox">
+              <input type="checkbox" [(checked)]="checkSum" (click)="checkAll()">
             </div>
             <div class="div-header news-width-number">
               编号
@@ -38,10 +38,11 @@
            </div>
           <div class="admin-div" *ngFor="let item of data.data;let i = index">
             <div class="div-data news-width-checkbox">
-              <input type="checkbox">
+              <input type="checkbox" [(checked)]="newsStatus[i]" (click)="checked(i);checkAllNo()">
             </div>
             <div class="div-data news-width-number data-color">
               {{item.id}}
+              <input type="text" style="display:none" value="{{item.id}}" #newId>
             </div>
             <div class="div-data news-width-title data-color">
                 {{item.title}}
@@ -56,15 +57,15 @@
                 管理员
               </div>
               <div class="div-data news-width-operation">
-                <a routerLink="/admin/newinfo_updata">修改</a>&nbsp;&nbsp;
-                <a href="#" (click)="customer.del_new()">删除</a>
+                <a routerLink="#" (click)="newUpdata(newId.value)">修改</a>&nbsp;&nbsp;
+                <a href="#" (click)="newIdDelete(newId.value)">删除</a>
               </div>
              <div class="clear"></div>
             </div>
             <div class="admin-div div-center-align">
               <div class="news-div-input">
                 <input type="button" (click)="new_add()" class="button-1 button-width" value="添加记录">
-                <input type="button" (click)="info_add()" class="button-2 button-width" value="删除选定记录">
+                <input type="button" (click)="newsDelete()" class="button-2 button-width" value="删除选定记录">
               </div>
               <div class="row div-news-width">
                 <div class="col-xs-12 col-12 div-center padding-top-15px">

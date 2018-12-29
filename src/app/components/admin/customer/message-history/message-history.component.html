@@ -11,8 +11,8 @@
         会员留言
         <img src="../../../../../assets/images/kfzx.jpg">
         <div class="search-div">
-          <input type="text" class="search-input">
-          <input type="button" class="search-button">
+          <input type="text" class="search-input" value="" #keyword>
+          <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
         </div>
       </div>
     </div>

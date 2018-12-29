@@ -42,6 +42,25 @@ export class MessageHistoryComponent implements OnInit {
   }
 
   /**
+   * 根据keyword来搜索信息
+   * @param keyword 关键字
+   */
+  messageSearch(keyword) {
+    const typeId = 2;
+    this.customer.messsageSearchService(typeId, keyword)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.historyData =response;
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
+  }
+
+
+
+  /**
    * 根据留言的ID查看详情
    */
   messageIdInfo(messageId) {

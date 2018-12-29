@@ -11,8 +11,8 @@
         会员留言
         <img src="../../../../../assets/images/kfzx.jpg">
         <div class="search-div">
-          <input type="text" class="search-input">
-          <input type="button" class="search-button">
+          <input type="text" class="search-input" value="" #keyword>
+          <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
         </div>
       </div>
 
@@ -57,7 +57,7 @@
               <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
             </div>
             <div class="div-data message-width-state data-color">
-              <a>{{item.status ? '未处理' : '已处理' }}</a>
+              {{item.status ? '未处理' : '已处理' }}
             </div>
             <div class="div-data message-width-member data-color">
               <input type="text" style="display:none" value="{{item.sender.id}}" #userID>

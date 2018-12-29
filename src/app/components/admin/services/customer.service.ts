@@ -48,7 +48,7 @@ export class CustomerService {
    * 查询留言历史
    */
   messageHistoryService() {
-    const type = 'type=' + 2;
+    const type = 'type=' + 4;
     const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
     return this.httpServer.getData(url);
   }
@@ -76,19 +76,37 @@ export class CustomerService {
     return this.httpServer.getData(url);
   }
 
-
-
-
-
-  // 未使用
   /**
-   * 根据id跳转到查询公告的界面
+   * 留言信息页面根据keyword来搜索
+   * @param typeId 留言信息类型
+   * @param keyword 关键字
+   */
+  messsageSearchService(typeId,keyword) {
+    const type = 'type=' + typeId;
+    const keyWord = 'keyword=' + keyword;
+    const url = environment.apiUrl + '/user/message/list/page/condition?' + type + '&' + keyWord;
+    return this.httpServer.getData(url);
+  }
+
+
+  /**
+   * 根据id删除公告信息
+   * @param newId 公告信息id
+   */
+  newIdDeleteService(newId) {
+   const url = environment.apiUrl + '/announcement/delete';
+   return this.httpServer.postData(url, newId);
+  }
+
+
+  /**
+   * 根据id跳转到修改公告的界面
    * @param newId 查询公告的Id
    */
-  newUpdataId(newId) {
+  newUpdataService(newId) {
     this.router.navigateByUrl('/admin/newinfo_updata/' + newId);
   }
-  // 未使用
+
   /**
    * 根据id查询一条公告
    * @param newId 查询公告id
@@ -122,46 +140,5 @@ export class CustomerService {
   messagesDeleteService(messages) {
     const url = environment.apiUrl + '/user/message/delete';
     return this.httpServer.postData(url, messages);
-  }
-
-  /**
-  * 删除公告消息
-  */
-  new_del(newId) {
-    const new_select = confirm('确认删除？');
-    if (new_select) {
-      alert('您选择了确认删除信息');
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * 删除选定的公告消息
-   */
-  del_news(newId) {
-    const message = '确认删除以上1条记录？';
-    const new_selects = confirm(message);
-    if (new_selects) {
-      alert('您选择了删除好几条信息');
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * 修改公告
-   */
-  new_updata() {
-    alert('保存成功');
-    // console.log(this.httpServer.getData(url));
-
-  }
-
-  /**
-   * 修改管理员回复
-   */
-  meg_updata() {
-    alert('保存成功');
   }
 }

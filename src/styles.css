@@ -192,3 +192,6 @@ input {
   font-size: 14px;
   font-weight: bold;
 }
+.button-center>img{
+  cursor: pointer;
+}

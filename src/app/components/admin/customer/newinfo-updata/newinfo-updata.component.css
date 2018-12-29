@@ -1,0 +1,6 @@
+.newinfo-minWidth{
+  height: auto;
+}
+.newinfo-minWidth>ckeditor{
+  min-width: 100%;
+}

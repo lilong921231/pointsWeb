@@ -12,4 +12,17 @@ export class UserRepassComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * 修改密码
+   * @param oldPassword 旧密码
+   * @param newpassword 新密码
+   * @param sureNewPassWord 确认密码
+   */
+  repass(oldPassword, newpassword, sureNewPassWord) {
+    const data = {
+      'oldPassword': oldPassword,
+      'newpassword': newpassword,
+      'sureNewPassWord': sureNewPassWord
+    }
+  }
 }

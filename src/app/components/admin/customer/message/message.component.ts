@@ -31,8 +31,8 @@ export class MessageComponent implements OnInit {
    * 表示查询未处理的留言信息
    */
   messageInfo() {
-    // 未处理的留言信息类型为 1
-    const typeId = 1;
+    // 未处理的所有留言信息类型为 3
+    const typeId = 3;
     this.customer.messageListService(typeId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
@@ -44,6 +44,23 @@ export class MessageComponent implements OnInit {
         return false;
       }
       });
+  }
+
+  /**
+   * 根据keyword来搜索信息
+   * @param keyword 关键字
+   */
+  messageSearch(keyword) {
+    const typeId = 1;
+    this.customer.messsageSearchService(typeId, keyword)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.messageData =response;
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
   }
 
   /**

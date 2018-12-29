@@ -17,14 +17,14 @@
               <p>编号</p>
             </div>
             <div class="myinfo-div-data">
-              <p>修改的编号，未填写中</p>
+              <p>{{newUpdataData.data.id}}</p>
             </div>
             <div class="myinfo-div-inf " >
               <p>标题</p>
             </div>
             <div class="myinfo-div-data ">
               <div class="repass-input">
-                <input type="text" id="newupdata_title" value="">
+                <input type="text" id="newupdata_title" value="{{newUpdataData.data.title}}">
               </div>
             </div>
             <div class="myinfo-div-inf ">
@@ -36,16 +36,15 @@
             <div class="myinfo-div-inf ">
               <p>详细内容</p>
             </div>
-            <div class="myinfo-div-data ">
-              <ckeditor [value]="">
-
+            <div class="myinfo-div-data newinfo-minWidth">
+              <ckeditor value="{{newUpdataData.data.content}}">
               </ckeditor>
             </div>
             <div class="myinfo-div-inf ">
               <p>日期</p>
             </div>
             <div class="myinfo-div-data ">
-              <p>2018-11-29 22:06:35</p>
+              <p>{{newUpdataData.data.updateTime}}</p>
             </div>
           <div class="repass-button">
             <input type="button" (click)="customer.new_updata()" class="button-1 button-width" value="保存编辑">
