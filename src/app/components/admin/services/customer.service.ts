@@ -116,6 +116,15 @@ export class CustomerService {
   }
 
   /**
+   * 删除选中的多条留言信息
+   * @param messages 留言信息id的数组
+   */
+  messagesDeleteService(messages) {
+    const url = environment.apiUrl + '/user/message/delete';
+    return this.httpServer.postData(url, messages);
+  }
+
+  /**
   * 删除公告消息
   */
   new_del(newId) {
@@ -141,33 +150,6 @@ export class CustomerService {
   }
 
   /**
-   * 删除留言消息
-   */
-  del_meg() {
-    const new_select = confirm('确认删除？');
-    if (new_select) {
-      alert('您选择了确认删除信息');
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * 删除选定的留言消息
-   */
-  del_megs() {
-    const message = '确认删除以上1条记录？';
-    const new_selects = confirm(message);
-    if (new_selects) {
-      alert('您选择了删除好几条信息');
-    } else {
-      return false;
-    }
-  }
-
-
-
-  /**
    * 修改公告
    */
   new_updata() {
@@ -182,13 +164,4 @@ export class CustomerService {
   meg_updata() {
     alert('保存成功');
   }
-
-  /**
-   * 清空单个input框按钮
-   */
-  button_empty(div_id) {
-    //  清空标题
-    $(div_id).prop('value', '');
-  }
-
 }

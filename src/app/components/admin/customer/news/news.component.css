@@ -43,8 +43,8 @@
 }
 
 .div-data>a{
-  color: red;
-  text-decoration:none;
+  color: red !important;
+  text-decoration:none !important;
 }
 .news-div-pagaData{
   padding-top: 13px;

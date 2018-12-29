@@ -55,7 +55,7 @@
           </div>
           <div class="admin-div" *ngFor="let item of userdata.data;let i = index">
             <div class="div-data Settlement-date user-checkbox">
-              <input type="checkbox" [(checked)]="userStatus[i]" (click)="checked(i);ceshifanxuan()">
+              <input type="checkbox" [(checked)]="userStatus[i]" (click)="checked(i);checkAllNo()">
             </div>
             <div class="div-data user-number div-color">
               {{item.account}}
