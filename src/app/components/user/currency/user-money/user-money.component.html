@@ -21,9 +21,23 @@
             <div class="user-header-message user-header-23">消费日期</div>
           </div>
           <div>
+            <div class="user-header-width">
+              <div class="ngFor-user-header-message user-header-10">序号</div>
+              <div class="ngFor-user-header-message user-header-10">地区</div>
+              <div class="ngFor-user-header-message user-header-23">基地名称</div>
+              <div class="ngFor-user-header-message user-header-23">消费金额</div>
+              <div class="ngFor-user-header-message user-header-23">消费日期</div>
+            </div>
           </div>
           <div class="button-center font-size padding-top-15px">
-            共0页0条记录
+            <div class="row div-news-width">
+              <div class="col-xs-12 col-12 div-center padding-top-15px">
+                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.moneyTotal / 2 "
+                            [maxSize]="10" (pageChanged)="pageChanged($event)"
+                            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+              </div>
+              <div class="clear"></div>
+            </div>
           </div>
           <div class="clear"></div>
         </div>

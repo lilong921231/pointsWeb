@@ -22,23 +22,23 @@
             <div class="user-header-message user-header-19">结算前总积分</div>
             <div class="user-header-message user-header-19">结算后总积分</div>
           </div>
-          <div class="user-header-width">
+          <div class="user-header-width" *ngFor="let item of pointData.data;let i = index">
             <div class="ngFor-user-header-message user-header-38">
-              测试
+              {{item.updateTime}}
             </div>
             <div class="ngFor-user-header-message user-header-15">
-              测试
+              {{item.ratio * 100}}%
             </div>
             <div class="ngFor-user-header-message user-header-19">
-              测试
+              {{item.startPoints}}
             </div>
             <div class="ngFor-user-header-message user-header-19">
-              测试
+              {{item.endPoints}}
             </div>
           </div>
           <div class="row " id="ceshi">
             <div class="col-xs-12 col-12 div-center padding-top-15px">
-              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointtotal / 2"
+              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointTotal / 2"
                           [maxSize]="10" (pageChanged)="pageChanged($event)"
                           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
             </div>
