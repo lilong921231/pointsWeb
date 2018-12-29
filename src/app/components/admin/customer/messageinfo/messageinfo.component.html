@@ -20,6 +20,7 @@
           </div>
           <div class="myinfo-div-data">
             <p>{{magData.data.messageId}}</p>
+            <input type="text" style="display:none" value="{{magData.data.messageId}}" #messageID>
           </div>
           <div class="myinfo-div-inf" >
             <p>留言时间</p>
@@ -62,7 +63,7 @@
               <p>管理回复</p>
             </div>
             <div class="myinfo-div-data textarea-div">
-              <textarea class="textarea-div" id="meginfo-textarea" value=""></textarea>
+              <textarea class="textarea-div" id="meginfo-textarea" value="" #reply></textarea>
             </div>
             <div class="clear"></div>
           </div>
@@ -71,14 +72,14 @@
           </div>
           <div class="myinfo-div-data">
             <p>
-              <input type="checkbox">
+              <input type="checkbox" [(checked)]="messageStatus" (click)="status()">
               &nbsp;勾选表示问题处理完毕
             </p>
           </div>
           <div class="repass-button">
-            <input type="button" (click)="customer.meg_updata()" class="button-1 button-width" value="保存编辑">
+            <input type="button" (click)="messageUpdata(messageID.value, reply.value)" class="button-1 button-width" value="保存编辑">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="customer.button_empty('#meginfo-textarea')" class="button-2 button-width" value="清空重填">
+            <input type="button" (click)="reset(ceshi.value)" class="button-2 button-width" value="清空重填">
           </div>
           <div class="clear"></div>
         </div>
@@ -124,7 +125,7 @@
               </div>
               <div class="div-data meginfo-width-operation">
                 <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
-                <a href="#" (click)="customer.del_meg()">删除</a>
+                <a href="#" (click)="userIdDelete(messageID.value)">删除</a>
               </div>
               <div class="clear"></div>
             </div>

@@ -43,6 +43,43 @@ export class CustomerService {
     const url = environment.apiUrl + '/announcement/list/page?' + size + '&' + pageno;
     return this.httpServer.getData(url);
   }
+
+  /**
+   * 查询留言历史
+   */
+  messageHistoryService() {
+    const type = 'type=' + 2;
+    const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
+    return this.httpServer.getData(url);
+  }
+
+  /**
+   * 删除留言信息（单条）
+   * @param data 留言信息id
+   */
+  userIdDeleteService(data){
+    const url = environment.apiUrl + '/user/message/delete';
+    return this.httpServer.postData(url, data);
+  }
+
+  /**
+   * 恢复用户留言信息
+   * @param userid 留言用户id
+   * @param reply 回复信息
+   * @param status 状态
+   */
+  messageUpdataService(userid, reply, status) {
+    const id = 'id=' + userid;
+    const rep = 'reply=' + reply;
+    const statu = 'status=' + status;
+    const url = environment.apiUrl + '/user/message/reply?' + id + '&' + rep + '&' + statu;
+    return this.httpServer.getData(url);
+  }
+
+
+
+
+
   // 未使用
   /**
    * 根据id跳转到查询公告的界面
@@ -75,16 +112,6 @@ export class CustomerService {
    */
   messageInfoService(messageId) {
     const url = environment.apiUrl + '/user/message/get/' + messageId;
-    return this.httpServer.getData(url);
-  }
-  // 未使用
-  /**
-   * 回复id留言
-   * @param messageId 留言id
-   * @param data 管理员回复id留言数据
-   */
-  messageUpdata(messageId, data) {
-    const url = environment.apiUrl + '/user/message/update/' + messageId;
     return this.httpServer.getData(url);
   }
 

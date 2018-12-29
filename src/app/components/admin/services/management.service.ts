@@ -215,33 +215,15 @@ export class ManagementService {
     this.router.navigateByUrl('/admin/user/' + userId);
   }
 
-  // 未使用
-  /**
-   * 删除选中的会员留言
-   * @param ids 选中的会员
-   */
-  userMessageDeleteIds(ids) {
-    const userMessageIdsDelete = confirm('确认删除？');
-    if (userMessageIdsDelete) {
-      const url = environment.apiUrl + '/user/message/delete';
-      return this.httpService.postData(url, ids);
-    } else {
-    return false;
-    }
-  }
-  // 未使用
+
   /**
    * 根据会员id，屏蔽其登陆
    * @param ids 会员id
    */
-  userIdsDelete(ids) {
-    const userIdsDelete = confirm('确认删除？');
-    if (userIdsDelete) {
-      const url = environment.apiUrl + '';
-      return this.httpService.getParamData(url, ids);
-    } else {
-      return false;
-    }
+  userIdsDeleteService(ids) {
+    const url = environment.apiUrl + '/user/forbid/login';
+    return this.httpService.postData(url, ids);
+
   }
 
   /**

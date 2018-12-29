@@ -29,7 +29,7 @@
         <div class="myinfo-div-table">
           <div class="admin-div">
             <div class="div-header news-width-checkbox">
-              <input type="checkbox">
+              <input type="checkbox" >
             </div>
             <div class="div-header message-width-state">
               状态
@@ -53,7 +53,7 @@
           </div>
           <div class="admin-div" *ngFor="let item of messageData.data;">
             <div class="div-data news-width-checkbox">
-              <input type="checkbox">
+              <input type="checkbox" name="checkboxid">
               <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
             </div>
             <div class="div-data message-width-state data-color">

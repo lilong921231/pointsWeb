@@ -10,6 +10,7 @@ import {ManagementService} from "../../services/management.service";
 export class MessageComponent implements OnInit {
 
   messageData: any;
+  status: any[] = [];
   constructor(
     private customer: CustomerService,
     private management: ManagementService
@@ -18,6 +19,7 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
     this.messageInfo();
   }
+
 
   /**
    * 表示查询未处理的留言信息
@@ -30,6 +32,7 @@ export class MessageComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.messageData = response;
         console.log(response);
+        this.status = response.data;
       } else {
         alert(response.message);
         return false;
@@ -50,4 +53,28 @@ export class MessageComponent implements OnInit {
   userIdSkip(userId) {
     this.management.userIdSkip(userId);
   }
+
+  /**
+   * 删除id
+   * @param messageId 留言信息id
+   */
+  userIdDelete(messageId) {
+    const data = {messageId};
+    const message_select = confirm('确认删除？');
+    if (message_select) {
+      alert('您选择了确认删除信息');
+      this.customer.userIdDeleteService(data)
+        .subscribe((response: any) => {
+          if (response.code === 200 || response.ok) {
+            this.messageInfo();
+          } else {
+            alert(response.message);
+            return false;
+          }
+        });
+    } else {
+      return false;
+    }
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-messageinfo',
@@ -13,7 +14,8 @@ export class MessageinfoComponent implements OnInit {
   magList: any;
   magData: any;
   userId: any;
-  ceshi = true;
+  messageStatus = false;
+  statusOK: number;
 
   constructor(
     private customer: CustomerService,
@@ -22,13 +24,13 @@ export class MessageinfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.messagInfo();
+    this.messageInfo();
   }
 
   /**
    * 根据id显示留言详情
    */
-  messagInfo() {
+  messageInfo() {
     const messageId = this.route.snapshot.paramMap.get('id');
     this.customer.messageInfoService(messageId)
       .subscribe((response: any) => {
@@ -38,6 +40,7 @@ export class MessageinfoComponent implements OnInit {
         this.messageList(this.userId);
       } else {
         alert(response.message);
+        return false;
       }
       });
   }
@@ -54,6 +57,7 @@ export class MessageinfoComponent implements OnInit {
         this.magList = response;
       } else {
         alert(response.message);
+        return false;
       }
       });
   }
@@ -62,6 +66,63 @@ export class MessageinfoComponent implements OnInit {
    */
   messageIdInfo(messageId) {
     this.customer.messageIdSkip(messageId);
+  }
+
+  status(){
+    this.messageStatus = this.messageStatus ? false : true;
+  }
+
+
+  /**
+   * 回复管理员留言信息
+   */
+  messageUpdata(id, reply) {
+    if (this.messageStatus) {
+      this.statusOK = 6;
+    } else {
+      this.statusOK = 5;
+    }
+    this.customer.messageUpdataService(id, reply, this.statusOK)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.router.navigateByUrl('/admin/message');
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
+  }
+
+  /**
+   * 删除id
+   * @param messageId 留言信息id
+   */
+  userIdDelete(messageId) {
+    const data = {messageId};
+    const message_select = confirm('确认删除？');
+    if (message_select) {
+      alert('您选择了确认删除信息');
+      this.customer.userIdDeleteService(data)
+        .subscribe((response: any) => {
+          if (response.code === 200 || response.ok) {
+            this.messageInfo();
+          } else {
+            alert(response.message);
+            return false;
+          }
+        });
+    } else {
+      return false;
+    }
+  }
+
+
+  /**
+   * 清空回复留言
+   */
+  reset() {
+    //  密码
+    $('textarea').prop('value', '');
   }
 
 }
