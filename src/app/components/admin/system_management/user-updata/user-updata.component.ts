@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 export class UserUpdataComponent implements OnInit {
 
   dataUpdata: any;
+  leveldata = ['普通会员', '银卡会员', '金卡会员', '钻石会员'];
 
   constructor(
     private router: Router,
@@ -32,6 +33,7 @@ export class UserUpdataComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.dataUpdata = response;
+        console.log(response);
       } else {
         alert(response.message);
         return false;

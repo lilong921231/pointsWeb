@@ -69,7 +69,7 @@ const routes: Routes = [
   // 用户界面留言
   { path: 'message', component: UserMessageComponent },
   // 查看留言详情页面
-  { path: 'messageInfo', component: UserMessageInfoComponent },
+  { path: 'messageInfo/:id', component: UserMessageInfoComponent },
   // 管理员界面
   {
     path: 'admin',

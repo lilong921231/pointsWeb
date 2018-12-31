@@ -32,7 +32,11 @@
             </div>
             <div class="myinfo-div-data">
               <div class="repass-input">
-                <input type="text" value="" #rankId>
+                <select #rankId>
+
+                  <option *ngFor="let item of leveldata;let i = index;">{{item}}</option>
+                  <option *ngIf="(dataUpdata.data.rank.name == item)" selected="selected">{{item}}</option>
+                </select>
               </div>
             </div>
             <div class="myinfo-div-inf">

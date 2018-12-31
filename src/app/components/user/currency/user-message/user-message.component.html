@@ -10,7 +10,7 @@
       <div class="user-padding-border">
         <div class="user-top">
           <img src="../../../../../assets/images/menu-repass.png">
-          修改密码
+          我的留言
         </div>
         <div class="user-bottom">
          <div class="user-message">
@@ -22,14 +22,15 @@
                <p>会员编号</p>
              </div>
              <div class="user-right">
-               <p>059186</p>
+               <p>{{userId}}</p>
+               <input type="text" style="display:none" value="{{userId}}" #id>
              </div>
              <div class="user-left">
                <p>留言标题</p>
              </div>
              <div class="user-right">
                <div class="user-input">
-                 <input type="text" value="" #newPassword>
+                 <input type="text" value="" #title>
                  <span> *必须输入</span>
                </div>
              </div>
@@ -41,14 +42,14 @@
              </div>
              <div class="user-right user-message-height">
                <div class="user-input user-message-height">
-                 <textarea class="user-textarea-div" value="" #sureNewPassWord></textarea>
+                 <textarea class="user-textarea-div" value="" #content></textarea>
                </div>
              </div>
            </div>
            <div class="button-center">
-            <img src="../../../../../assets/images/user-message.jpg">
+            <img src="../../../../../assets/images/user-message.jpg" (click)="messageUpdata(id.value, title.value, content.value)">
             &nbsp;&nbsp;&nbsp;
-            <img src="../../../../../assets/images/reset.jpg">
+            <img src="../../../../../assets/images/reset.jpg" (click)="reset()">
            </div>
            <div class="history-message">
              <div class="user-message-title user-message-center">
@@ -63,15 +64,16 @@
                <div class="user-header-message font-size user-header-14">回复日期</div>
                <div class="user-header-message font-size user-header-3">详情</div>
              </div>
-             <div class="button-center">
-               <div class="ngFor-user-header-message font-size user-header-9">编号</div>
-               <div class="ngFor-user-header-message font-size user-header-20">留言日期</div>
-               <div class="ngFor-user-header-message font-size user-header-11">标题</div>
-               <div class="ngFor-user-header-message font-size user-header-14">内容</div>
+             <div class="button-center" *ngFor="let item of messageData.data;">
+               <div class="ngFor-user-header-message font-size user-header-9">{{item.id}}</div>
+               <input type="text" style="display:none" value="{{item.id}}" #messageId>
+               <div class="ngFor-user-header-message font-size user-header-20">{{item.createTime}}</div>
+               <div class="ngFor-user-header-message font-size user-header-11">{{item.message.title}}</div>
+               <div class="ngFor-user-header-message font-size user-header-14">{{item.message.content}}</div>
                <div class="ngFor-user-header-message font-size user-header-14">回复</div>
                <div class="ngFor-user-header-message font-size user-header-14">回复日期</div>
                <div class="ngFor-user-header-message font-size user-header-3">
-                 <a routerLink="/messageInfo" (click)="ceshi()" >查看</a>
+                 <a routerLink="#" (click)="messageInfoSkip(messageId.value)" >查看</a>
                </div>
              </div>
            </div>

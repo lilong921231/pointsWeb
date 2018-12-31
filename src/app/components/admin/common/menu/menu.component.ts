@@ -13,19 +13,18 @@ export class MenuComponent implements OnInit {
   showML3: Boolean;
   showML4: Boolean;
   showML5: Boolean;
-  id = 1;
 
   constructor(
     private router: Router,
   ) { }
 
   ngOnInit() {
-    this.showML1 = true;
+    this.showML1 = false;
     this.showML2 = true;
     this.showML3 = true;
     this.showML4 = true;
     this.showML5 = true;
-}
+  }
 
   /**
    * menu的显示于隐藏

@@ -42,7 +42,6 @@ export class UserPointComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.pointData = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;

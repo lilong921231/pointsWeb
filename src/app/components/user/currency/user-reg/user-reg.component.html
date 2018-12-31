@@ -18,7 +18,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #account>
               *请输入您的【居住权证】上面的证书编号
             </div>
           </div>
@@ -27,7 +27,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #realName>
               <span> * 必须输入！</span>
             </div>
           </div>
@@ -37,11 +37,11 @@
           <div class="user-right">
             <div class="user-input">
              <select>
-               <option selected="selected" value="">请选择会员性别</option>
+               <option selected="selected" value="" #gender>请选择会员性别</option>
                <option value="">男</option>
                <option value="">女</option>
              </select>
-              <span> * 必须输入！</span>
+              <span> * 必须选择！</span>
             </div>
           </div>
           <div class="user-left">
@@ -49,7 +49,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #identityNumber>
               <span> * 必须输入！</span>
             </div>
           </div>
@@ -58,7 +58,16 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #password>
+              <span>  * 密码不能小于6位！</span>
+            </div>
+          </div>
+          <div class="user-left">
+            <p>确认密码</p>
+          </div>
+          <div class="user-right">
+            <div class="user-input">
+              <input type="text" value="" #surePassword>
               <span>  * 密码不能小于6位！</span>
             </div>
           </div>
@@ -67,7 +76,11 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <select *ngFor="let item of ceshi;let i = index">
+                <option selected="selected" value="" #province></option>
+              </select>
+              <input type="text" value="" #city>市
+              <input type="text" value="" #address>
               <span> * 必须输入！</span>
             </div>
           </div>
@@ -76,7 +89,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #phone>
               <span> * 必须输入！</span>
             </div>
           </div>
@@ -86,7 +99,7 @@
           <div class="user-right">
             <div class="user-input">
               <select>
-                <option selected="selected" value="">请选择客户类型</option>
+                <option selected="selected" value="" #rankId>请选择客户类型</option>
                 <option value="">普通会员</option>
                 <option value="">白银会员</option>
                 <option value="">黄金会员</option>
@@ -99,9 +112,18 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="">
+              <input type="text" value="" #certificationTime>
               <span> * 必须输入！</span>
             </div>
+          </div>
+          <div class="button-center">
+            <img src="../../../../../assets/images/hyzc.jpg" (click)="repass(
+              account.value, realName.value, gender.value, rankId.value, identityNumber.value,
+              password.value, surePassword.value, phone.value, province.value, city.value, address.value,
+               certificationTime.value
+            )">
+            &nbsp;&nbsp;&nbsp;
+            <img src="../../../../../assets/images/reset.jpg" (click)="reset()">
           </div>
           <div class="clear"></div>
         </div>
