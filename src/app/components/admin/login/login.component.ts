@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import {HttpService} from "../../../common/service/http.service";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({
@@ -15,12 +17,33 @@ export class LoginComponent implements OnInit {
   loginCode: number;
   menuInfo = 1;
 
+  code: any;
+
   constructor(
     private router: Router,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
+    this.generate();
   }
+
+  /**
+   * 图形code
+   */
+  generate() {
+    const url = environment.apiUrl + '/captcha/generate';
+    this.http.getData(url)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.code = response;
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
+  }
+
   tiaozhuan() {
     this.router.navigateByUrl('/admin/main');
   }
@@ -28,7 +51,7 @@ export class LoginComponent implements OnInit {
    * 登陆检查
    * 核查input有没有值存在
    */
-  checkInput() {
+  checkInput(account, password, userCaptcha) {
     // 检查用户是否为空
     if ($('input[name="username"]').val() === null || $('input[name="username"]').val() === '') {
       alert('用户名或密码错误!');
@@ -45,7 +68,17 @@ export class LoginComponent implements OnInit {
       return false;
       }
 
-    // post方法
+    // get方法
+    const url = environment.apiUserUrl + '/security/login/logout?account=' + account + '&password=' + password + '&userCaptcha=' + userCaptcha;
+    this.http.getData(url)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.router.navigateByUrl('/main');
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
   }
 
   /**

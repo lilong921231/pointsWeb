@@ -117,8 +117,8 @@
               <img src="../../../../../assets/images/k4.jpg">
               公司公告
             </div>
-            <div class="main-Notice">
-
+            <div class="main-Notice" *ngFor="let item of newData.data;">
+              <div>{{item.content}}</div>
             </div>
           </div>
         </div>

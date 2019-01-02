@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CurrencyService} from "../../services/currency.service";
 
 
 @Component({
@@ -8,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  newData: any;
+  constructor(
+    private currency: CurrencyService
+  ) { }
 
   ngOnInit() {
+    this.newInfo();
   }
 
-
+  /**
+   * 显示首页
+   */
+  newInfo() {
+    this.currency.newService()
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.newData = response;
+          console.log(response);
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
+  }
 }

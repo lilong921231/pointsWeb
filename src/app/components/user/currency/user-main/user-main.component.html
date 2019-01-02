@@ -14,8 +14,8 @@
         </div>
         <div class="message-content">
           <img src="../../../../../assets/images/user-message.gif">
-          <div class="div-content">
-            暂无内容....
+          <div class="div-content" *ngFor="let item of newData.data;">
+            <div>{{item.content}}</div>
           </div>
         </div>
       </div>

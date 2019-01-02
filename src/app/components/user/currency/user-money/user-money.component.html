@@ -21,12 +21,12 @@
             <div class="user-header-message user-header-23">消费日期</div>
           </div>
           <div>
-            <div class="user-header-width">
-              <div class="ngFor-user-header-message user-header-10">序号</div>
-              <div class="ngFor-user-header-message user-header-10">地区</div>
-              <div class="ngFor-user-header-message user-header-23">基地名称</div>
-              <div class="ngFor-user-header-message user-header-23">消费金额</div>
-              <div class="ngFor-user-header-message user-header-23">消费日期</div>
+            <div class="user-header-width" *ngFor="let item of moneyData.data;">
+              <div class="ngFor-user-header-message user-header-10">{{item.id}}</div>
+              <div class="ngFor-user-header-message user-header-10">{{item.district}}</div>
+              <div class="ngFor-user-header-message user-header-23">{{item.locationName}}</div>
+              <div class="ngFor-user-header-message user-header-23">{{item.amount}}</div>
+              <div class="ngFor-user-header-message user-header-23">{{item.consumeTime}}</div>
             </div>
           </div>
           <div class="button-center font-size padding-top-15px">

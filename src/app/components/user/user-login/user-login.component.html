@@ -6,7 +6,7 @@
           会员编号：
         </div>
         <div class="td-1">
-          <input type="text" value="" name="username">
+          <input type="text" value="" name="username" #user>
         </div>
       </div>
       <div class="div-tr">
@@ -14,7 +14,7 @@
           登录密码：
         </div>
         <div class="td-1">
-          <input type="password" value="" name="password">
+          <input type="password" value="" name="password" #password>
         </div>
       </div>
       <div class="div-tr">
@@ -22,16 +22,16 @@
           验 证 码：
         </div>
         <div class="input-code">
-          <input type="text" id="code" name="validationCode">
+          <input type="text" id="code" name="validationCode" #codes>
         </div>
         <div class="code">
           <input type="button" id="checkCode" onclick="" value="{{code.data}}">
         </div>
       </div>
       <div class="button-center">
-        <img src="../../../../assets/images/dl_button.jpg" (click)="mainSkip()">
+        <img src="../../../../assets/images/dl_button.jpg" (click)="mainSkip(user.value, password.value, codes.value)">
         &nbsp;&nbsp;&nbsp;
-        <img src="../../../../assets/images/cz_button.jpg">
+        <img src="../../../../assets/images/cz_button.jpg" (click)="reset()">
       </div>
     </div>
   </div>
