@@ -8,7 +8,6 @@ import { PaginationModule } from 'ngx-bootstrap';
 import { LoginComponent } from './components/admin/login/login.component';
 import { MainComponent } from './components/admin/currency/main/main.component';
 import { HeaderComponent } from './components/admin/common/header/header.component';
-import { MenuComponent } from './components/admin/common/menu/menu.component';
 import { MyinfoComponent } from './components/admin/currency/myinfo/myinfo.component';
 import { RepassComponent } from './components/admin/currency/repass/repass.component';
 import { RepassSpwComponent } from './components/admin/currency/repass-spw/repass-spw.component';
@@ -54,6 +53,11 @@ import { UserHeaderComponent } from './components/user/common/user-header/user-h
 import { NgxEchartsModule } from 'ngx-echarts';
 import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
 import { UserIdComponent } from './components/admin/system_management/user-id/user-id.component';
+import { CurrencyMenuComponent } from './components/admin/common/currency-menu/currency-menu.component';
+import { CustomerMenuComponent } from './components/admin/common/customer-menu/customer-menu.component';
+import { FinancialMenuComponent } from './components/admin/common/financial-menu/financial-menu.component';
+import { PlatformServiceComponent } from './components/admin/common/platform-service/platform-service.component';
+import { SystemManagementMenuComponent } from './components/admin/common/system-management-menu/system-management-menu.component';
 
 /**
  * @author lilong 2018-12-23
@@ -65,7 +69,6 @@ import { UserIdComponent } from './components/admin/system_management/user-id/us
     LoginComponent,
     MainComponent,
     HeaderComponent,
-    MenuComponent,
     MyinfoComponent,
     RepassComponent,
     RepassSpwComponent,
@@ -107,6 +110,11 @@ import { UserIdComponent } from './components/admin/system_management/user-id/us
     UserHeaderComponent,
     UserMessageInfoComponent,
     UserIdComponent,
+    CurrencyMenuComponent,
+    CustomerMenuComponent,
+    FinancialMenuComponent,
+    PlatformServiceComponent,
+    SystemManagementMenuComponent,
   ],
   imports: [
     BrowserModule,

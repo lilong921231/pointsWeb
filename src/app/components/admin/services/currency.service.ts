@@ -89,4 +89,14 @@ export class CurrencyService {
     const url = environment.apiUrl + '/stock/delete/' + tbExponentId;
     return this.httpService.getData(url);
   }
+
+  /**
+   * admin K线图
+   * 获取num指数数据
+   * @param num 传入的数值
+   */
+  exponentsService(num) {
+    const url = environment.apiUrl + '/stock/list/' + num;
+    return this.httpService.getData(url);
+  }
 }

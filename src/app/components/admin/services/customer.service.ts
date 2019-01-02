@@ -31,9 +31,7 @@ export class CustomerService {
   messageIdSkip(messageId) {
     this.router.navigateByUrl('/admin/messageinfo/' + messageId);
   }
-  /**
-   * 根据留言ID查看详情
-   */
+
   /**
    * 获取公告信息列表
    */

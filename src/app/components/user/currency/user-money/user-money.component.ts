@@ -20,6 +20,7 @@ export class UserMoneyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.moneyInfo(this.pageSize, this.pageNo);
   }
 
   /**
@@ -41,6 +42,7 @@ export class UserMoneyComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.moneyData = response;
           this.moneyTotal = response['total'];
+          console.log(response);
         } else {
           alert(response.message);
           return false;

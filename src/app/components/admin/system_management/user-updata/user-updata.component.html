@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div>
-    <app-menu></app-menu>
+    <app-system-management-menu></app-system-management-menu>
   </div>
   <div class="main-div">
     <div class="main-Navigation">
@@ -33,9 +33,8 @@
             <div class="myinfo-div-data">
               <div class="repass-input">
                 <select #rankId>
-
-                  <option *ngFor="let item of leveldata;let i = index;">{{item}}</option>
-                  <option *ngIf="(dataUpdata.data.rank.name == item)" selected="selected">{{item}}</option>
+                  <option selected="selected" value="">{{dataUpdata.data.rank.name}}</option>
+                  <option *ngFor="let item of leveldata;let i = index;">{{item.levelName}}</option>
                 </select>
               </div>
             </div>

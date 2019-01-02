@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div>
-    <app-menu></app-menu>
+    <app-financial-menu></app-financial-menu>
   </div>
   <div class="main-div">
     <div class="main-Navigation">
@@ -17,7 +17,7 @@
             <div class="point-div-now">
               当前积分总数：{{data.data.totalPoints}}
               &nbsp;&nbsp;&nbsp;
-              权重:{{data.data.systemRatio}}&nbsp;
+              权重:{{data.data.systemRatio * 100}}&nbsp;
               <input type="text" style="display:none" value="{{data.data.systemPatio}}"  #systemRatio>
               ％&nbsp;&nbsp;&nbsp;
               <button type="button" class="point-button" (click)="checkPoint(systemRatio.value)">增值积分结算（2018-11-29）</button>

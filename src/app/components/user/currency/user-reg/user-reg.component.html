@@ -36,8 +36,8 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-             <select>
-               <option selected="selected" value="" #gender>请选择会员性别</option>
+             <select  value="" #gender>
+               <option selected="selected">请选择会员性别</option>
                <option value="">男</option>
                <option value="">女</option>
              </select>
@@ -76,9 +76,10 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <select *ngFor="let item of ceshi;let i = index">
-                <option selected="selected" value="" #province></option>
+              <select value="" #province>
+                <option *ngFor="let item of provinces;">{{item}}</option>
               </select>
+              省
               <input type="text" value="" #city>市
               <input type="text" value="" #address>
               <span> * 必须输入！</span>
@@ -98,12 +99,12 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <select>
-                <option selected="selected" value="" #rankId>请选择客户类型</option>
-                <option value="">普通会员</option>
-                <option value="">白银会员</option>
-                <option value="">黄金会员</option>
-                <option value="">钻石会员</option>
+              <select value="" #rankId>
+                <option selected="selected" >请选择客户类型</option>
+                <option value="0">普通会员</option>
+                <option value="1">白银会员</option>
+                <option value="2">黄金会员</option>
+                <option value="3">钻石会员</option>
               </select>
             </div>
           </div>
@@ -117,7 +118,7 @@
             </div>
           </div>
           <div class="button-center">
-            <img src="../../../../../assets/images/hyzc.jpg" (click)="repass(
+            <img src="../../../../../assets/images/hyzc.jpg" (click)="regAdd(
               account.value, realName.value, gender.value, rankId.value, identityNumber.value,
               password.value, surePassword.value, phone.value, province.value, city.value, address.value,
                certificationTime.value

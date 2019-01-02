@@ -12,7 +12,14 @@ import * as $ from 'jquery';
 export class UserUpdataComponent implements OnInit {
 
   dataUpdata: any;
-  leveldata = ['普通会员', '银卡会员', '金卡会员', '钻石会员'];
+  leveldata = [
+    {'levelName': '普通会员', 'state': true},
+    {'levelName': '银卡会员', 'state': true},
+    {'levelName': '金卡会员', 'state': true},
+    {'levelName': '钻石会员', 'state': true}
+    ];
+
+  ceshi: any;
 
   constructor(
     private router: Router,
@@ -33,7 +40,13 @@ export class UserUpdataComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.dataUpdata = response;
-        console.log(response);
+        this.ceshi = response.data.rank['name'];
+        for (let i = 0; i < this.leveldata.length; i++) {
+          if (this.ceshi ===  this.leveldata[i].levelName) {
+            this.leveldata[i].state = false;
+          }
+        }
+        console.log(this.leveldata);
       } else {
         alert(response.message);
         return false;

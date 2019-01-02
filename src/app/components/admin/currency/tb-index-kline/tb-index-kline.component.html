@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div>
-    <app-menu></app-menu>
+    <app-currency-menu></app-currency-menu>
   </div>
   <div class="main-div">
     <div class="td-index-kline-title">
@@ -22,7 +22,7 @@
           <span class="quotation-color">最高：1313</span>
         </div>
         <div class="kline-chart">
-          <div echarts [options]="option" class="demo-chart"></div>
+          <div echarts [options]="shExponent" class="demo-chart"></div>
         </div>
       </div>
       <div class="kline-br"></div>
@@ -38,7 +38,7 @@
           <span class="quotation-color">最高：1313</span>
         </div>
         <div class="kline-chart">
-
+          <div echarts [options]="tbExponent" class="demo-chart"></div>
         </div>
       </div>
     </div>

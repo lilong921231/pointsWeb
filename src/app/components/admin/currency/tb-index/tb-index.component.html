@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div>
-    <app-menu></app-menu>
+    <app-currency-menu></app-currency-menu>
   </div>
   <div class="main-div">
     <div class="main-Navigation">
@@ -62,7 +62,7 @@
           <div class="admin-div" *ngFor="let item of data.data;let i = index">
             <div class="div-data data-color tb-index-width">
               {{item.id}}
-              <input type="text" style="display:none" value="{{item.id}}" #tbExponentId>
+                <input type="text" style="display:none" value="{{item.id}}" #tbExponentId>
             </div>
             <div class="div-data data-color tb-index-list-width1">
               {{item.shOpenExponent}}

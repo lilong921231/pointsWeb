@@ -9,6 +9,12 @@ import * as $ from "jquery";
 })
 export class UserRegComponent implements OnInit {
 
+  provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省',
+    '内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省',
+    '山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省',
+    '云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
+
+
   constructor(
     private userCommon: UserCommonService
   ) { }
@@ -36,6 +42,7 @@ export class UserRegComponent implements OnInit {
     identityNumber, password, surePassword,
     phone, province, city, address, certificationTime
   ) {
+    console.log(rankId,gender);
     const data = {
       'account': account,
       'realName': realName,
@@ -50,6 +57,7 @@ export class UserRegComponent implements OnInit {
       'address': address,
       'certificationTime': certificationTime,
     };
+    console.log(data);
     this.userCommon.regAddService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
