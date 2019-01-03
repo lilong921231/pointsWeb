@@ -4,37 +4,50 @@
  */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import set = Reflect.set;
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  public listData: any;
+  token: any;
+  currentId: any;
 
   constructor(private http: HttpClient) { }
+
+  /**
+   * psotLogin请求
+   */
+  postloginData(url: string, data: any) {
+    return this.http.post(url, data, {headers: {
+        'Content-Type': 'application/json'}
+    })
+  }
   /**
    * psot请求
    */
   postData(url: string, data: any) {
-    const options = {
-      headers: new HttpHeaders(
-        {'Content-Type': 'application/json;'}
-      )
-    };
-    return this.http.post(url, data, options);
+
+    return this.http.post(url, data, {headers: {
+      'Content-Type': 'application/json','Authorization': this.token, '_current_id': this.currentId}
+    })
   }
   /**
    * get请求
    */
   getData(url: string) {
-    return this.http.get(url);
+    alert(this.token);
+    alert(this.currentId);
+    return this.http.get(url, {headers: {
+       'Authorization': this.token, '_current_id': this.currentId}
+    });
   }
 
   /**
    * get带参请求
    */
-  getParamData(url: string, data?: any) {
+  getCodeData(url: string, data?: any) {
     return this.http.get(url, data);
   }
 }

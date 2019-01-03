@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
+import {PageChangedEvent} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-admin',
@@ -10,30 +11,30 @@ export class AdminComponent implements OnInit {
 
   adminData: any;
   adminTotal: number;
-  pageNo: number;
+  pageNo = 1;
   pageSize = 10;
   constructor(
     private management: ManagementService
   ) { }
 
   ngOnInit() {
-    this.adminInfo();
+    this.adminInfo(this.pageSize, this.pageNo);
   }
 
   /**
+   * 分页计算
+   * @param event 当前页数
+   */
+  pageChanged(event: PageChangedEvent): void {
+    this.pageNo = event.page;
+    this.adminInfo(this.pageSize, this.pageNo);
+  }
+  /**
    * 显示管理用户
    */
-  adminInfo() {
+  adminInfo(pageSize, pageNo) {
     // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    // 存入当前页和每页显示的数据的数量
-    const pageData = {
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
-    this.management.adminService(pageData)
+    this.management.adminService(pageSize, pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.adminData = response;

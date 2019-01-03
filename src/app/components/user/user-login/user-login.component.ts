@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserCommonService} from "../currency/user-common.service";
 import * as $ from "jquery";
+import {HttpService} from "../../../common/service/http.service";
 
 @Component({
   selector: 'app-user-login',
@@ -15,7 +16,8 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userCommon: UserCommonService
+    private userCommon: UserCommonService,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
@@ -54,12 +56,18 @@ export class UserLoginComponent implements OnInit {
       alert('验证码不能为空');
       return false;
     }
-
-    // get方法
-
-    this.userCommon.loginService(account, password, userCaptcha)
+    // post方法
+    const data = {
+      "account": account,
+      "password": password,
+      "userCaptcha": userCaptcha
+    };
+    this.userCommon.loginService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
+          alert(1);
+          this.http.token = response.data['token'];
+          this.http.currentId = response.data['id'];
           this.router.navigateByUrl('/main');
         } else {
           alert(response.message);

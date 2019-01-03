@@ -69,8 +69,13 @@ export class LoginComponent implements OnInit {
       }
 
     // get方法
-    const url = environment.apiUserUrl + '/security/login/logout?account=' + account + '&password=' + password + '&userCaptcha=' + userCaptcha;
-    this.http.getData(url)
+    const data = {
+      "account": account,
+      "password": password,
+      "userCaptcha": userCaptcha
+    };
+    const url = environment.apiUserUrl + '/security/login';
+    this.http.postData(url, data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.router.navigateByUrl('/main');

@@ -12,7 +12,7 @@ export class LevelComponent implements OnInit {
 
   levelData: any;
   levelTotal: any;
-  pageNo: any;
+  pageNo = 1;
   private pageSize = 10;
 
   constructor(
@@ -21,9 +21,7 @@ export class LevelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.levelInfo();
-    this.levelTotal = this.levelTotal.map((v: string, i: number) => `Content line ${i + 1}`);
-    this.levelData = this.levelData.slice(0, this.pageSize);
+    this.levelInfo(this.pageSize, this.pageNo);
   }
   /**
    * 分页计算
@@ -31,25 +29,15 @@ export class LevelComponent implements OnInit {
    */
   pageChanged(event: PageChangedEvent): void {
     this.pageNo = event.page;
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.levelData = this.levelData.slice(startItem, endItem);
+    this.levelInfo(this.pageSize, this.pageNo);
   }
 
   /**
    * 显示会员等级数据
    */
-  levelInfo() {
-    // 判断并且给当前页赋值
-    if (this.pageNo === 0 || this.pageNo === null || this.pageNo === undefined) {
-      this.pageNo = 1;
-    }
-    // 存入当前页和每页显示的数据的数量
-    const pageData = {
-      'pageNo': this.pageNo,
-      'pageSize': this.pageSize
-    };
-    this.management.levelInfoServie(pageData)
+  levelInfo(pageSize, pageNo) {
+
+    this.management.levelInfoServie(pageSize, pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.levelData = response;

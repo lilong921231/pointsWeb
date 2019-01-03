@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserCommonService} from "../user-common.service";
+import {HttpService} from "../../../../common/service/http.service";
 
 @Component({
   selector: 'app-user-main',
@@ -11,7 +12,7 @@ export class UserMainComponent implements OnInit {
   newData: any;
 
   constructor(
-    private userCommon: UserCommonService
+    private userCommon: UserCommonService,
   ) { }
 
   ngOnInit() {
@@ -23,7 +24,6 @@ export class UserMainComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.newData = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;

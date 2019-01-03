@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrencyService} from "../../services/currency.service";
+import {HttpService} from "../../../../common/service/http.service";
 
 
 @Component({
@@ -11,7 +12,7 @@ export class MainComponent implements OnInit {
 
   newData: any;
   constructor(
-    private currency: CurrencyService
+    private currency: CurrencyService,
   ) { }
 
   ngOnInit() {

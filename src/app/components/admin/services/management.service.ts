@@ -77,9 +77,9 @@ export class ManagementService {
   /**
    * 显示会员等级数据
    */
-  levelInfoServie(pageData) {
-    const url = environment.apiUrl + '/rank/list/page';
-    return this.httpService.getParamData(url, pageData);
+  levelInfoServie(pageSize, pageNo) {
+    const url = environment.apiUrl + '/rank/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -121,9 +121,9 @@ export class ManagementService {
    * 管理角色
    * @param pageData 页数和显示数量
    */
-  admingroupService(pageData) {
-    const url = environment.apiUrl + '/role/list/page';
-    return this.httpService.getParamData(url, pageData);
+  admingroupService(pageSize, pageNo) {
+    const url = environment.apiUrl + '/role/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -156,9 +156,9 @@ export class ManagementService {
    * 显示管理用户
    * @param pageData 分页数据
    */
-  adminService(pageData) {
-    const url = environment.apiUrl + '/admin/list/page';
-    return this.httpService.getParamData(url, pageData);
+  adminService(pageSize, pageNo) {
+    const url = environment.apiUrl + '/admin/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    return this.httpService.getData(url);
   }
 
   /**
