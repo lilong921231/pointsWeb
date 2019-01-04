@@ -65,9 +65,8 @@ export class UserLoginComponent implements OnInit {
     this.userCommon.loginService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          alert(1);
-          this.http.token = response.data['token'];
-          this.http.currentId = response.data['id'];
+          this.http.setToken(response.data['token']);
+          this.http.setId(response.data['id']);
           this.router.navigateByUrl('/main');
         } else {
           alert(response.message);

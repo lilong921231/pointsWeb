@@ -11,10 +11,31 @@ import set = Reflect.set;
 })
 export class HttpService {
 
-  token: any;
-  currentId: any;
-
   constructor(private http: HttpClient) { }
+
+
+  //存入token
+  setToken(value) {
+    window.localStorage.token = value;
+  }
+  //取出token
+  getToken() {
+    if (window.localStorage.token == null) {
+      window.localStorage.token = '';
+    }
+    return window.localStorage.token;
+  }
+
+  setId(value) {
+    window.localStorage.id = value;
+  }
+  //取出token
+  getId() {
+    if (window.localStorage.id == null) {
+      window.localStorage.id = '';
+    }
+    return window.localStorage.id;
+  }
 
   /**
    * psotLogin请求
@@ -30,17 +51,15 @@ export class HttpService {
   postData(url: string, data: any) {
 
     return this.http.post(url, data, {headers: {
-      'Content-Type': 'application/json','Authorization': this.token, '_current_id': this.currentId}
+      'Content-Type': 'application/json','Authorization': this.getToken(), '_current_id': this.getId()}
     })
   }
   /**
    * get请求
    */
   getData(url: string) {
-    alert(this.token);
-    alert(this.currentId);
     return this.http.get(url, {headers: {
-       'Authorization': this.token, '_current_id': this.currentId}
+       'Authorization': this.getToken(), '_current_id': this.getId()}
     });
   }
 

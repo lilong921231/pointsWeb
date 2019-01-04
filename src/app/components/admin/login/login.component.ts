@@ -78,6 +78,8 @@ export class LoginComponent implements OnInit {
     this.http.postData(url, data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
+          this.http.setToken(response.data['token']);
+          this.http.setId(response.data['id']);
           this.router.navigateByUrl('/main');
         } else {
           alert(response.message);
