@@ -1,24 +1,31 @@
-/**
- * @author lilong 2018-12-10
- * http 共通请求
- */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import set = Reflect.set;
+
+/**
+ * @desc http 共通请求
+ * @author lilong
+ * @date 2018-12-10
+ */
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+  constructor(
+    private http: HttpClient  // 引入http组件
+  ) { }
 
-  constructor(private http: HttpClient) { }
 
-
-  //存入token
+  /**
+   * 在storage处存入用户token
+   * @param value token的值
+   */
   setToken(value) {
     window.localStorage.token = value;
   }
-  //取出token
+  /**
+   * 从storage处取出用户token
+   */
   getToken() {
     if (window.localStorage.token == null) {
       window.localStorage.token = '';
@@ -26,66 +33,43 @@ export class HttpService {
     return window.localStorage.token;
   }
 
+  /**
+   * 在storage处存入用户id
+   * @param value id的值
+   */
   setId(value) {
     window.localStorage.id = value;
   }
-  //取出id
+
+  /**
+   * 从storage处取出用户id
+   */
   getId() {
     if (window.localStorage.id == null) {
       window.localStorage.id = '';
     }
     return window.localStorage.id;
   }
-
-  setName(value) {
-    window.localStorage.userName = value;
-  }
-  getName() {
-    return window.localStorage.userName;
-  }
-  setNumber(value) {
-    window.localStorage.userNumber = value;
-  }
-  getNumber() {
-    return window.localStorage.userNumber;
-  }
-  setRankName(value) {
-    window.localStorage.userRankName = value;
-  }
-  getRankName() {
-    return window.localStorage.userRankName;
-  }
-
-  /**
-   * psotLogin请求
-   */
-  postloginData(url: string, data: any) {
-    return this.http.post(url, data, {headers: {
-        'Content-Type': 'application/json'}
-    })
-  }
   /**
    * psot请求
+   * @param url api接口地址
+   * @param data 传入JSON数据
    */
   postData(url: string, data: any) {
-
+    //headers请求参数头
     return this.http.post(url, data, {headers: {
       'Content-Type': 'application/json','Authorization': this.getToken(), '_current_id': this.getId()}
     })
   }
   /**
    * get请求
+   * @param url api接口地址
    */
   getData(url: string) {
+    // headers请求参数头
     return this.http.get(url, {headers: {
        'Authorization': this.getToken(), '_current_id': this.getId()}
     });
   }
 
-  /**
-   * get带参请求
-   */
-  getCodeData(url: string, data?: any) {
-    return this.http.get(url, data);
-  }
 }
