@@ -29,12 +29,31 @@ export class HttpService {
   setId(value) {
     window.localStorage.id = value;
   }
-  //取出token
+  //取出id
   getId() {
     if (window.localStorage.id == null) {
       window.localStorage.id = '';
     }
     return window.localStorage.id;
+  }
+
+  setName(value) {
+    window.localStorage.userName = value;
+  }
+  getName() {
+    return window.localStorage.userName;
+  }
+  setNumber(value) {
+    window.localStorage.userNumber = value;
+  }
+  getNumber() {
+    return window.localStorage.userNumber;
+  }
+  setRankName(value) {
+    window.localStorage.userRankName = value;
+  }
+  getRankName() {
+    return window.localStorage.userRankName;
   }
 
   /**

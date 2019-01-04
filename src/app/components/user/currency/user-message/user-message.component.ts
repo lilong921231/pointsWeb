@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserCommonService} from "../user-common.service";
 import * as $ from "jquery";
+import {HttpService} from "../../../../common/service/http.service";
 
 @Component({
   selector: 'app-user-message',
@@ -19,11 +20,13 @@ export class UserMessageComponent implements OnInit {
   userId: any;
 
   constructor(
-    private userCommon: UserCommonService
+    private userCommon: UserCommonService,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
     this.messageInfo(this.pageSize, this.pageNo);
+    this.userId = this.http.getId();
   }
 
   /**
@@ -33,7 +36,13 @@ export class UserMessageComponent implements OnInit {
    * @param content 留言内容
    */
   messageUpdata(id, title, content) {
-    this.userCommon.messageUpdateService(id, title, content)
+    const data = {
+      'ids': id,
+      "title": title,
+      "content": content,
+    };
+    console.log(id,title,content);
+    this.userCommon.messageUpdateService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.messageInfo(this.pageSize, this.pageNo);
@@ -74,7 +83,6 @@ export class UserMessageComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.messageData = response;
           this.messageTotal = response['total'];
-          this.userId = response.data[0].sender['id'];
           console.log(response);
         } else {
           alert(response.message);

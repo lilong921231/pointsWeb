@@ -1,8 +1,8 @@
 <div class="user-header">
   <div class="user-heaser-message">
-    姓名：T &nbsp;&nbsp;&nbsp;
-    编号：069168 &nbsp;&nbsp;&nbsp;
-    等级：钻石会员 &nbsp;&nbsp;&nbsp;
-    <a routerLink="#">【退出登陆】</a>
+    姓名：{{userHeader.data.realName}} &nbsp;&nbsp;&nbsp;
+    编号：{{userHeader.data.account}} &nbsp;&nbsp;&nbsp;
+    等级：{{userHeader.data.rank.name}} &nbsp;&nbsp;&nbsp;
+    <a routerLink="" (click)="one()">【退出登陆】</a>
   </div>
 </div>

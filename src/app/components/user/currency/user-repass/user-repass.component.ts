@@ -9,11 +9,29 @@ import * as $ from "jquery";
 })
 export class UserRepassComponent implements OnInit {
 
+  userRepass: any;
   constructor(
     private userCommon: UserCommonService
   ) { }
 
   ngOnInit() {
+    this.userInfo();
+  }
+
+  /**
+   * 显示会员信息
+   */
+  userInfo() {
+    this.userCommon.userInfoService()
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.userRepass = response;
+          console.log(response);
+        } else {
+          alert(response.message);
+          return false;
+        }
+      })
   }
 
   /**

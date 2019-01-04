@@ -195,3 +195,22 @@ input {
 .button-center>img{
   cursor: pointer;
 }
+.user-header{
+  height: 70px;
+  width: 100%;
+  background: url("assets/images/user-header.jpg") repeat-x;
+}
+.user-heaser-message{
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  padding-left: 246px;
+  padding-top: 35px;
+}
+.user-heaser-message>a{
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  text-decoration:none;
+}

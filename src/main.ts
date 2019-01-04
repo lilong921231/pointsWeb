@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { Location } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 if (environment.production) {
   enableProdMode();

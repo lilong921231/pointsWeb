@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
+import {DatePipe} from "@angular/common";
 
 
 @Component({
   selector: 'app-user-tb-kline',
   templateUrl: './user-tb-kline.component.html',
-  styleUrls: ['./user-tb-kline.component.css']
+  styleUrls: ['./user-tb-kline.component.css'],
+  providers: [DatePipe]
 })
 export class UserTbKlineComponent implements OnInit {
 
@@ -27,7 +29,8 @@ export class UserTbKlineComponent implements OnInit {
   tbExponent: any;
 
   constructor(
-    private userCommon: UserCommonService
+    private userCommon: UserCommonService,
+    private datePipe:DatePipe
   ) { }
 
   ngOnInit() {
@@ -42,7 +45,9 @@ export class UserTbKlineComponent implements OnInit {
           for (let i = 0; i < this.exponentData.length; i++) {
             this.shExponentData[i] = [];
             this.tbExponentData[i] = [];
-            this.exponentDate[i] = this.exponentData[i]['createTime'];
+            this.exponentDate[i] = this.datePipe.transform(this.exponentData[i].createTime, 'yyyy-MM-dd');
+            //this.exponentDate[i] = this.exponentData[i].createTime;
+            console.log(this.exponentDate);
             this.shExponentData[i].push(this.shdata[0] = this.exponentData[i].shOpenExponent);
             this.shExponentData[i].push(this.shdata[1] = this.exponentData[i].shCloseExponent);
             this.shExponentData[i].push(this.shdata[2] = this.exponentData[i].shMinExponent);

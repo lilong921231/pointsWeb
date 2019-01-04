@@ -58,6 +58,7 @@ import { CustomerMenuComponent } from './components/admin/common/customer-menu/c
 import { FinancialMenuComponent } from './components/admin/common/financial-menu/financial-menu.component';
 import { PlatformServiceComponent } from './components/admin/common/platform-service/platform-service.component';
 import { SystemManagementMenuComponent } from './components/admin/common/system-management-menu/system-management-menu.component';
+import { CommonModule } from "@angular/common";
 
 /**
  * @author lilong 2018-12-23
@@ -115,15 +116,17 @@ import { SystemManagementMenuComponent } from './components/admin/common/system-
     FinancialMenuComponent,
     PlatformServiceComponent,
     SystemManagementMenuComponent,
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     CKEditorModule,
     PaginationModule.forRoot(),
     HttpClientModule,
     MomentModule,
-    NgxEchartsModule
+    NgxEchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

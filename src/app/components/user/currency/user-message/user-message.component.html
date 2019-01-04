@@ -64,8 +64,8 @@
                <div class="user-header-message font-size user-header-14">回复日期</div>
                <div class="user-header-message font-size user-header-3">详情</div>
              </div>
-             <div class="button-center" *ngFor="let item of messageData.data;">
-               <div class="ngFor-user-header-message font-size user-header-9">{{item.id}}</div>
+             <div class="button-center" *ngFor="let item of messageData.data;let i = index">
+               <div class="ngFor-user-header-message font-size user-header-9">{{messageData.total - i}}</div>
                <input type="text" style="display:none" value="{{item.id}}" #messageId>
                <div class="ngFor-user-header-message font-size user-header-20">{{item.createTime}}</div>
                <div class="ngFor-user-header-message font-size user-header-11">{{item.message.title}}</div>

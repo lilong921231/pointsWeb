@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {UserCommonService} from "../user-common.service";
-import {HttpService} from "../../../../common/service/http.service";
+import { UserCommonService } from "../user-common.service";
 
 @Component({
   selector: 'app-user-main',
   templateUrl: './user-main.component.html',
-  styleUrls: ['./user-main.component.css']
+  styleUrls: ['./user-main.component.css'],
+
 })
 export class UserMainComponent implements OnInit {
 
   newData: any;
-
   constructor(
     private userCommon: UserCommonService,
   ) { }
@@ -19,6 +18,9 @@ export class UserMainComponent implements OnInit {
     this.new();
   }
 
+  /**
+   * 显示公告信息
+   */
   new() {
     this.userCommon.newService()
       .subscribe((response: any) => {
@@ -30,4 +32,6 @@ export class UserMainComponent implements OnInit {
         }
       })
   }
+
+
 }

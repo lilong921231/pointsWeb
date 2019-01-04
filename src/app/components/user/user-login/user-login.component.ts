@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserCommonService} from "../currency/user-common.service";
 import * as $ from "jquery";
-import {HttpService} from "../../../common/service/http.service";
+import { HttpService } from "../../../common/service/http.service";
+import { UserHeaderComponent } from "../common/user-header/user-header.component";
+import {UserMainComponent} from "../currency/user-main/user-main.component";
 
 @Component({
   selector: 'app-user-login',
@@ -17,7 +19,7 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private userCommon: UserCommonService,
-    private http: HttpService
+    private http: HttpService,
   ) { }
 
   ngOnInit() {
