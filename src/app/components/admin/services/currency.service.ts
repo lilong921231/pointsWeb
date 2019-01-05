@@ -85,9 +85,8 @@ export class CurrencyService {
    * 跳入修改页面
    * 并返回id查询数据
    */
-  tbUpdataIdService(response) {
-    this.tbUpdata = response;
-    this.router.navigateByUrl('/admin/tb-index-updata');
+  tbIdSkip(id) {
+    this.router.navigateByUrl('/admin/tb-index-updata/' + id);
   }
 
   /**
@@ -96,6 +95,14 @@ export class CurrencyService {
   tbDeleteService(tbExponentId) {
     const url = environment.apiUrl + '/stock/delete/' + tbExponentId;
     return this.httpService.getData(url);
+  }
+  /**
+   * 修改天宝指数
+   */
+  tbIndexUpdateService(data) {
+    console.log(data);
+    const url = environment.apiUrl + '/stock/update';
+    return this.httpService.postData(url, data);
   }
 
   /**

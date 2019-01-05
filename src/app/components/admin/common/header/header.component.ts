@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ManagementService} from "../../services/management.service";
+import { ManagementService } from '../../services/management.service';
 
 
 @Component({
@@ -27,11 +27,10 @@ export class HeaderComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.adminHeader = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 }

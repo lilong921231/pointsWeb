@@ -91,7 +91,7 @@ const routes: Routes = [
       // 添加天宝指数
       { path: 'tb-index-add', component: TbIndexAddComponent },
       // 修改天宝指数
-      { path: 'tb-index-updata', component: TbIndexUpdataComponent },
+      { path: 'tb-index-updata/:id', component: TbIndexUpdataComponent },
       // 天宝K线图
       { path: 'tb-index-kline', component: TbIndexKlineComponent },
       // 增值积分结算

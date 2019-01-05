@@ -58,6 +58,9 @@ export class TbIndexKlineComponent implements OnInit {
             this.tbExponentData[i].push(this.tbdata[2] = this.exponentData[i].tbMinExponent);
             this.tbExponentData[i].push(this.tbdata[3] = this.exponentData[i].tbMaxExponent);
           }
+
+          console.log(response);
+
           /**
            * 上证指数k线图
            */
@@ -94,22 +97,22 @@ export class TbIndexKlineComponent implements OnInit {
               {
                 type : 'category',
                 boundaryGap : true,
-                axisTick: {onGap:false},
-                splitLine: {show:false},
+                axisTick: {onGap: false},
+                splitLine: {show: false},
                 data : this.exponentDate
               }
             ],
             yAxis : [
               {
                 type : 'value',
-                scale:true,
+                scale: true,
                 boundaryGap: [0.01, 0.01]
               }
             ],
             series : [
               {
-                name:'上证指数',
-                type:'k',
+                name: '上证指数',
+                type: 'k',
                 data: this.shExponentData
               }
             ]

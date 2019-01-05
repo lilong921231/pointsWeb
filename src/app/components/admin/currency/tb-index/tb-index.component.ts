@@ -64,20 +64,10 @@ export class TbIndexComponent implements OnInit {
   }
 
   /**
-   * 查询id数据
-   * 并跳转到修改页面
-   * @param tbExponentId id数据
+   * 根据id跳转界面
    */
-  tbUpdataId(tbExponentId) {
-    this.currency.tbIndexIdService(tbExponentId)
-      .subscribe((response: any) => {
-      if (response.code === 200 || response.ok) {
-        this.currency.tbUpdataIdService(response);
-      } else {
-        alert(response.message);
-        return false;
-      }
-      });
+  tbIdSkip(id) {
+    this.currency.tbIdSkip(id);
   }
 
   /**
