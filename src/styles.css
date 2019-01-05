@@ -91,7 +91,7 @@ input {
 }
 .user-div{
   padding-top: 50px;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   justify-content:center;
 }
