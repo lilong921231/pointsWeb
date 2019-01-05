@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
    * 图形code
    */
   generate() {
-    const url = environment.apiUrl + '/captcha/generate';
+    const url = environment.apiUrl + '/security/captcha/generate';
     this.http.getData(url)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 
   tiaozhuan() {
@@ -68,24 +68,24 @@ export class LoginComponent implements OnInit {
       return false;
       }
 
-    // get方法
+    // post方法
     const data = {
-      "account": account,
-      "password": password,
-      "userCaptcha": userCaptcha
+      'account': account,
+      'password': password,
+      'userCaptcha': userCaptcha
     };
-    const url = environment.apiUserUrl + '/security/login';
+    const url = environment.apiUrl + '/security/login';
     this.http.postData(url, data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.http.setToken(response.data['token']);
           this.http.setId(response.data['id']);
-          this.router.navigateByUrl('/main');
+          this.router.navigateByUrl('/admin/main');
         } else {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 
   /**

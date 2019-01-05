@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CurrencyService} from "../../services/currency.service";
-import {HttpService} from "../../../../common/service/http.service";
+import { CurrencyService } from '../../services/currency.service';
 
 
 @Component({
@@ -32,6 +31,6 @@ export class MainComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 }

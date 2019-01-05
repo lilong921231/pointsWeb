@@ -41,6 +41,14 @@ export class UserMessageComponent implements OnInit {
    * @param content 留言内容
    */
   messageUpdata(id, title, content) {
+    if (title === null || title === undefined) {
+      alert('标题不能为空');
+      return false;
+    }
+    if (content === null || content === undefined) {
+      alert('内容不能为空');
+      return false;
+    }
     // 赋值成json数据
     const data = {
       'ids': 110,

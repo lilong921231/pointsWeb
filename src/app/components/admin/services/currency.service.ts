@@ -17,8 +17,8 @@ export class CurrencyService {
   /**
    * 首页公告
    */
-  newService(){
-    const url = environment.apiUserUrl + '/announcement/list/page?pageSize=10&pageNo=1';
+  newService() {
+    const url = environment.apiUrl + '/announcement/list/page?pageSize=10&pageNo=1';
     return this.httpService.getData(url);
   }
 
