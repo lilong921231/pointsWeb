@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 /**
  * @desc 登陆用户居住权证
@@ -19,10 +19,10 @@ export class UserRegComponent implements OnInit {
    */
 
   // 各个省名
-  provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省',
-    '内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省',
-    '山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省',
-    '云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
+  provinces = ['请选择省份', '北京市', '上海市', '天津市', '重庆市', '河北省', '山西省',
+    '内蒙古省', '辽宁省', '吉林省', '黑龙江省', '江苏省', '浙江省', '安徽省', '福建省', '江西省',
+    '山东省', '河南省', '湖北省', '湖南省', '广东省', '广西省', '海南省', '四川省', '贵州省',
+    '云南省', '西藏省', '陕西省', '甘肃省', '宁夏省', '青海省', '新疆省', '香港', '澳门', '台湾'];
 
 
   constructor(
@@ -52,7 +52,59 @@ export class UserRegComponent implements OnInit {
     identityNumber, password, surePassword,
     phone, province, city, address, certificationTime
   ) {
-    console.log(rankId, gender);
+
+    /**
+     * 判断值不能为空
+     */
+    if (account === null || account === undefined) {
+      alert('证书编号不能为空');
+      return false;
+    }
+    if (realName === null || realName === undefined) {
+      alert('真实姓名不能为空');
+      return false;
+    }
+    if (gender === null || gender === undefined) {
+      alert('请选择性别');
+      return false;
+    }
+    if (rankId === null || rankId === undefined) {
+      alert('请选择会员登记');
+      return false;
+    }
+    if (identityNumber === null || identityNumber === undefined) {
+      alert('身份证号不能为空');
+      return false;
+    }
+    if (password === null || password === undefined) {
+      alert('新密码不能为空');
+      return false;
+    }
+    if (surePassword === null || surePassword === undefined) {
+      alert('确认密码证书编号不能为空');
+      return false;
+    }
+    if (phone === null || phone === undefined) {
+      alert('手机号不能为空');
+      return false;
+    }
+    if (province === null || province === undefined) {
+      alert('请选择省份');
+      return false;
+    }
+    if (city === null || city === undefined) {
+      alert('城市不能为空');
+      return false;
+    }
+    if (address === null || address === undefined) {
+      alert('详细地址不能为空');
+      return false;
+    }
+    if (certificationTime === null || certificationTime === undefined) {
+      alert('发证日期不能为空');
+      return false;
+    }
+
     // 赋值成json数据
     const data = {
       'account': account,
@@ -77,7 +129,7 @@ export class UserRegComponent implements OnInit {
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
+      });
   }
 
   /**

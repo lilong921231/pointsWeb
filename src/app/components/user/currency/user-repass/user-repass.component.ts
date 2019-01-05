@@ -50,6 +50,31 @@ export class UserRepassComponent implements OnInit {
    * @param sureNewPassWord 确认密码
    */
   repass(oldPassword, newpassword, sureNewPassWord) {
+    // 检查旧密码是否为空
+    if (oldPassword === null || oldPassword === '') {
+      alert('请输入原密码!');
+      return false;
+    }
+    // 检查新密码
+    if (newpassword === null || newpassword === '') {
+      alert('请输入新密码!');
+      return false;
+    }
+    // 检查确认密码
+    if (sureNewPassWord === null || sureNewPassWord === '') {
+      alert('请输入确认密码');
+      return false;
+    }
+    // 检查两次密码输入的是否一致
+    if (newpassword !== sureNewPassWord) {
+      alert('两次密码不一致!');
+      return false;
+    }
+    // 检查密码是否小于6位
+    if (newpassword.toLocaleString().length < 6 ) {
+      alert('密码不能小于6位!');
+      return false;
+    }
     // 赋值成json数据
     const data = {
       'oldPassword': oldPassword,

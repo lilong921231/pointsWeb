@@ -62,7 +62,7 @@ export class RepassComponent implements OnInit {
     this.data = {
       'oldPassWord': oldPassWord,
       'newPassWord': newPassWord,
-      'sureNewPassWord': sureNewPassWord
+      'sureNewPassword': sureNewPassWord
     };
     // 访问currency服务
     this.currency.repassService(this.data)

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserCommonService } from "../user-common.service";
+import { UserCommonService } from '../user-common.service';
 
 /**
  * @desc 用户首页界面
