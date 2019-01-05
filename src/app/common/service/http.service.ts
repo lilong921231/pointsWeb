@@ -56,10 +56,10 @@ export class HttpService {
    * @param data 传入JSON数据
    */
   postData(url: string, data: any) {
-    //headers请求参数头
+    // headers请求参数头
     return this.http.post(url, data, {headers: {
-      'Content-Type': 'application/json','Authorization': this.getToken(), '_current_id': this.getId()}
-    })
+      'Content-Type': 'application/json', 'Authorization': this.getToken(), '_current_id': this.getId()}
+    });
   }
   /**
    * get请求
