@@ -66,7 +66,7 @@
              </div>
              <div class="button-center" *ngFor="let item of messageData.data;let i = index">
                <div class="ngFor-user-header-message font-size user-header-9">{{messageData.total - i}}</div>
-               <input type="text" style="display:none" value="{{item.id}}" #messageId>
+               <input type="text" style="display:none" value="{{item.message.id}}" #messageId>
                <div class="ngFor-user-header-message font-size user-header-20">{{item.createTime}}</div>
                <div class="ngFor-user-header-message font-size user-header-11">{{item.message.title}}</div>
                <div class="ngFor-user-header-message font-size user-header-14">{{item.message.content}}</div>

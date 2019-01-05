@@ -93,7 +93,6 @@ export class UserMessageComponent implements OnInit {
           this.messageData = response;  // 获取的数据赋值给定义变量messageData
           this.messageTotal = response['total'];  // 获取留言总条数
           this.userId = response.data[0].receiver['account'];
-          console.log(response);
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面

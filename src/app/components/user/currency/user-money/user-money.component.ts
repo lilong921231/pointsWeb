@@ -53,6 +53,6 @@ export class UserMoneyComponent implements OnInit {
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
+      });
   }
 }

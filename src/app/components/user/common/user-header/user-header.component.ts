@@ -29,11 +29,10 @@ export class UserHeaderComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.userHeader = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 }

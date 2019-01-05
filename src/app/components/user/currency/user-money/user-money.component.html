@@ -21,8 +21,8 @@
             <div class="user-header-message user-header-23">消费日期</div>
           </div>
           <div>
-            <div class="user-header-width" *ngFor="let item of moneyData.data;">
-              <div class="ngFor-user-header-message user-header-10">{{item.id}}</div>
+            <div class="user-header-width" *ngFor="let item of moneyData.data;let i = index">
+              <div class="ngFor-user-header-message user-header-10">{{moneyData.data.length - i}}</div>
               <div class="ngFor-user-header-message user-header-10">{{item.district}}</div>
               <div class="ngFor-user-header-message user-header-23">{{item.locationName}}</div>
               <div class="ngFor-user-header-message user-header-23">{{item.amount}}</div>
@@ -32,7 +32,7 @@
           <div class="button-center font-size padding-top-15px">
             <div class="row div-news-width">
               <div class="col-xs-12 col-12 div-center padding-top-15px">
-                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.moneyTotal"
+                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.moneyTotal / 2"
                             [maxSize]="10" (pageChanged)="pageChanged($event)"
                             previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
               </div>
