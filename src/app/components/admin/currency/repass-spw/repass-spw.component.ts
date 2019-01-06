@@ -52,16 +52,18 @@ export class RepassSpwComponent implements OnInit {
 
     // 存入修改密码的值
     this.data = {
-      'oldPassWord': oldPassWord,
-      'newPassWord': newPassWord,
-      'sureNewPassWord': sureNewPassWord
+      'oldPassword': oldPassWord,
+      'newPassword': newPassWord,
+      'sureNewPassword': sureNewPassWord
     };
     // 访问currency服务
     this.currency.repassSuperService(this.data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
+          alert('修改成功');
+        } else {
           alert(response.message);
-          // this.router.navigateByUrl('/admin');
+          return false;
         }
       });
 
