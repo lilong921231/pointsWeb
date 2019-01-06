@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { CurrencyService } from '../../services/currency.service';
 import { Router } from '@angular/router';
+import {ManagementService} from '../../services/management.service';
 
 /**
  * 管理员用户密码
@@ -16,13 +17,15 @@ import { Router } from '@angular/router';
 export class RepassComponent implements OnInit {
 
   data: any;
-
+  adminData: any;
   constructor(
     private router: Router,
-    private currency: CurrencyService
+    private currency: CurrencyService,
+    private management: ManagementService
   ) { }
 
   ngOnInit() {
+    this.adminInfo();
   }
   /**
    * 修改密码
@@ -60,19 +63,37 @@ export class RepassComponent implements OnInit {
     }
     // 存入修改密码的值
     this.data = {
-      'oldPassWord': oldPassWord,
-      'newPassWord': newPassWord,
+      'oldPassword': oldPassWord,
+      'newPassword': newPassWord,
       'sureNewPassword': sureNewPassWord
     };
     // 访问currency服务
     this.currency.repassService(this.data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
+          alert('修改成功');
+        } else {
           alert(response.message);
-         // this.router.navigateByUrl('/admin');
+          return false;
         }
       });
 
+  }
+
+  /**
+   * 显示登陆信息
+   */
+  adminInfo() {
+    this.management.adminInfo()
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {
+          this.adminData = response;
+          console.log(response);
+        } else {
+          alert(response.message);
+          return false;
+        }
+      });
   }
 
   /**

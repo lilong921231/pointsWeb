@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
-import {HttpService} from "../../../common/service/http.service";
-import {environment} from "../../../../environments/environment";
+import { HttpService } from '../../../common/service/http.service';
+import { environment } from '../../../../environments/environment';
 
 
 @Component({
@@ -82,7 +82,8 @@ export class LoginComponent implements OnInit {
           this.http.setId(response.data['id']);
           this.router.navigateByUrl('/admin/main');
         } else {
-          alert(response.message);
+          alert(response.detailMsg);
+          console.log(response);
           return false;
         }
       });
