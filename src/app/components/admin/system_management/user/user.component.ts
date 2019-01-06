@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-user',
@@ -50,6 +48,7 @@ export class UserComponent implements OnInit {
         this.userdata = response;
         this.userTotal = response['total'];
         this.status = response.data;
+        console.log(response);
       } else {
         alert(response.message);
         return false;
@@ -113,16 +112,16 @@ export class UserComponent implements OnInit {
     // 全选框的状态
     this.checkSum = this.checkSum ? false : true;
     // 如果全选框状态为true
-    if (this.checkSum){
+    if (this.checkSum) {
       // 根据页面现实的数据长度，把全部数据的check状态赋值为true
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.userStatus[i] = true;
       }
       // 如果全选框状态不是true
     } else {
       // 根据页面当前的数据长度，把全部数据的checke状态赋值为false
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.userStatus[i] = false;
       }
@@ -160,9 +159,9 @@ export class UserComponent implements OnInit {
     let num = 0; // 为了存储ID，赋予ids数据位置
     const ids = []; // 选择事件后，给ids至空
     // 循环查看userStatus的状态
-    for(let i = 0; i < this.status.length; i++) {
+    for (let i = 0; i < this.status.length; i++) {
       // 如果userStatus[i]的状态为true
-      if(this.userStatus[i] === true) {
+      if (this.userStatus[i] === true) {
         // 则给ids赋值，赋值顺序根据num
         ids[num] = this.status[i].id;
         // 每次赋值，num + 1
@@ -179,7 +178,7 @@ export class UserComponent implements OnInit {
             alert(response.message);
             return false;
           }
-        })
+        });
     } else {
       return false;
     }

@@ -46,7 +46,7 @@ export class CustomerService {
    * 查询留言历史
    */
   messageHistoryService() {
-    const type = 'type=' + 4;
+    const type = 'type=' + 2;
     const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
     return this.httpServer.getData(url);
   }
@@ -55,7 +55,7 @@ export class CustomerService {
    * 删除留言信息（单条）
    * @param data 留言信息id
    */
-  userIdDeleteService(data){
+  userIdDeleteService(data) {
     const url = environment.apiUrl + '/user/message/delete';
     return this.httpServer.postData(url, data);
   }
@@ -79,7 +79,7 @@ export class CustomerService {
    * @param typeId 留言信息类型
    * @param keyword 关键字
    */
-  messsageSearchService(typeId,keyword) {
+  messsageSearchService(typeId, keyword) {
     const type = 'type=' + typeId;
     const keyWord = 'keyword=' + keyword;
     const url = environment.apiUrl + '/user/message/list/page/condition?' + type + '&' + keyWord;

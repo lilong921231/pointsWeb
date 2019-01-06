@@ -35,6 +35,7 @@ export class MessageHistoryComponent implements OnInit {
           this.historyData = response;
           console.log(response);
         } else {
+          console.log(response);
           alert(response.message);
           return false;
         }
@@ -50,7 +51,7 @@ export class MessageHistoryComponent implements OnInit {
     this.customer.messsageSearchService(typeId, keyword)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          this.historyData =response;
+          this.historyData = response;
         } else {
           alert(response.message);
           return false;

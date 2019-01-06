@@ -7,7 +7,7 @@
   </div>
   <div class="main-div">
     <div class="main-Navigation">
-      修改密码
+      修改指数
       <img src="../../../../../assets/images/tycz.jpg">
     </div>
     <div class="myinfo-div">
@@ -45,7 +45,7 @@
             <p>数据日期</p>
           </div>
           <div class="myinfo-div-data">
-            <p><input type="text" value="{{updateDate.data.createTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD'}}" #publishTime></p>
+            <p><input type="text" value="{{updateDate.data.createTime}}" #publishTime></p>
         </div>
           <div class="repass-button">
             <input type="button" (click)="tbIndexupdate(

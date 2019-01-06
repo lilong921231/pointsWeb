@@ -31,6 +31,10 @@ export class NewinfoUpdataComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
+  }
+
+  newUpdate(title, content) {
+    const newid = this.route.snapshot.paramMap.get('id');
   }
 }

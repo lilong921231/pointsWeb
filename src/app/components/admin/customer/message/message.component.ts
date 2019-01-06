@@ -31,8 +31,8 @@ export class MessageComponent implements OnInit {
    * 表示查询未处理的留言信息
    */
   messageInfo() {
-    // 未处理的所有留言信息类型为 3
-    const typeId = 3;
+    // 未处理的所有留言信息类型为 1
+    const typeId = 1;
     this.customer.messageListService(typeId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
@@ -55,12 +55,12 @@ export class MessageComponent implements OnInit {
     this.customer.messsageSearchService(typeId, keyword)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          this.messageData =response;
+          this.messageData = response;
         } else {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 
   /**
@@ -82,13 +82,16 @@ export class MessageComponent implements OnInit {
    * @param messageId 留言信息id
    */
   messageIdDelete(messageId) {
-    const data = {messageId};
+    const data = {
+      'ids': messageId
+    };
     const message_select = confirm('确认删除？');
     if (message_select) {
       alert('您选择了确认删除信息');
       this.customer.userIdDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
+            alert('删除成功');
             this.messageInfo();
           } else {
             alert(response.message);
@@ -108,16 +111,16 @@ export class MessageComponent implements OnInit {
     // 全选框的状态
     this.checkSum = this.checkSum ? false : true;
     // 如果全选框状态为true
-    if (this.checkSum){
+    if (this.checkSum) {
       // 根据页面现实的数据长度，把全部数据的check状态赋值为true
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.messageStatus[i] = true;
       }
       // 如果全选框状态不是true
     } else {
       // 根据页面当前的数据长度，把全部数据的checke状态赋值为false
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.messageStatus[i] = false;
       }
@@ -155,9 +158,9 @@ export class MessageComponent implements OnInit {
     let num = 0; // 为了存储ID，赋予ids数据位置
     const messages = []; // 选择事件后，给ids至空
     // messageStatus
-    for(let i = 0; i < this.status.length; i++) {
+    for (let i = 0; i < this.status.length; i++) {
       // messageStatus[i]的状态为true
-      if(this.messageStatus[i] === true) {
+      if (this.messageStatus[i] === true) {
         // 则给ids赋值，赋值顺序根据num
         messages[num] = this.status[i].id;
         // 每次赋值，num + 1
@@ -174,7 +177,7 @@ export class MessageComponent implements OnInit {
             alert(response.message);
             return false;
           }
-        })
+        });
     } else {
       return false;
     }

@@ -12,14 +12,14 @@
     <div class="myinfo-div">
       <div class="kline-div">
         <div class="opening-quotation">
-          <span>开盘：1234</span>
+          <span>开盘：{{shExponentData[exponentTotal - 1][0]}}</span>
           &nbsp;
-          <span class="opening-color">最高：1313</span>
+          <span class="opening-color">最高：{{shExponentData[exponentTotal - 1][2]}}</span>
         </div>
         <div class="closing-quotation">
-          <span>收盘：1234</span>
+          <span>收盘：{{shExponentData[exponentTotal - 1][1]}}</span>
           &nbsp;
-          <span class="quotation-color">最低：1313</span>
+          <span class="quotation-color">最低：{{shExponentData[exponentTotal - 1][3]}}</span>
         </div>
         <div class="kline-chart">
           <div echarts [options]="shExponent" class="demo-chart"></div>
@@ -28,14 +28,14 @@
       <div class="kline-br"></div>
       <div class="kline-div">
         <div class="opening-quotation">
-          <span>开盘：1234</span>
+          <span>开盘：{{tbExponentData[exponentTotal - 1][0]}}</span>
           &nbsp;
-          <span class="opening-color">最高：1313</span>
+          <span class="opening-color">最高：{{tbExponentData[exponentTotal - 1][2]}}</span>
         </div>
         <div class="closing-quotation">
-          <span>收盘：1234</span>
+          <span>收盘：{{tbExponentData[exponentTotal - 1][1]}}</span>
           &nbsp;
-          <span class="quotation-color">最低：1313</span>
+          <span class="quotation-color">最低：{{tbExponentData[exponentTotal - 1][3]}}</span>
         </div>
         <div class="kline-chart">
           <div echarts [options]="tbExponent" class="demo-chart"></div>

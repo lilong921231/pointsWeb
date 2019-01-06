@@ -45,7 +45,7 @@ export class UserTbKlineComponent implements OnInit {
     this.userCommon.userTbKlineService(132) // 显示数据条数，以最近半年为时间段大约132条左右
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
-          this.exponentData = response.data;// 取得数据赋值给定义变量，为处理数据用
+          this.exponentData = response.data;  // 取得数据赋值给定义变量，为处理数据用
           // 循环赋值指数日期和获取指数数据
           for (let i = 0; i < this.exponentData.length; i++) {
             this.shExponentData[i] = []; // 上证指数初始数据赋值空值

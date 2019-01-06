@@ -59,7 +59,7 @@ export class TbIndexUpdataComponent implements OnInit {
     const tbIndexId = this.route.snapshot.paramMap.get('id');
     // 传入参数的数据
     const tbUpdateData = {
-      'Id': tbIndexId,
+      'id': tbIndexId,
       'publishTime': publishTime,
       'shOpenExponent': shOpenExponent,
       'shCloseExponent': shCloseExponent,

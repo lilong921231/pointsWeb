@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tb-index-add',
   templateUrl: './tb-index-add.component.html',
-  styleUrls: ['./tb-index-add.component.css']
+  styleUrls: ['./tb-index-add.component.css'],
+  providers: [DatePipe]
 })
 export class TbIndexAddComponent implements OnInit {
 
+  date: any;
+
   constructor(
     private router: Router,
-    private currency: CurrencyService
+    private currency: CurrencyService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit() {
+    this.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
   }
 
   /**

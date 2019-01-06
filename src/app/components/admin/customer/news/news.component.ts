@@ -36,7 +36,6 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.newListInit(this.pageSize, this.pageNo);
-
   }
 
   /**
@@ -90,13 +89,15 @@ export class NewsComponent implements OnInit {
    * @param newId 留言信息id
    */
   newIdDelete(newId) {
-    const data = {newId};
+    const data = {
+      'ids': newId
+    };
     const new_select = confirm('确认删除？');
     if (new_select) {
       this.customer.newIdDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
-            this.ngOnInit();
+            this.newListInit(this.pageSize, this.pageNo);
           } else {
             alert(response.message);
             return false;
@@ -115,16 +116,16 @@ export class NewsComponent implements OnInit {
     // 全选框的状态
     this.checkSum = this.checkSum ? false : true;
     // 如果全选框状态为true
-    if (this.checkSum){
+    if (this.checkSum) {
       // 根据页面现实的数据长度，把全部数据的check状态赋值为true
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.newsStatus[i] = true;
       }
       // 如果全选框状态不是true
     } else {
       // 根据页面当前的数据长度，把全部数据的checke状态赋值为false
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.newsStatus[i] = false;
       }
@@ -162,9 +163,9 @@ export class NewsComponent implements OnInit {
     let num = 0; // 为了存储ID，赋予ids数据位置
     const messages = []; // 选择事件后，给ids至空
     // messageStatus
-    for(let i = 0; i < this.status.length; i++) {
+    for (let i = 0; i < this.status.length; i++) {
       // messageStatus[i]的状态为true
-      if(this.newsStatus[i] === true) {
+      if (this.newsStatus[i] === true) {
         // 则给ids赋值，赋值顺序根据num
         messages[num] = this.status[i].id;
         // 每次赋值，num + 1
@@ -181,7 +182,7 @@ export class NewsComponent implements OnInit {
             alert(response.message);
             return false;
           }
-        })
+        });
     } else {
       return false;
     }
