@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
+import {ManagementService} from '../../services/management.service';
 
 @Component({
   selector: 'app-message-history',
@@ -14,11 +15,14 @@ export class MessageHistoryComponent implements OnInit {
   messageStatus: boolean[] = [];
   // 数据集合
   status: any[] = [];
+
   historyData: any;
+  messageHistoryTotal: any;
 
 
   constructor(
-    private customer: CustomerService
+    private customer: CustomerService,
+    private management: ManagementService
   ) { }
 
   ngOnInit() {
@@ -33,13 +37,21 @@ export class MessageHistoryComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.historyData = response;
-          console.log(response);
+          this.messageHistoryTotal = response['total'];
+          this.status = response.data;
+
         } else {
-          console.log(response);
           alert(response.message);
           return false;
         }
       });
+  }
+
+  /**
+   * 根据会员编号查询会员详情
+   */
+  userIdSkip(userId) {
+    this.management.userIdSkip(userId);
   }
 
   /**
@@ -56,7 +68,7 @@ export class MessageHistoryComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 
 
@@ -65,6 +77,7 @@ export class MessageHistoryComponent implements OnInit {
    * 根据留言的ID查看详情
    */
   messageIdInfo(messageId) {
+    alert(messageId);
     this.customer.messageIdSkip(messageId);
   }
 
@@ -73,7 +86,9 @@ export class MessageHistoryComponent implements OnInit {
    * @param messageId 留言信息id
    */
   messageIdDelete(messageId) {
-    const data = {messageId};
+    const data = {
+      'ids': messageId
+    };
     const message_select = confirm('确认删除？');
     if (message_select) {
       alert('您选择了确认删除信息');
@@ -96,19 +111,20 @@ export class MessageHistoryComponent implements OnInit {
    * check全选事件
    */
   checkAll() {
+    alert('checkall');
     // 全选框的状态
     this.checkSum = this.checkSum ? false : true;
     // 如果全选框状态为true
-    if (this.checkSum){
+    if (this.checkSum) {
       // 根据页面现实的数据长度，把全部数据的check状态赋值为true
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.messageStatus[i] = true;
       }
       // 如果全选框状态不是true
     } else {
       // 根据页面当前的数据长度，把全部数据的checke状态赋值为false
-      for(let i = 0; i < this.status.length; i++) {
+      for (let i = 0; i < this.status.length; i++) {
         // 给数据的复选框赋值true
         this.messageStatus[i] = false;
       }
@@ -146,18 +162,23 @@ export class MessageHistoryComponent implements OnInit {
     let num = 0; // 为了存储ID，赋予ids数据位置
     const messages = []; // 选择事件后，给ids至空
     // messageStatus
-    for(let i = 0; i < this.status.length; i++) {
+    for (let i = 0; i < this.status.length; i++) {
       // messageStatus[i]的状态为true
-      if(this.messageStatus[i] === true) {
+      if (this.messageStatus[i] === true) {
         // 则给ids赋值，赋值顺序根据num
-        messages[num] = this.status[i].id;
+        messages[num] = this.status[i].message.id;
         // 每次赋值，num + 1
         num++;
       }
     }
+
+    const data = {
+      'ids': messages.toString()
+    };
+
     const userIdsDelete = confirm('确认删除以上' + num + '条记录？');
     if (userIdsDelete) {
-      this.customer.messagesDeleteService(messages)
+      this.customer.messagesDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
             this.ngOnInit();
@@ -165,7 +186,7 @@ export class MessageHistoryComponent implements OnInit {
             alert(response.message);
             return false;
           }
-        })
+        });
     } else {
       return false;
     }

@@ -45,6 +45,7 @@ export class MainComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.adminData = response;
+          console.log(response);
         } else {
           alert(response.message);
           return false;

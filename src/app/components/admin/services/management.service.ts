@@ -211,7 +211,6 @@ export class ManagementService {
    * @param userId 会员ID
    */
   userIdSkip(userId) {
-    alert(userId);
     this.router.navigateByUrl('/admin/user/' + userId);
   }
 

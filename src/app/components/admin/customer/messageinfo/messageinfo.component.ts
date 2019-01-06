@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-messageinfo',
@@ -37,6 +37,9 @@ export class MessageinfoComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.magData = response;
         this.userId = response.data['senderId'];
+        if (response.data.status === 6) {
+          this.messageStatus = true;
+        }
         this.messageList(this.userId);
       } else {
         alert(response.message);
@@ -68,7 +71,7 @@ export class MessageinfoComponent implements OnInit {
     this.customer.messageIdSkip(messageId);
   }
 
-  status(){
+  status() {
     this.messageStatus = this.messageStatus ? false : true;
   }
 
@@ -90,7 +93,7 @@ export class MessageinfoComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 
   /**

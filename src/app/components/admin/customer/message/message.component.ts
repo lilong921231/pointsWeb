@@ -162,17 +162,23 @@ export class MessageComponent implements OnInit {
       // messageStatus[i]的状态为true
       if (this.messageStatus[i] === true) {
         // 则给ids赋值，赋值顺序根据num
-        messages[num] = this.status[i].id;
+        messages[num] = this.status[i].message.id;
         // 每次赋值，num + 1
         num++;
       }
     }
+
+    const data = {
+      'ids': messages.toString()
+    };
+
     const userIdsDelete = confirm('确认删除以上' + num + '条记录？');
     if (userIdsDelete) {
-      this.customer.messagesDeleteService(messages)
+      this.customer.messagesDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
-            this.ngOnInit();
+            alert('删除成功');
+            this.messageInfo();
           } else {
             alert(response.message);
             return false;

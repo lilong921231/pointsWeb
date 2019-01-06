@@ -58,7 +58,6 @@ export class NewsComponent implements OnInit {
           this.data = response;
           this.newsTotal = response['total'];
           this.status = response.data;
-          console.log(this.newsTotal);
           console.log(this.data);
         } else {
           alert(response.message);
@@ -160,6 +159,7 @@ export class NewsComponent implements OnInit {
    * 删除选取的N个留言信息
    */
   newsDelete() {
+    alert('newsDelete');
     let num = 0; // 为了存储ID，赋予ids数据位置
     const messages = []; // 选择事件后，给ids至空
     // messageStatus
@@ -172,12 +172,18 @@ export class NewsComponent implements OnInit {
         num++;
       }
     }
+
+    const data = {
+      'ids': messages.toString()
+    };
+
     const userIdsDelete = confirm('确认删除以上' + num + '条记录？');
     if (userIdsDelete) {
-      this.customer.newIdDeleteService(messages)
+      this.customer.newIdDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
-            this.ngOnInit();
+            alert('删除成功');
+            this.newListInit(this.pageSize, this.pageNo);
           } else {
             alert(response.message);
             return false;
