@@ -79,7 +79,7 @@ export class NewsComponent implements OnInit {
    * 根据id跳转到修改页面
    */
   newUpdata(userId) {
-    this.customer.newUpdataService(userId);
+    this.customer.newUpdataSkip(userId);
   }
 
 

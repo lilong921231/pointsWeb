@@ -24,7 +24,7 @@
             </div>
             <div class="myinfo-div-data ">
               <div class="repass-input">
-                <input type="text" id="newupdata_title" value="{{newUpdataData.data.title}}">
+                <input type="text" id="newupdata_title" value="{{newUpdataData.data.title}}" #title>
               </div>
             </div>
             <div class="myinfo-div-inf ">
@@ -37,7 +37,7 @@
               <p>详细内容</p>
             </div>
             <div class="myinfo-div-data newinfo-minWidth">
-              <ckeditor value="{{newUpdataData.data.content}}">
+              <ckeditor value="{{newUpdataData.data.content}}" #content>
               </ckeditor>
             </div>
             <div class="myinfo-div-inf ">
@@ -47,7 +47,7 @@
               <p>{{newUpdataData.data.updateTime}}</p>
             </div>
           <div class="repass-button">
-            <input type="button" (click)="customer.new_updata()" class="button-1 button-width" value="保存编辑">
+            <input type="button" (click)="customer.new_updata(title.value, content.value)" class="button-1 button-width" value="保存编辑">
             &nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" (click)="customer.button_empty('#newupdata_title')" class="button-2 button-width" value="清空重填">
           </div>

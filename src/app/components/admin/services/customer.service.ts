@@ -101,8 +101,17 @@ export class CustomerService {
    * 根据id跳转到修改公告的界面
    * @param newId 查询公告的Id
    */
-  newUpdataService(newId) {
+  newUpdataSkip(newId) {
     this.router.navigateByUrl('/admin/newinfo_updata/' + newId);
+  }
+
+  /**
+   * 根据id修改公告信息
+   * @param data 修改后的参数
+   */
+  newUpdataService(data) {
+    const url = environment.apiUrl + '/announcement/update';
+    return this.httpServer.postData(url, data);
   }
 
   /**
