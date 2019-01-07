@@ -79,6 +79,7 @@ export class UserComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         alert('重置成功');
+        this.userInfo(this.pageSize, this.pageNo);
       } else {
         alert(response.message);
         return false;
@@ -168,9 +169,12 @@ export class UserComponent implements OnInit {
         num++;
       }
     }
-    const userIdsDelete = confirm('确认删除以上' + num + '条记录？');
+    const data = {
+      'ids': ids.toString()
+    };
+    const userIdsDelete = confirm('确认屏蔽以上' + num + '个会员？');
     if (userIdsDelete) {
-      this.management.userIdsDeleteService(ids)
+      this.management.userIdsDeleteService(data)
         .subscribe((response: any) => {
           if (response.code === 200 || response.ok) {
             this.ngOnInit();

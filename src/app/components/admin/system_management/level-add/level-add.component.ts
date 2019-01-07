@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
 import * as $ from 'jquery';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-level-add',
@@ -10,6 +11,7 @@ import * as $ from 'jquery';
 export class LevelAddComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private management: ManagementService
   ) { }
 
@@ -45,6 +47,7 @@ export class LevelAddComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code = 200 || response.ok) {
         alert('添加成功');
+        this.router.navigateByUrl('/admin/level');
       } else {
         alert(response.message);
         return false;

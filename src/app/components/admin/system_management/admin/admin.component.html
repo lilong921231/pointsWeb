@@ -31,9 +31,9 @@
             <div class="div-header admin-IdName-width">
               身份证号
             </div>
-            <div class="div-header admin-duties-width">
-              工作职务
-            </div>
+            <!--<div class="div-header admin-duties-width">-->
+              <!--工作职务-->
+            <!--</div>-->
             <div class="div-header admin-contact-width">
               联系电话
             </div>
@@ -53,14 +53,14 @@
           </div>
           <div class="admin-div" *ngFor="let item of adminData.data;let i = index">
             <div class="div-data admin-num-width data-color">
-            {{item.id}}
+            {{i + 1}}
               <input type="text" style="display:none" value="{{item.id}}" #adminId>
             </div>
             <div class="div-data admin-account-width data-color">
               {{item.account}}
             </div>
             <div class="div-data admin-roles-width data-color">
-
+              {{item.roleList[0].name}}
             </div>
             <div class="div-data admin-name-width data-color">
               {{item.realName}}
@@ -68,9 +68,9 @@
             <div class="div-data admin-IdName-width data-color">
               {{item.identityNumber}}
             </div>
-            <div class="div-data admin-duties-width data-color">
-              工作职务
-            </div>
+            <!--<div class="div-data admin-duties-width data-color">-->
+              <!--管理员-->
+            <!--</div>-->
             <div class="div-data admin-contact-width data-color">
               {{item.phone}}
             </div>
@@ -78,10 +78,10 @@
               {{item.email}}
             </div>
             <div class="div-data admin-loginTime-width data-color">
-              最后登录时间
+              {{item.lastLoginTime}}
             </div>
             <div class="div-data admin-ip-width data-color">
-              最后登录IP
+              {{item.lastLoginIp}}
             </div>
             <div class="div-data admin-operation-width">
               <a routerLink="#" (click)="adminUpdata(adminId.value)">修改</a>&nbsp;&nbsp;

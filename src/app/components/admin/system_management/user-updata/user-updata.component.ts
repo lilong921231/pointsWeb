@@ -46,7 +46,7 @@ export class UserUpdataComponent implements OnInit {
             this.leveldata[i].state = false;
           }
         }
-        console.log(this.leveldata);
+        console.log(this.dataUpdata);
       } else {
         alert(response.message);
         return false;
