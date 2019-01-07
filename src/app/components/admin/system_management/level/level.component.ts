@@ -41,6 +41,7 @@ export class LevelComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.levelData = response;
+        this.levelTotal = response['total'];
       } else {
         alert(response.message);
         return false;

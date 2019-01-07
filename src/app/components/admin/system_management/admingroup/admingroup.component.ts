@@ -12,7 +12,7 @@ export class AdmingroupComponent implements OnInit {
   admingroupData: any;
   groupTotal: any;
   pageNo = 1;
-  pageSize = 10;
+  pageSize = 20;
 
   constructor(
     private management: ManagementService
@@ -39,6 +39,7 @@ export class AdmingroupComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.admingroupData = response;
+        this.groupTotal = response['total'];
       } else {
         alert(response.message);
         return false;
