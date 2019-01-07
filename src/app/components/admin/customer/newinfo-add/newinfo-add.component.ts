@@ -23,6 +23,7 @@ export class NewinfoAddComponent implements OnInit {
       'content': content,
       'publishTime': publishTime
     };
+    console.log(data);
     this.customer.newAdd(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {

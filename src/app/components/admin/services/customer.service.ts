@@ -127,7 +127,7 @@ export class CustomerService {
    * 添加新公告
    */
   newAdd(data) {
-    const url = environment.apiUrl + 'announcement/sage';
+    const url = environment.apiUrl + '/announcement/save';
     return this.httpServer.postData(url, data);
   }
 

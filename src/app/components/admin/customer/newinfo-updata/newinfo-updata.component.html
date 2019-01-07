@@ -47,9 +47,9 @@
               <p>{{newUpdataData.data.updateTime}}</p>
             </div>
           <div class="repass-button">
-            <input type="button" (click)="customer.new_updata(title.value, content.value)" class="button-1 button-width" value="保存编辑">
+            <input type="button" (click)="newUpdate(title.value, content.value)" class="button-1 button-width" value="保存编辑">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="customer.button_empty('#newupdata_title')" class="button-2 button-width" value="清空重填">
+            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
           </div>
           <div class="clear"></div>
 

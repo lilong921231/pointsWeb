@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DatePipe} from '@angular/common';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-newinfo-updata',
@@ -38,14 +39,15 @@ export class NewinfoUpdataComponent implements OnInit {
   }
 
   newUpdate(title, content) {
-    const updateTime = this.datePipe.transform(new Date(), 'yyyy-MM-dd  hh:mm:ss');
+    const updateTime = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
     const newid = this.route.snapshot.paramMap.get('id');
     const data = {
-      'userId': newid,
+      'id': newid,
       'title': title,
       'content': content,
-      'updateTime': updateTime
+      'publishTime': updateTime
     };
+    console.log(data);
     this.customer.newUpdataService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
@@ -55,5 +57,13 @@ export class NewinfoUpdataComponent implements OnInit {
           alert(response.message);
         }
       });
+  }
+
+  /**
+   * 重置按钮
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
+    $('ckeditor').prop('value', '');
   }
 }
