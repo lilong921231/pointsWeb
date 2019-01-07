@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import {ManagementService} from '../../services/management.service';
+import {HttpService} from '../../../../common/service/http.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class MainComponent implements OnInit {
   adminData: any;
   constructor(
     private currency: CurrencyService,
-    private management: ManagementService
+    private management: ManagementService,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class MainComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.adminData = response;
-          console.log(response);
+          this.http.setName(response.data.roleList[0].name);
         } else {
           alert(response.message);
           return false;

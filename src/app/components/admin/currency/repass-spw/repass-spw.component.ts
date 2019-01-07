@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import * as $ from 'jquery';
+import {HttpService} from '../../../../common/service/http.service';
 
 @Component({
   selector: 'app-repass-spw',
@@ -11,7 +12,8 @@ export class RepassSpwComponent implements OnInit {
 
   private data: any;
   constructor(
-    private currency: CurrencyService
+    private currency: CurrencyService,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
@@ -25,6 +27,10 @@ export class RepassSpwComponent implements OnInit {
    * @param sureNewPassWord  确认密码
    */
   checkInput(oldPassWord, newPassWord, sureNewPassWord) {
+    if (this.http.getName() !== '顶级管理员') {
+      alert('您不是顶级管理员，不可修改超级密码');
+      return false;
+    }
     // 检查旧密码是否为空
     if (oldPassWord === null || oldPassWord === '') {
       alert('请输入原密码!');

@@ -50,6 +50,25 @@ export class HttpService {
     }
     return window.localStorage.id;
   }
+
+  /**
+   * 在storage处存入用户角色名字
+   * @param value id的值
+   */
+  setName(value) {
+    window.localStorage.Name = value;
+  }
+
+  /**
+   * 从storage处取出用户角色名字
+   */
+  getName() {
+    if (window.localStorage.Name == null) {
+      window.localStorage.Name = '';
+    }
+    return window.localStorage.Name;
+  }
+
   /**
    * psot请求
    * @param url api接口地址
