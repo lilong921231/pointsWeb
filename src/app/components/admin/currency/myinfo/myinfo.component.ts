@@ -25,7 +25,6 @@ export class MyinfoComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.data = response;
-        console.log(this.data);
       } else {
         alert(response.message);
         return false;

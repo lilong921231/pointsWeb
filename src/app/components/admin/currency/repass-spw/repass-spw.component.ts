@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-repass-spw',
