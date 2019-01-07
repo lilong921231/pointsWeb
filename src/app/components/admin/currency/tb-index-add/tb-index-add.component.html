@@ -25,9 +25,9 @@
           <div class="myinfo-div-data">
             <p>
             开盘：<input type="text" value="" #shOpenExponent>
-            最高：<input type="text" #shMaxExponent>
-            最低：<input type="text" #shMinExponent>
-            收盘：<input type="text" #shCloseExponent>
+            最高：<input type="text" value="" #shMaxExponent>
+            最低：<input type="text" value="" #shMinExponent>
+            收盘：<input type="text" value="" #shCloseExponent>
             </p>
           </div>
           <div class="myinfo-div-inf">
@@ -35,10 +35,10 @@
           </div>
           <div class="myinfo-div-data">
             <p>
-              开盘：<input type="text" #tbOpenExponent>
-              最高：<input type="text" #tbMaxExponent>
-              最低：<input type="text" #tbMinExponent>
-              收盘：<input type="text" #tbCloseExponent>
+              开盘：<input type="text" value="" #tbOpenExponent>
+              最高：<input type="text" value="" #tbMaxExponent>
+              最低：<input type="text" value="" #tbMinExponent>
+              收盘：<input type="text" value="" #tbCloseExponent>
             </p>
           </div>
           <div class="myinfo-div-inf">
@@ -49,7 +49,7 @@
           </div>
           <div class="repass-button">
             <input type="button" (click)="tbIndexAdd(
-           publishTime.value,
+             publishTime.value,
             shOpenExponent.value, shMaxExponent.value,
             shMinExponent.value, shCloseExponent.value,
             tbOpenExponent.value, tbMaxExponent.value,

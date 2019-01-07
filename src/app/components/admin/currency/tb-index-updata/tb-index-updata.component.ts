@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-tb-index-updata',
@@ -81,5 +82,12 @@ export class TbIndexUpdataComponent implements OnInit {
           return false;
         }
       });
+  }
+
+  /**
+   * 重置事件
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
   }
 }

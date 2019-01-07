@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-tb-index-add',
@@ -37,9 +38,48 @@ export class TbIndexAddComponent implements OnInit {
    */
   tbIndexAdd(
     publishTime,
-    shOpenExponent, shCloseExponent, shMaxExponent, shMinExponent,
-    tbOpenExponent, tbCloseExponent, tbMaxExponent, tbMinExponent
+    shOpenExponent, shMaxExponent, shMinExponent, shCloseExponent,
+    tbOpenExponent, tbMaxExponent, tbMinExponent, tbCloseExponent
   ) {
+
+    if (publishTime === null || publishTime === undefined || publishTime === '') {
+      alert('发布时间不能为空');
+      return false;
+    }
+    if (shOpenExponent === null || shOpenExponent === undefined || shOpenExponent === '') {
+      alert('上证开盘指数不能为空');
+      return false;
+    }
+    if (shMaxExponent === null || shMaxExponent === undefined || shMaxExponent === '') {
+      alert('上证最高指数不能为空');
+      return false;
+    }
+    if (shMinExponent === null || shMinExponent === undefined || shMinExponent === '') {
+      alert('上证最低指数不能为空');
+      return false;
+    }
+    if (shCloseExponent === null || shCloseExponent === undefined || shCloseExponent === '') {
+      alert('上证收盘指数不能为空');
+      return false;
+    }
+    if (tbOpenExponent === null || tbOpenExponent === undefined || tbOpenExponent === '') {
+      alert('天宝开盘指数不能为空');
+      return false;
+    }
+    if (tbMaxExponent === null || tbMaxExponent === undefined || tbMaxExponent === '') {
+      alert('天宝最高指数不能为空');
+      return false;
+    }
+    if (tbMinExponent === null || tbMinExponent === undefined || tbMinExponent === '') {
+      alert('天宝最低指数不能为空');
+      return false;
+    }
+    if (tbCloseExponent === null || tbCloseExponent === undefined || tbCloseExponent === '') {
+      alert('天宝收盘指数不能为空');
+      return false;
+    }
+
+
     // 传入参数的数据
     const tbAddData = {
       'publishTime': publishTime,
@@ -62,5 +102,12 @@ export class TbIndexAddComponent implements OnInit {
         return false;
       }
       });
+  }
+
+  /**
+   * 重置事件
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
   }
 }
