@@ -31,13 +31,13 @@
              <div class="user-right">
                <div class="user-input">
                  <input type="text" value="" #title>
-                 <span> *必须输入</span>
+                 <span> * 必须输入</span>
                </div>
              </div>
              <div class="user-left user-message-height">
                <p>
                  留言内容<br><br>
-                 <span>(必须输入)</span>
+                 <span>(* 必须输入)</span>
                </p>
              </div>
              <div class="user-right user-message-height">
@@ -70,8 +70,8 @@
                <div class="ngFor-user-header-message font-size user-header-20">{{item.createTime}}</div>
                <div class="ngFor-user-header-message font-size user-header-11">{{item.message.title}}</div>
                <div class="ngFor-user-header-message font-size user-header-14">{{item.message.content}}</div>
-               <div class="ngFor-user-header-message font-size user-header-14">回复</div>
-               <div class="ngFor-user-header-message font-size user-header-14">回复日期</div>
+               <div class="ngFor-user-header-message font-size user-header-14">{{item.message.reply}}</div>
+               <div class="ngFor-user-header-message font-size user-header-14">{{item.message.replyTime}}</div>
                <div class="ngFor-user-header-message font-size user-header-3">
                  <a routerLink="#" (click)="messageInfoSkip(messageId.value)" >查看</a>
                </div>

@@ -31,7 +31,7 @@ export class UserMessageComponent implements OnInit {
 
   ngOnInit() {
     this.messageInfo(this.pageSize, this.pageNo); // 初始化留言信息
-    this.userId = this.http.getId();  // 初始化用户id
+    // this.userId = this.http.getId();  // 初始化用户id
   }
 
   /**
@@ -100,7 +100,10 @@ export class UserMessageComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.messageData = response;  // 获取的数据赋值给定义变量messageData
           this.messageTotal = response['total'];  // 获取留言总条数
-          this.userId = response.data[0].receiver['account'];
+          this.userId = response.data[0].sender['account'];
+
+          console.log(response);
+
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
