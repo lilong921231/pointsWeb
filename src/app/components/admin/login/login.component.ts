@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           this.http.setId(response.data['id']);
           this.router.navigateByUrl('/admin/main');
         } else {
-          alert(response.detailMsg);
+          alert(response.message);
           console.log(response);
           return false;
         }

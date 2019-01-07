@@ -76,7 +76,7 @@ export class PointinfoComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.data = response;
       } else {
-        alert(response.detailMsg);
+        alert(response.message);
         return false;
       }
       });

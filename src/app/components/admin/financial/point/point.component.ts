@@ -54,7 +54,7 @@ export class PointComponent implements OnInit {
           alert('结算成功');
         } else {
           // 返回error信息
-          alert(response.detailMsg);
+          alert(response.message);
           return false;
         }
       });

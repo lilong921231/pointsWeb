@@ -44,7 +44,7 @@ export class UserLoginComponent implements OnInit {
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
+      });
   }
 
   /**
@@ -84,7 +84,7 @@ export class UserLoginComponent implements OnInit {
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
+      });
   }
 
 
@@ -92,7 +92,7 @@ export class UserLoginComponent implements OnInit {
   /**
    * 重置事件
    */
-  reset(){
+  reset() {
     //  账户和验证码
     $('input[type="text"]').prop('value', '');
     //  密码
