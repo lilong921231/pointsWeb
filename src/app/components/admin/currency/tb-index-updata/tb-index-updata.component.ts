@@ -54,8 +54,8 @@ export class TbIndexUpdataComponent implements OnInit {
    */
   tbIndexupdate(
     publishTime,
-    shOpenExponent, shCloseExponent, shMaxExponent, shMinExponent,
-    tbOpenExponent, tbCloseExponent, tbMaxExponent, tbMinExponent
+    shOpenExponent, shMaxExponent, shMinExponent, shCloseExponent,
+    tbOpenExponent, tbMaxExponent, tbMinExponent, tbCloseExponent
   ) {
     const tbIndexId = this.route.snapshot.paramMap.get('id');
     // 传入参数的数据
@@ -63,14 +63,15 @@ export class TbIndexUpdataComponent implements OnInit {
       'id': tbIndexId,
       'publishTime': publishTime,
       'shOpenExponent': shOpenExponent,
-      'shCloseExponent': shCloseExponent,
       'shMaxExponent': shMaxExponent,
       'shMinExponent': shMinExponent,
+      'shCloseExponent': shCloseExponent,
       'tbOpenExponent': tbOpenExponent,
-      'tbCloseExponent': tbCloseExponent,
       'tbMaxExponent': tbMaxExponent,
       'tbMinExponent': tbMinExponent,
+      'tbCloseExponent': tbCloseExponent,
     };
+    console.log(tbUpdateData);
 
     return this.currency.tbIndexUpdateService(tbUpdateData)
       .subscribe((response: any) => {
