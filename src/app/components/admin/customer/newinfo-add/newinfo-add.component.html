@@ -45,16 +45,17 @@
             <p>日期</p>
           </div>
           <div class="myinfo-div-data ">
-            <p>{{myDate | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}</p>
-            <input type="text" style="display:none" value="{{myDate | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}"  #publishTime>
+            <p>{{myData | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}</p>
+            <input type="text" style="display:none" value="{{myData | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}"  #publishTime>
           </div>
           <div class="repass-button">
             <input type="button" (click)="newAdd(title.value, content.value, publishTime.value)" class="button-1 button-width" value="保存编辑">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="customer.button_empty('#newinfo_title')" class="button-2 button-width" value="清空重填">
+            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
           </div>
           <div class="clear"></div>
       </div>
     </div>
   </div>
+</div>
 </div>

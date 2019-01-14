@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
 import * as $ from 'jquery';
+import {DatePipe} from '@angular/common';
 
 /**
  * @desc 登陆用户居住权证
@@ -10,13 +11,15 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-user-reg',
   templateUrl: './user-reg.component.html',
-  styleUrls: ['./user-reg.component.css']
+  styleUrls: ['./user-reg.component.css'],
+  providers: [DatePipe]
 })
 export class UserRegComponent implements OnInit {
 
   /**
    * 定义接收数据变量
    */
+  date: any;  // 当前时间
 
   // 各个省名
   provinces = ['请选择省份', '北京市', '上海市', '天津市', '重庆市', '河北省', '山西省',
@@ -26,10 +29,12 @@ export class UserRegComponent implements OnInit {
 
 
   constructor(
+    private datePipe: DatePipe,
     private userCommon: UserCommonService  // 引入UserCommonService服务
   ) { }
 
   ngOnInit() {
+    this.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
   }
 
   /**

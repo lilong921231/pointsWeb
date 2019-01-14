@@ -69,9 +69,9 @@ export class PointinfoComponent implements OnInit {
    * @param pageSize 页面显示数量大小
    * @param pageNo 当前页面
    */
-  pointSearch(keyword, pageSize, pageNo) {
+  pointSearch(keyword) {
     const sysBonusId = this.route.snapshot.paramMap.get('id');
-    this.financial.pointSearchService(sysBonusId, keyword, pageSize, pageNo)
+    this.financial.pointSearchService(sysBonusId, keyword, this.pageSize, this.pageNo)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.data = response;

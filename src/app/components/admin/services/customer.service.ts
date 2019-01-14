@@ -12,7 +12,7 @@ export class CustomerService {
 
   constructor(
     private router: Router,
-    private httpServer: HttpService
+    private httpService: HttpService
   ) { }
 
   /**
@@ -21,8 +21,8 @@ export class CustomerService {
    */
   messageListService(typeId) {
     const type = 'type=' + typeId;
-    const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/user/message/list/page/condition?' + type;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -38,8 +38,8 @@ export class CustomerService {
   newInfo(pageSize, pageNo) {
     const size = 'pageSize=' + pageSize;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/announcement/list/page?' + size + '&' + pageno;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/announcement/list/page?' + size + '&' + pageno;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -47,8 +47,8 @@ export class CustomerService {
    */
   messageHistoryService() {
     const type = 'type=' + 2;
-    const url = environment.apiUrl + '/user/message/list/page/condition?' + type;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/user/message/list/page/condition?' + type;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -56,8 +56,8 @@ export class CustomerService {
    * @param data 留言信息id
    */
   userIdDeleteService(data) {
-    const url = environment.apiUrl + '/user/message/delete';
-    return this.httpServer.postData(url, data);
+    const url = this.httpService.adminUrl + '/user/message/delete';
+    return this.httpService.postData(url, data);
   }
 
   /**
@@ -70,8 +70,8 @@ export class CustomerService {
     const id = 'id=' + userid;
     const rep = 'reply=' + reply;
     const statu = 'status=' + status;
-    const url = environment.apiUrl + '/user/message/reply?' + id + '&' + rep + '&' + statu;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/user/message/reply?' + id + '&' + rep + '&' + statu;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -82,8 +82,8 @@ export class CustomerService {
   messsageSearchService(typeId, keyword) {
     const type = 'type=' + typeId;
     const keyWord = 'keyword=' + keyword;
-    const url = environment.apiUrl + '/user/message/list/page/condition?' + type + '&' + keyWord;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/user/message/list/page/condition?' + type + '&' + keyWord;
+    return this.httpService.getData(url);
   }
 
 
@@ -92,8 +92,8 @@ export class CustomerService {
    * @param newId 公告信息id
    */
   newIdDeleteService(newId) {
-   const url = environment.apiUrl + '/announcement/delete';
-   return this.httpServer.postData(url, newId);
+   const url = this.httpService.adminUrl + '/announcement/delete';
+   return this.httpService.postData(url, newId);
   }
 
 
@@ -110,8 +110,8 @@ export class CustomerService {
    * @param data 修改后的参数
    */
   newUpdataService(data) {
-    const url = environment.apiUrl + '/announcement/update';
-    return this.httpServer.postData(url, data);
+    const url = this.httpService.adminUrl + '/announcement/update';
+    return this.httpService.postData(url, data);
   }
 
   /**
@@ -119,16 +119,16 @@ export class CustomerService {
    * @param newId 查询公告id
    */
   newIdService(newId) {
-    const url = environment.apiUrl + '/announcement/get/' + newId;
-    return this.httpServer.getData(url);
+    const url = this.httpService.adminUrl + '/announcement/get/' + newId;
+    return this.httpService.getData(url);
   }
 
   /**
    * 添加新公告
    */
   newAdd(data) {
-    const url = environment.apiUrl + '/announcement/save';
-    return this.httpServer.postData(url, data);
+    const url =  this.httpService.adminUrl + '/announcement/save';
+    return this.httpService.postData(url, data);
   }
 
   /**
@@ -136,8 +136,8 @@ export class CustomerService {
    * @param messageId 留言id
    */
   messageInfoService(messageId) {
-    const url = environment.apiUrl + '/user/message/get/' + messageId;
-    return this.httpServer.getData(url);
+    const url =  this.httpService.adminUrl + '/user/message/get/' + messageId;
+    return this.httpService.getData(url);
   }
 
   /**
@@ -145,7 +145,7 @@ export class CustomerService {
    * @param messages 留言信息id的数组
    */
   messagesDeleteService(messages) {
-    const url = environment.apiUrl + '/user/message/delete';
-    return this.httpServer.postData(url, messages);
+    const url = this.httpService.adminUrl + '/user/message/delete';
+    return this.httpService.postData(url, messages);
   }
 }

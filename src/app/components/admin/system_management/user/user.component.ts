@@ -48,7 +48,6 @@ export class UserComponent implements OnInit {
         this.userdata = response;
         this.userTotal = response['total'];
         this.status = response.data;
-        console.log(response);
       } else {
         alert(response.message);
         return false;
@@ -78,8 +77,8 @@ export class UserComponent implements OnInit {
     this.management.userResetService(userId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
-        alert('重置成功');
-        this.userInfo(this.pageSize, this.pageNo);
+        alert('重置成功!密码为：888888');
+        this.router.navigateByUrl('/admin/user');
       } else {
         alert(response.message);
         return false;

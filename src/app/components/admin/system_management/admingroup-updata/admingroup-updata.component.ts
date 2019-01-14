@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-admingroup-updata',
@@ -54,7 +55,7 @@ export class AdmingroupUpdataComponent implements OnInit {
     // 访问修改管理角色的service
     this.management.admingroupUpdata(data)
       .subscribe((response: any) => {
-        if (response.code = 200 || response.ok) {
+        if (response.code === 200 || response.ok) {
           alert('修改成功');
           this.router.navigateByUrl('/admin/admingroup');
         } else {
@@ -63,5 +64,10 @@ export class AdmingroupUpdataComponent implements OnInit {
         }
       });
   }
-
+  /**
+   * 重置事件
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
+  }
 }

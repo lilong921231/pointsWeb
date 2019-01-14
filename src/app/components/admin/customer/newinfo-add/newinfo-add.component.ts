@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-newinfo-add',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NewinfoAddComponent implements OnInit {
 
+  myData: any;
   constructor(
     private router: Router,
     private customer: CustomerService
@@ -34,5 +36,12 @@ export class NewinfoAddComponent implements OnInit {
           return false;
         }
       });
+  }
+  /**
+   * 重置按钮
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
+    $('ckeditor').prop('value', '');
   }
 }

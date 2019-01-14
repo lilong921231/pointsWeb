@@ -17,7 +17,7 @@ export class FinancialService {
    * 显示总积分和权重比例
    */
  pointBalance () {
-    const url = environment.apiUrl + '/system/bonus/balance';
+    const url = this.httpService.adminUrl + '/system/bonus/balance';
     return this.httpService.getData(url);
  }
 
@@ -26,7 +26,7 @@ export class FinancialService {
    * @param urlParam 权重比例（百分比）
    */
   pointSystemRatio(urlParam) {
-    const url = environment.apiUrl + '/system/bonus/checkout' + urlParam;
+    const url = this.httpService.adminUrl + '/system/bonus/checkout' + urlParam;
     return this.httpService.getData(url);
   }
 
@@ -38,7 +38,7 @@ export class FinancialService {
   pointList(pageSize, pageNo) {
     const size = 'pageSize=' + pageSize;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/system/bonus/list/page?' + size + '&' + pageno;
+    const url = this.httpService.adminUrl + '/system/bonus/list/page?' + size + '&' + pageno;
     return this.httpService.getData(url);
   }
 
@@ -47,7 +47,7 @@ export class FinancialService {
    * @param pointId 系统id
    */
   pointVisibleService(pointId) {
-    const url = environment.apiUrl + '/system/bonus/visible/' + pointId;
+    const url = this.httpService.adminUrl + '/system/bonus/visible/' + pointId;
     return this.httpService.getData(url);
   }
 
@@ -56,7 +56,7 @@ export class FinancialService {
    * @param pointId 要清空积分的id
    */
   pointDelete(pointId) {
-    const url = environment.apiUrl + '/system/bonus/delete/' + pointId;
+    const url = this.httpService.adminUrl + '/system/bonus/delete/' + pointId;
     return this.httpService.getData(url);
   }
 
@@ -76,7 +76,7 @@ export class FinancialService {
   pointInfo(pointId, size, pageNo) {
     const pageSize = 'pageSize=' + size;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/personal/bonus/list/page/' + pointId + '?' + pageSize + '&' + pageno;
+    const url = this.httpService.adminUrl + '/personal/bonus/list/page/' + pointId + '?' + pageSize + '&' + pageno;
     return this.httpService.getData(url);
   }
 
@@ -85,7 +85,7 @@ export class FinancialService {
    * @param id 个人id
    */
   pointIdVisibleService(id) {
-    const url = environment.apiUrl + '/personal/bonus/visible/' + id;
+    const url = this.httpService.adminUrl + '/personal/bonus/visible/' + id;
     return this.httpService.getData(url);
   }
 
@@ -100,7 +100,7 @@ export class FinancialService {
     const keyWord = 'keyword=' + keyword;
     const size = 'pageSize=' + pageSize;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/personal/bonus/list/page/' + sysBonusId + '/condition/?' + keyWord + '&' + size + '&' + pageno;
+    const url = this.httpService.adminUrl + '/personal/bonus/list/page/' + sysBonusId + '/condition/?' + keyWord + '&' + size + '&' + pageno;
     return this.httpService.getData(url);
   }
 }

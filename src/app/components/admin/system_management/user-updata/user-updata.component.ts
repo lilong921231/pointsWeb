@@ -88,13 +88,13 @@ export class UserUpdataComponent implements OnInit {
         alert(response.message);
         return false;
       }
-      })
+      });
   }
 
   /**
    * 重置事件
    */
-  rest() {
+  reset() {
     $('input[type="text"]').prop('value', '');
   }
 }

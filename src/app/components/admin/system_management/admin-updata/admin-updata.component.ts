@@ -81,7 +81,8 @@ export class AdminUpdataComponent implements OnInit {
   /**
    * 重置事件
    */
-  rest() {
+  reset() {
     $('input[type="text"]').prop('value', '');
+    $('input[type="password"]').prop('value', '');
   }
 }

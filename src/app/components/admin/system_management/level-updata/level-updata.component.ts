@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-level-updata',
@@ -75,6 +76,13 @@ export class LevelUpdataComponent implements OnInit {
           return false;
         }
       });
+  }
+
+  /**
+   * 重置事件
+   */
+  reset() {
+    $('input[type="text"]').prop('value', '');
   }
 
 }

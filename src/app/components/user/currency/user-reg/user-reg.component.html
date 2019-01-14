@@ -101,10 +101,10 @@
             <div class="user-input">
               <select value="" #rankId>
                 <option selected="selected" >请选择客户类型</option>
-                <option value="0">普通会员</option>
-                <option value="1">白银会员</option>
-                <option value="2">黄金会员</option>
-                <option value="3">钻石会员</option>
+                <option value="0">普卡会员</option>
+                <option value="1">银卡会员</option>
+                <option value="2">金卡会员</option>
+                <option value="3">钻卡会员</option>
               </select>
               <span>* 必须选择！</span>
             </div>
@@ -114,8 +114,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="" #certificationTime>
-              <span> * 必须输入！</span>
+              <input type="text" readonly="readonly" value="{{date}}" #certificationTime>
             </div>
           </div>
           <div class="button-center">

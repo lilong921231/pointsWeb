@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrencyService } from '../../services/currency.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-tb-index',
   templateUrl: './tb-index.component.html',
-  styleUrls: ['./tb-index.component.css']
+  styleUrls: ['./tb-index.component.css'],
 })
 export class TbIndexComponent implements OnInit {
 

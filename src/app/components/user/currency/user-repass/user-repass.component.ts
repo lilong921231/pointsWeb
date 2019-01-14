@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
 
 /**
  * @desc 修改用户个人密码
@@ -19,6 +20,7 @@ export class UserRepassComponent implements OnInit {
    */
   userRepass: any;  // 会员信息数据
   constructor(
+    private router: Router, // 引入Router路有组件
     private userCommon: UserCommonService  // 引入UserCommonService服务
   ) { }
 
@@ -35,12 +37,11 @@ export class UserRepassComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.userRepass = response;  // 获取的数据赋值给定义变量userRepass
-          console.log(response);
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
+      });
   }
 
   /**
@@ -86,6 +87,7 @@ export class UserRepassComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           alert('修改成功');
+          this.router.navigateByUrl('');
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面

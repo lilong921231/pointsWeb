@@ -76,7 +76,7 @@ export class UserCommonService {
    */
   messageUpdateService(data) {
     const url = environment.apiUserUrl + '/message/save'; // 设定用户留言信息api接口
-    return this.httpService.postData(url,data); // 访问http的post请求
+    return this.httpService.postData(url, data); // 访问http的post请求
   }
 
   /**
@@ -96,7 +96,7 @@ export class UserCommonService {
    * @param id 留言id
    */
   messageIdSkip(id) {
-    this.router.navigateByUrl('/messageInfo/' + id);  // 根据id跳转网页
+      this.router.navigateByUrl('/messageInfo/' + id);  // 根据id跳转网页
   }
   /**
    * 根据id显示留言信息

@@ -11,6 +11,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
+
+  adminUrl = 'http://localhost:8001';
+
   constructor(
     private http: HttpClient  // 引入http组件
   ) { }

@@ -18,7 +18,7 @@ export class CurrencyService {
    * 首页公告
    */
   newService() {
-    const url = environment.apiUrl + '/announcement/list/page?pageSize=10&pageNo=1';
+    const url = this.httpService.adminUrl + '/announcement/list/page?pageSize=10&pageNo=1';
     return this.httpService.getData(url);
   }
 
@@ -26,7 +26,7 @@ export class CurrencyService {
    * 个人档案
    */
   myinfoService() {
-    const url = environment.apiUrl + '/admin/personal/info';
+    const url = this.httpService.adminUrl + '/admin/personal/info';
     return this.httpService.getData(url);
   }
 
@@ -36,7 +36,7 @@ export class CurrencyService {
    * @param data 请求密码数据Json
    */
   repassService(data) {
-    const url = environment.apiUrl + '/admin/personal/password';
+    const url = this.httpService.adminUrl + '/admin/personal/password';
     return this.httpService.postData(url, data);
   }
 
@@ -46,7 +46,7 @@ export class CurrencyService {
    * @param data 请求密码数据Json
    */
   repassSuperService(data) {
-    const url = environment.apiUrl + '/admin/personal/super/password';
+    const url = this.httpService.adminUrl + '/admin/personal/super/password';
     return this.httpService.postData(url, data);
   }
 
@@ -58,8 +58,7 @@ export class CurrencyService {
   tbIndexService(pageSize, pageNo) {
     const size = 'pageSize=' + pageSize;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/stock/list/page?' + size + '&' + pageno;
-    console.log(url);
+    const url = this.httpService.adminUrl + '/stock/list/page?' + size + '&' + pageno;
     return this.httpService.getData(url);
   }
 
@@ -68,7 +67,7 @@ export class CurrencyService {
    * @param tbAddData 添加天宝指数的数据
    */
   tbIndexAddService(tbAddData) {
-    const url = environment.apiUrl + '/stock/save';
+    const url = this.httpService.adminUrl + '/stock/save';
     return this.httpService.postData(url, tbAddData);
   }
 
@@ -77,7 +76,7 @@ export class CurrencyService {
    * @param tbExponentId 根据id查询结果
    */
   tbIndexIdService(tbExponentId) {
-    const url = environment.apiUrl + '/stock/get/' + tbExponentId;
+    const url = this.httpService.adminUrl + '/stock/get/' + tbExponentId;
     return this.httpService.getData(url);
   }
 
@@ -93,7 +92,7 @@ export class CurrencyService {
    * 删除天宝指数
    */
   tbDeleteService(tbExponentId) {
-    const url = environment.apiUrl + '/stock/delete/' + tbExponentId;
+    const url = this.httpService.adminUrl + '/stock/delete/' + tbExponentId;
     return this.httpService.getData(url);
   }
   /**
@@ -101,7 +100,7 @@ export class CurrencyService {
    */
   tbIndexUpdateService(data) {
     console.log(data);
-    const url = environment.apiUrl + '/stock/update';
+    const url = this.httpService.adminUrl + '/stock/update';
     return this.httpService.postData(url, data);
   }
 
@@ -111,7 +110,7 @@ export class CurrencyService {
    * @param num 传入的数值
    */
   exponentsService(num) {
-    const url = environment.apiUrl + '/stock/list/' + num;
+    const url = this.httpService.adminUrl + '/stock/list/' + num;
     return this.httpService.getData(url);
   }
 }

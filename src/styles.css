@@ -214,3 +214,7 @@ input {
   cursor: pointer;
   text-decoration:none;
 }
+.user-bottom>.user-right {
+  display: flex;
+  align-items: center;
+}

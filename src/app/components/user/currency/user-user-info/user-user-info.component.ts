@@ -30,6 +30,6 @@ export class UserUserInfoComponent implements OnInit {
           alert(response.message);
           return false;
         }
-      })
+      });
   }
 }

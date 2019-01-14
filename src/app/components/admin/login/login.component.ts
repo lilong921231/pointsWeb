@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
    * 图形code
    */
   generate() {
-    const url = environment.apiUrl + '/security/captcha/generate';
+    const url = this.http.adminUrl + '/security/captcha/generate';
     this.http.getData(url)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
@@ -74,13 +74,13 @@ export class LoginComponent implements OnInit {
       'password': password,
       'userCaptcha': userCaptcha
     };
-    const url = environment.apiUrl + '/security/login';
+    const url = this.http.adminUrl + '/security/login';
     this.http.postData(url, data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.http.setToken(response.data['token']);
           this.http.setId(response.data['id']);
-          this.router.navigateByUrl('/admin/main');
+          this.router.navigate(['/admin/main']);
         } else {
           alert(response.message);
           console.log(response);

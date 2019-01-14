@@ -38,7 +38,7 @@
           </div>
           <div class="row " id="ceshi">
             <div class="col-xs-12 col-12 div-center padding-top-15px">
-              <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.pointTotal / 2"
+              <pagination [boundaryLinks]="true" [totalItems]="this.pointTotal / 2"
                           [maxSize]="10" (pageChanged)="pageChanged($event)"
                           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
             </div>

@@ -18,7 +18,7 @@ export class ManagementService {
    * 显示管理员信息
    */
   adminInfo() {
-    const url = environment.apiUrl + '/admin/personal/info';
+    const url = this.httpService.adminUrl + '/admin/personal/info';
     return this.httpService.getData(url);
   }
 
@@ -30,7 +30,7 @@ export class ManagementService {
   userInfo(pageSize, pageNo) {
     const size = 'pageSize=' + pageSize;
     const pageno = 'pageNo=' + pageNo;
-    const url = environment.apiUrl + '/user/list/page/audited?' + size + '&' + pageno;
+    const url =  this.httpService.adminUrl + '/user/list/page/audited?' + size + '&' + pageno;
     return this.httpService.getData(url);
   }
 
@@ -54,7 +54,7 @@ export class ManagementService {
    * 显示查看id的明细
    */
   userShowId(userId) {
-    const url = environment.apiUrl + '/user/get/' + userId;
+    const url =  this.httpService.adminUrl + '/user/get/' + userId;
     return this.httpService.getData(url);
   }
 
@@ -62,7 +62,7 @@ export class ManagementService {
    * 保存修改后的会员档案
    */
   updataUser(data) {
-    const url = environment.apiUrl + '/user/update';
+    const url =  this.httpService.adminUrl + '/user/update';
     return this.httpService.postData(url, data);
   }
 
@@ -70,7 +70,7 @@ export class ManagementService {
    * 重置用户的密码
    */
   userResetService(userId) {
-    const url = environment.apiUrl + '/user/reset/password/' + userId;
+    const url =  this.httpService.adminUrl + '/user/reset/password/' + userId;
     return this.httpService.getData(url);
   }
 
@@ -78,7 +78,7 @@ export class ManagementService {
    * 显示会员等级数据
    */
   levelInfoServie(pageSize, pageNo) {
-    const url = environment.apiUrl + '/rank/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    const url =  this.httpService.adminUrl + '/rank/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
     return this.httpService.getData(url);
   }
 
@@ -87,7 +87,7 @@ export class ManagementService {
    * @param data 会员信息的集合
    */
   levelAddService(data) {
-    const url = environment.apiUrl + '/rank/save';
+    const url =  this.httpService.adminUrl + '/rank/save';
     return this.httpService.postData(url, data);
   }
 
@@ -103,7 +103,7 @@ export class ManagementService {
    * 根据id查询会员等级信息
    */
   levelIdIService(levelId) {
-    const url = environment.apiUrl + '/rank/get/' + levelId;
+    const url =  this.httpService.adminUrl + '/rank/get/' + levelId;
     return this.httpService.getData(url);
   }
 
@@ -113,7 +113,7 @@ export class ManagementService {
    * @param data 要修改的参数
    */
   levelUpdataService(data) {
-    const url = environment.apiUrl + '/rank/update';
+    const url =  this.httpService.adminUrl + '/rank/update';
     return this.httpService.postData(url, data);
   }
 
@@ -122,7 +122,7 @@ export class ManagementService {
    * @param pageData 页数和显示数量
    */
   admingroupService(pageSize, pageNo) {
-    const url = environment.apiUrl + '/role/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    const url =  this.httpService.adminUrl + '/role/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
     return this.httpService.getData(url);
   }
 
@@ -139,7 +139,7 @@ export class ManagementService {
    * @param admingroupId 显示信息的id
    */
   admingroupInfoId(admingroupId) {
-    const url = environment.apiUrl + '/role/get/' + admingroupId;
+    const url =  this.httpService.adminUrl + '/role/get/' + admingroupId;
     return this.httpService.getData(url);
   }
 
@@ -148,7 +148,7 @@ export class ManagementService {
    * @param data 修改角色信息的参数
    */
   admingroupUpdata(data) {
-    const url = environment.apiUrl + '/role/update';
+    const url =  this.httpService.adminUrl + '/role/update';
     return this.httpService.postData(url, data);
   }
 
@@ -157,7 +157,7 @@ export class ManagementService {
    * @param pageData 分页数据
    */
   adminService(pageSize, pageNo) {
-    const url = environment.apiUrl + '/admin/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
+    const url =  this.httpService.adminUrl + '/admin/list/page?pageSize=' + pageSize + '&pageNo=' + pageNo;
     return this.httpService.getData(url);
   }
 
@@ -173,7 +173,7 @@ export class ManagementService {
    * @param data 添加信息的数据
    */
   adminAddService(data) {
-    const url = environment.apiUrl + '/admin/save';
+    const url =  this.httpService.adminUrl + '/admin/save';
     return this.httpService.postData(url, data);
   }
 
@@ -190,7 +190,7 @@ export class ManagementService {
    * @param adminId 需要修改的id
    */
   adminUpdataIdInfo(adminId) {
-    const url = environment.apiUrl + '/admin/get/' + adminId;
+    const url =  this.httpService.adminUrl + '/admin/get/' + adminId;
     return this.httpService.getData(url);
   }
 
@@ -202,7 +202,7 @@ export class ManagementService {
   conditionService(typeId, keyWord) {
     const type = 'type=' + typeId;
     const keyword = 'keyword=' + keyWord;
-    const url = environment.apiUrl + '/user/list/page/condition?' + type + '&' + keyword;
+    const url =  this.httpService.adminUrl + '/user/list/page/condition?' + type + '&' + keyword;
     return this.httpService.getData(url);
   }
 
@@ -220,7 +220,7 @@ export class ManagementService {
    * @param ids 会员id
    */
   userIdsDeleteService(ids) {
-    const url = environment.apiUrl + '/user/forbid/login';
+    const url =  this.httpService.adminUrl + '/user/forbid/login';
     return this.httpService.postData(url, ids);
 
   }
@@ -230,7 +230,7 @@ export class ManagementService {
    * @param adminId 管理用户id
    */
   adminDeleteService(adminId) {
-    const url = environment.apiUrl + '/admin/delete/' + adminId;
+    const url = this.httpService.adminUrl + '/admin/delete/' + adminId;
     return this.httpService.getData(url);
   }
 }
