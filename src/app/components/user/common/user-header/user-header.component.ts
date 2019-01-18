@@ -45,4 +45,8 @@ export class UserHeaderComponent implements OnInit {
         }
       });
   }
+
+  loginOut() {
+    this.userCommon.loginOut();
+  }
 }

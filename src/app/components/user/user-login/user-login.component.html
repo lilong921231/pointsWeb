@@ -25,7 +25,7 @@
           <input type="text" id="code" name="validationCode" #codes>
         </div>
         <div class="code">
-          <input type="button" id="checkCode" onclick="" value="{{code.data}}">
+          <input type="button" id="checkCode" value="{{code.data}}" (click)="generateInfo()">
         </div>
       </div>
       <div class="button-center">

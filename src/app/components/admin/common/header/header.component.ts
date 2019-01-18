@@ -33,4 +33,8 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
+
+  loginOut() {
+    this.management.loginOut();
+  }
 }

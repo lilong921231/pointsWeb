@@ -49,7 +49,6 @@ export class TbIndexComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.data = response;
           this.tbIndexTotal = response['total'];
-          console.log(response);
         } else {
           alert(response.message);
           return false;

@@ -34,7 +34,6 @@ export class PointComponent implements OnInit {
           this.data = response;
           this.systemRatio = this.data.data['systemRatio'];
           this.setRatio(this.systemRatio);
-          console.log(response);
         } else {
           alert(response.message);
           return false;

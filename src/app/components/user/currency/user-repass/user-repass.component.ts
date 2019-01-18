@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import {HttpService} from '../../../../common/service/http.service';
 
 /**
  * @desc 修改用户个人密码
@@ -20,6 +21,7 @@ export class UserRepassComponent implements OnInit {
    */
   userRepass: any;  // 会员信息数据
   constructor(
+    private http: HttpService,
     private router: Router, // 引入Router路有组件
     private userCommon: UserCommonService  // 引入UserCommonService服务
   ) { }

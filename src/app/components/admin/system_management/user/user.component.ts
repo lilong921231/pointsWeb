@@ -18,6 +18,8 @@ export class UserComponent implements OnInit {
   // 数据集合
   status: any[] = [];
 
+  rankName: any[] = [];
+
   userdata: any;
   userTotal: any;
   pageNo = 1;
@@ -48,6 +50,15 @@ export class UserComponent implements OnInit {
         this.userdata = response;
         this.userTotal = response['total'];
         this.status = response.data;
+
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].rankId === '0') {
+            this.rankName[i] = ' ';
+          } else {
+            this.rankName[i] = response.data[i].rank.name;
+          }
+        }
+
       } else {
         alert(response.message);
         return false;
@@ -96,7 +107,6 @@ export class UserComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.userdata = response;
-        console.log(response);
       } else {
         alert(response.message);
         return false;

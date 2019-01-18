@@ -233,4 +233,15 @@ export class ManagementService {
     const url = this.httpService.adminUrl + '/admin/delete/' + adminId;
     return this.httpService.getData(url);
   }
+
+  /**
+   * 退出登陆
+   */
+  loginOut() {
+    this.httpService.setCookie('');
+    this.httpService.setId('');
+    this.httpService.setToken('');
+    this.httpService.setAdmin('');
+    return this.router.navigate(['/admin']);
+  }
 }

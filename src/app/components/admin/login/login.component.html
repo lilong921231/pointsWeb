@@ -22,10 +22,10 @@
           验 证 码：
         </div>
         <div class="input-code">
-          <input type="text" id="code" name="validationCode" #codes>
+          <input type="text" id="code" maxlength="4" name="validationCode" #codes>
         </div>
         <div class="code">
-          <input type="button" id="checkCode" onclick="" value="{{code.data}}">
+          <input type="button" id="checkCode" value="{{code.data}}"  (click)="generate()">
         </div>
       </div>
       <div class="div-tr">

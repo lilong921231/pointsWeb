@@ -2,7 +2,7 @@
 @import "../myinfo/myinfo.component.css";
 
 .div-header-double{
-  width: 33%;
+  width: 33.1%;
   float: left;
 }
 .tb-index-data-width{
@@ -15,19 +15,19 @@
   height: 64px;
 }
 .double-width-parent{
-  width: 100%;
+  width: 99.6%;
 }
 .tb-index-operation-width{
   width: 10.3%;
 }
 .double-width-son1{
-  width: 24.8%;
+  width: 25%;
 }
 .double-width-son2{
-  width: 24.7%;
+  width: 25%;
 }
 .double-width-son3{
-  width: 24.75%;
+  width: 25%;
 }
 .tb-index-list-width1{
   width: 8.2%;
@@ -49,12 +49,20 @@
   align-items: center;
   justify-content: center;
 }
-.border{
+.tbborder{
   border-right: solid 1px #dddddd;
-  border-bottom: solid 1px
 }
 .tb-index>.div-header{
   background: url("../../../../../assets/images/top_bg.jpg");
   border-right: solid 1px #dddddd;
   float: left;
+}
+.div-header-bottom{
+  float: left;
+  width: 100%;
+}
+.div-header-bottom>.div-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build  --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,6 +27,8 @@
     "moment": "^2.23.0",
     "ng2-ckeditor": "^1.2.2",
     "ngx-bootstrap": "^3.1.2",
+    "ngx-cookie": "^4.1.2",
+    "ngx-cookie-service": "^2.1.0",
     "ngx-echarts": "^4.1.0",
     "ngx-moment": "^3.3.0",
     "primeicons": "^1.0.0",

@@ -37,7 +37,6 @@ export class MessageComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.messageData = response;
-        console.log(response);
         this.status = response.data;
       } else {
         alert(response.message);

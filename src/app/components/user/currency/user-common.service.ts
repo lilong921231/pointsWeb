@@ -104,7 +104,6 @@ export class UserCommonService {
    */
   messageIdInfoService(messageId) {
     const url = environment.apiUserUrl + '/message/get/' + messageId + '?receiverId=110'; // 设定id查询信息api接口
-    console.log(url);
     return this.httpService.getData(url); // 访问http的get请求
   }
 
@@ -130,7 +129,7 @@ export class UserCommonService {
    */
   generateService() {
     const url = environment.apiUserUrl + '/security/captcha/generate'; // 设定验证码api接口
-    return this.httpService.getData(url); // 访问http的get请求
+    return this.httpService.getDataCode(url); // 访问http的get请求
   }
 
   /**
@@ -139,5 +138,16 @@ export class UserCommonService {
   loginService(data) {
     const url = environment.apiUserUrl + '/security/login'; // 设定登陆api接口
     return this.httpService.postData(url, data); // 访问http的post请求
+  }
+
+  /**
+   * 退出登陆
+   */
+  loginOut() {
+    this.httpService.setCookie('');
+    this.httpService.setId('');
+    this.httpService.setToken('');
+    this.httpService.setUser('');
+    return this.router.navigate(['']);
   }
 }

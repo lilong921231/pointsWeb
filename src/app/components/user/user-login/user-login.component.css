@@ -15,7 +15,6 @@
   width: 411px;
 }
 .user-div-dr{
-  width: 135px;
   height: 60px;
   text-align: -webkit-right;
   color: #333333;
@@ -24,9 +23,9 @@
 
 }
 .user-login-width>.div-tr{
+  padding-right: 60px;
   height: 49px;
   display: flex;
-  justify-content: inherit;
 }
 .td-1>input{
   width: 228px;

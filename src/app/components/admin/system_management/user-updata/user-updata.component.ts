@@ -41,12 +41,12 @@ export class UserUpdataComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.dataUpdata = response;
         this.ceshi = response.data.rank['name'];
+
         for (let i = 0; i < this.leveldata.length; i++) {
           if (this.ceshi ===  this.leveldata[i].levelName) {
             this.leveldata[i].state = false;
           }
         }
-        console.log(this.dataUpdata);
       } else {
         alert(response.message);
         return false;

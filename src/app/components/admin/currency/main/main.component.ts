@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import {ManagementService} from '../../services/management.service';
 import {HttpService} from '../../../../common/service/http.service';
+import {catchError} from 'rxjs/operators';
 
 
 @Component({

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CurrencyService {
 
+
   public tbUpdata: any;
   constructor(
     private router: Router,
@@ -99,7 +100,6 @@ export class CurrencyService {
    * 修改天宝指数
    */
   tbIndexUpdateService(data) {
-    console.log(data);
     const url = this.httpService.adminUrl + '/stock/update';
     return this.httpService.postData(url, data);
   }

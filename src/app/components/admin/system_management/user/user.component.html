@@ -62,7 +62,7 @@
               <input type="text" style="display:none" value="{{item.id}}" #userId>
             </div>
             <div class="div-data user-level div-color">
-              {{item.rank.alias}}
+              {{rankName[i]}}
             </div>
             <div class="div-data user-name div-color">
               {{item.realName}}
@@ -78,7 +78,7 @@
             </div>
             <div class="div-data user-operation">
               <a routerLink="#" (click)="userIdInfo(userId.value)">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a routerLink="#"(click)="userIdUpdata(userId.value)">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="#" (click)="userIdUpdata(userId.value)">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
               <a routerLink="#" (click)="userResetPassword(userId.value)">重置密码</a>
             </div>
             <div class="clear"></div>

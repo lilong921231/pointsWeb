@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { HttpService } from '../../../common/service/http.service';
-import { environment } from '../../../../environments/environment';
-
 
 @Component({
   selector: 'app-login',
@@ -12,16 +10,13 @@ import { environment } from '../../../../environments/environment';
 })
 export class LoginComponent implements OnInit {
 
-  adminUser: string;
   password: string;
-  loginCode: number;
-  menuInfo = 1;
 
   code: any;
 
   constructor(
     private router: Router,
-    private http: HttpService
+    private http: HttpService,
   ) { }
 
   ngOnInit() {
@@ -33,7 +28,7 @@ export class LoginComponent implements OnInit {
    */
   generate() {
     const url = this.http.adminUrl + '/security/captcha/generate';
-    this.http.getData(url)
+    this.http.getDataCode(url)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.code = response;
@@ -80,10 +75,11 @@ export class LoginComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.http.setToken(response.data['token']);
           this.http.setId(response.data['id']);
+          this.http.setAdmin('admin');
+          this.http.setCookie(true);
           this.router.navigate(['/admin/main']);
         } else {
           alert(response.message);
-          console.log(response);
           return false;
         }
       });

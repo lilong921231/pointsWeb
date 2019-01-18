@@ -39,7 +39,6 @@ export class AdminComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.adminData = response;
         this.adminTotal = response.total;
-        console.log(response);
       } else {
         alert(response.message);
         return false;

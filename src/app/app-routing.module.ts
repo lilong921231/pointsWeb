@@ -10,6 +10,8 @@ import { UserPointComponent } from './components/user/currency/user-point/user-p
 import { UserMessageComponent } from './components/user/currency/user-message/user-message.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
+import {UserLoginGuard} from './components/user/user-login.guard';
+import {AdminLoginGuard} from './components/admin/admin-login.guard';
 
 /**
  * 设定路由界面
@@ -22,27 +24,29 @@ const routes: Routes = [
     component: UserLoginComponent
   },
   // 用户首页
-  { path: 'main', component: UserMainComponent },
+  { path: 'main', component: UserMainComponent, canActivate: [UserLoginGuard]},
   // 用户修改密码界面
-  { path: 'repass', component: UserRepassComponent },
+  { path: 'repass', component: UserRepassComponent, canActivate: [UserLoginGuard] },
   // 用户档案界面
-  { path: 'userInfo', component: UserUserInfoComponent },
+  { path: 'userInfo', component: UserUserInfoComponent, canActivate: [UserLoginGuard] },
   // 用户居住权登记信息界面
-  { path: 'reg', component: UserRegComponent },
+  { path: 'reg', component: UserRegComponent, canActivate: [UserLoginGuard] },
   // 用户消费记录
-  { path: 'money_user_list', component: UserMoneyComponent },
+  { path: 'money_user_list', component: UserMoneyComponent, canActivate: [UserLoginGuard] },
   // 用户界面的天宝K线图
-  { path: 'tb-kline', component: UserTbKlineComponent },
+  { path: 'tb-kline', component: UserTbKlineComponent, canActivate: [UserLoginGuard] },
   // 用户界面福利积分
-  { path: 'point', component: UserPointComponent },
+  { path: 'point', component: UserPointComponent, canActivate: [UserLoginGuard] },
   // 用户界面留言
-  { path: 'message', component: UserMessageComponent },
+  { path: 'message', component: UserMessageComponent, canActivate: [UserLoginGuard] },
   // 查看留言详情页面
-  { path: 'messageInfo/:id', component: UserMessageInfoComponent },
+  { path: 'messageInfo/:id', component: UserMessageInfoComponent, canActivate: [UserLoginGuard] },
   // 管理员界面
   {
     path: 'admin',
-    loadChildren: './components/admin/admin.module#AdminModule'}
+    // canActivateChild: [AdminLoginGuard],
+    loadChildren: './components/admin/admin.module#AdminModule'
+  }
 ];
 
 @NgModule({

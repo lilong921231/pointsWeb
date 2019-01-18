@@ -58,7 +58,6 @@ export class NewsComponent implements OnInit {
           this.data = response;
           this.newsTotal = response['total'];
           this.status = response.data;
-          console.log(this.data);
         } else {
           alert(response.message);
           return false;

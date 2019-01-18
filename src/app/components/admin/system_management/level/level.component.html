@@ -58,6 +58,9 @@
             </div>
             <div class="clear"></div>
           </div>
+          <div class="news-div-input">
+            <input type="button" (click)="levelAdd()" class="button-1 button-width" value="添加等级">
+          </div>
           <div class="row">
             <div class="col-xs-12 col-12 div-center padding-top-15px">
               <pagination [boundaryLinks]="true" [totalItems]="this.levelTotal / 2"

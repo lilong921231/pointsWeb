@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserCommonService} from "../currency/user-common.service";
-import * as $ from "jquery";
-import { HttpService } from "../../../common/service/http.service";
+import {UserCommonService} from '../currency/user-common.service';
+import * as $ from 'jquery';
+import { HttpService } from '../../../common/service/http.service';
 
 /**
  * @desc 用户登陆界面
@@ -28,6 +28,7 @@ export class UserLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.generateInfo();  // 初始化验证码
   }
 
@@ -69,9 +70,9 @@ export class UserLoginComponent implements OnInit {
     }
     // 赋值成json数据
     const data = {
-      "account": account,
-      "password": password,
-      "userCaptcha": userCaptcha
+      'account': account,
+      'password': password,
+      'userCaptcha': userCaptcha
     };
     // 访问loginService请求方法
     this.userCommon.loginService(data)
@@ -79,7 +80,9 @@ export class UserLoginComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.http.setToken(response.data['token']); // 获取的数据存入storage
           this.http.setId(response.data['id']); // 获取的数据存入storage
-          this.router.navigateByUrl('/main'); // 跳转到用户首页界面
+          this.http.setUser('user');
+          this.http.setCookie(true);
+          this.router.navigate(['/main']); // 跳转到用户首页界面
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面

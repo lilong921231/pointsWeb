@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 /**
  * @desc http 共通请求
@@ -12,12 +13,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HttpService {
 
+  ceshi = false;
+  // adminUrl = 'http://47.91.230.177:8001';
   adminUrl = 'http://localhost:8001';
 
   constructor(
-    private http: HttpClient  // 引入http组件
+    private router: Router, // 引入Router路由组件
+    private http: HttpClient,  // 引入http组件
   ) { }
 
+  setCookie(value) {
+    this.ceshi = value;
+  }
+  getCookie() {
+    return this.ceshi;
+  }
 
   /**
    * 在storage处存入用户token
@@ -33,8 +43,53 @@ export class HttpService {
     if (window.localStorage.token == null) {
       window.localStorage.token = '';
     }
+    setTimeout(() => {
+      alert('账号过期，请重新登陆');
+      if (this.getUser() === 'user') {
+        this.router.navigate(['']); // 跳转到用户登陆界面
+      } else if (this.getAdmin() === 'admin') {
+        alert('账号过期，请重新登陆');
+        this.router.navigate(['/admin']); // 跳转到admin登陆界面
+      }
+    }, 1000 * 60 * 60 * 4);
     return window.localStorage.token;
   }
+
+  getTokenCode() {
+    if (window.localStorage.token == null) {
+      window.localStorage.token = '';
+    }
+    return window.localStorage.token;
+  }
+
+  /**
+   * 在storage处存入用户id
+   * @param value id的值
+   */
+  setUser(value) {
+    window.localStorage.user = value;
+  }
+
+  /**
+   * 从storage处取出用户id
+   */
+  getUser() {
+    if (window.localStorage.user == null) {
+      window.localStorage.user = '';
+    }
+    return window.localStorage.user;
+  }
+  setAdmin(value) {
+    window.localStorage.admin = value;
+  }
+
+  getAdmin() {
+    if (window.localStorage.admin == null) {
+      window.localStorage.admin = '';
+    }
+    return window.localStorage.admin;
+  }
+
 
   /**
    * 在storage处存入用户id
@@ -91,6 +146,17 @@ export class HttpService {
     // headers请求参数头
     return this.http.get(url, {headers: {
        'Authorization': this.getToken(), '_current_id': this.getId()}
+    });
+  }
+  /**
+   * code
+   * get请求
+   * @param url api接口地址
+   */
+  getDataCode(url: string) {
+    // headers请求参数头
+    return this.http.get(url, {headers: {
+        'Authorization': this.getTokenCode(), '_current_id': this.getId()}
     });
   }
 

@@ -27,12 +27,10 @@ export class UsershowComponent implements OnInit {
    */
   userIdInfo() {
     const userId = this.route.snapshot.paramMap.get('id');
-    console.log(userId);
     this.management.userShowId(userId)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.userData = response;
-        console.log(response);
       } else {
         alert(response.message);
         return false;

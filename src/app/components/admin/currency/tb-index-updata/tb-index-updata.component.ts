@@ -31,7 +31,6 @@ export class TbIndexUpdataComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.updateDate = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;
@@ -71,7 +70,6 @@ export class TbIndexUpdataComponent implements OnInit {
       'tbMinExponent': tbMinExponent,
       'tbCloseExponent': tbCloseExponent,
     };
-    console.log(tbUpdateData);
 
     return this.currency.tbIndexUpdateService(tbUpdateData)
       .subscribe((response: any) => {

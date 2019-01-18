@@ -30,7 +30,6 @@ export class NewinfoUpdataComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.newUpdataData = response;
-          console.log(response);
         } else {
           alert(response.message);
           return false;
@@ -47,7 +46,6 @@ export class NewinfoUpdataComponent implements OnInit {
       'content': content,
       'publishTime': updateTime
     };
-    console.log(data);
     this.customer.newUpdataService(data)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {

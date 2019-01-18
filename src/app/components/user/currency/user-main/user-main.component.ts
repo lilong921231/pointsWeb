@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
+import {HttpService} from '../../../../common/service/http.service';
 
 /**
  * @desc 用户首页界面
@@ -20,6 +21,7 @@ export class UserMainComponent implements OnInit {
   newData: any; // 公告数据
   constructor(
     private userCommon: UserCommonService,  // 引入UserCommonService服务
+    private http: HttpService,
   ) { }
 
   ngOnInit() {

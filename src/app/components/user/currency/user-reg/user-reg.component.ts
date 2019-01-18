@@ -61,51 +61,51 @@ export class UserRegComponent implements OnInit {
     /**
      * 判断值不能为空
      */
-    if (account === null || account === undefined) {
+    if (account === null || account === undefined || account === '') {
       alert('证书编号不能为空');
       return false;
     }
-    if (realName === null || realName === undefined) {
+    if (realName === null || realName === undefined || realName === '') {
       alert('真实姓名不能为空');
       return false;
     }
-    if (gender === null || gender === undefined) {
+    if (gender === null || gender === undefined || gender === '') {
       alert('请选择性别');
       return false;
     }
-    if (rankId === null || rankId === undefined) {
+    if (rankId === null || rankId === undefined || rankId === '') {
       alert('请选择会员登记');
       return false;
     }
-    if (identityNumber === null || identityNumber === undefined) {
+    if (identityNumber === null || identityNumber === undefined || identityNumber === '') {
       alert('身份证号不能为空');
       return false;
     }
-    if (password === null || password === undefined) {
+    if (password === null || password === undefined || password === '') {
       alert('新密码不能为空');
       return false;
     }
-    if (surePassword === null || surePassword === undefined) {
+    if (surePassword === null || surePassword === undefined || surePassword === '') {
       alert('确认密码证书编号不能为空');
       return false;
     }
-    if (phone === null || phone === undefined) {
+    if (phone === null || phone === undefined || phone === '') {
       alert('手机号不能为空');
       return false;
     }
-    if (province === null || province === undefined) {
+    if (province === null || province === undefined || province === '') {
       alert('请选择省份');
       return false;
     }
-    if (city === null || city === undefined) {
+    if (city === null || city === undefined || city === '') {
       alert('城市不能为空');
       return false;
     }
-    if (address === null || address === undefined) {
+    if (address === null || address === undefined || address === '') {
       alert('详细地址不能为空');
       return false;
     }
-    if (certificationTime === null || certificationTime === undefined) {
+    if (certificationTime === null || certificationTime === undefined || certificationTime === '') {
       alert('发证日期不能为空');
       return false;
     }
@@ -125,6 +125,7 @@ export class UserRegComponent implements OnInit {
       'address': address,
       'certificationTime': certificationTime,
     };
+
     // 访问regAddService请求方法
     this.userCommon.regAddService(data)
       .subscribe((response: any) => {
@@ -141,6 +142,7 @@ export class UserRegComponent implements OnInit {
    * 重置事件
    */
   reset() {
+    $('input[type="password"]').prop('value', '');
     $('input[type="text"]').prop('value', '');
   }
 }

@@ -32,7 +32,26 @@ export class UserMessageComponent implements OnInit {
   ngOnInit() {
     this.messageInfo(this.pageSize, this.pageNo); // 初始化留言信息
     // this.userId = this.http.getId();  // 初始化用户id
+    this.userInfo();
   }
+
+
+  /**
+   * 显示会员信息
+   */
+  userInfo() {
+    // 访问userInfoService服务
+    this.userCommon.userInfoService()
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) { // 判断是否正确取得数据
+          this.userId = response.data.account; // 获取的返回值赋给newDate
+        } else { // 没有正确取到值
+          alert(response.message); // 从后台报错误信息
+          return false; // 不跳转页面
+        }
+      });
+  }
+
 
   /**
    * 添加留言信息
