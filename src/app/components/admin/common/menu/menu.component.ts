@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-currency-menu',
-  templateUrl: './currency-menu.component.html',
-  styleUrls: ['./currency-menu.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class CurrencyMenuComponent implements OnInit {
+export class MenuComponent implements OnInit {
+
   showML1: Boolean;
   showML2: Boolean;
   showML3: Boolean;
   showML4: Boolean;
   showML5: Boolean;
-
   constructor(
     private router: Router,
   ) { }
@@ -162,4 +162,5 @@ export class CurrencyMenuComponent implements OnInit {
   deldata() {
     this.router.navigateByUrl('/deldata');
   }
+
 }
