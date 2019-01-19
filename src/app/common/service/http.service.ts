@@ -13,7 +13,6 @@ import {Router} from '@angular/router';
 })
 export class HttpService {
 
-  ceshi = false;
   // adminUrl = 'http://47.91.230.177:8001';
   adminUrl = 'http://localhost:8001';
 
@@ -23,10 +22,10 @@ export class HttpService {
   ) { }
 
   setCookie(value) {
-    this.ceshi = value;
+    sessionStorage.setItem(value, value);
   }
-  getCookie() {
-    return this.ceshi;
+  getCookie(value) {
+    return sessionStorage.getItem(value);
   }
 
   /**
