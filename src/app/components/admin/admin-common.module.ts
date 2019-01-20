@@ -38,6 +38,7 @@ import {CKEditorModule} from 'ng2-ckeditor';
 import {PaginationModule} from 'ngx-bootstrap';
 import {AdminRoutingModule} from './admin-routing.module';
 import {MenuComponent} from './common/menu/menu.component';
+import {AdminHomeComponent} from './admin-home.component';
 
 /**
  * @desc admin端公共组件及声明模块
@@ -78,7 +79,8 @@ import {MenuComponent} from './common/menu/menu.component';
     AdminAddComponent,
     AdminUpdataComponent,
     UserIdComponent,
-    MenuComponent
+    MenuComponent,
+    AdminHomeComponent
   ],
   imports: [
     CommonModule,
@@ -125,7 +127,8 @@ import {MenuComponent} from './common/menu/menu.component';
     AdminAddComponent,
     AdminUpdataComponent,
     UserIdComponent,
-    MenuComponent
+    MenuComponent,
+    AdminHomeComponent
   ]
 })
 export class AdminCommonModule { }

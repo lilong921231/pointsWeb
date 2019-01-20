@@ -1,93 +1,86 @@
-<div class="background-img">
+
+<div class="main-div">
   <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-customer-menu></app-customer-menu>
-  </div>
-  <div class="main-div">
-    <div>
-      <div class="main-Navigation">
-        会员留言
-        <img src="../../../../../assets/images/kfzx.jpg">
-        <div class="search-div">
-          <input type="text" class="search-input" value="" #keyword>
-          <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
-        </div>
+    <div class="main-Navigation">
+      会员留言
+      <img src="../../../../../assets/images/kfzx.jpg">
+      <div class="search-div">
+        <input type="text" class="search-input" value="" #keyword>
+        <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
       </div>
-
     </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div>
-          <div class="message-div-history">
-            <a routerLink="/admin/message-history" class="a-history">历史留言</a>
-          </div>
-          <div class="clear"></div>
-        </div>
 
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="div-header news-width-checkbox">
-              <input type="checkbox" [(checked)]="checkSum" (click)="checkAll()">
-            </div>
-            <div class="div-header message-width-state">
-              状态
-            </div>
-            <div class="div-header message-width-member">
-              留言会员
-            </div>
-            <div class="div-header message-width-title">
-              留言标题
-            </div>
-            <div class="div-header message-width">
-              留言内容
-            </div>
-            <div class="div-header message-width-reply">
-              管理回复
-            </div>
-            <div class="div-header message-width-operation">
-              操作
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="admin-div" *ngFor="let item of messageData.data;let i = index;">
-            <div class="div-data news-width-checkbox">
-              <input type="checkbox" name="checkboxid" [(checked)]="messageStatus[i]" (click)="checked(i);checkAllNo()">
-              <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
-            </div>
-            <div class="div-data message-width-state data-color">
-              {{item.status ? '未处理' : '已处理' }}
-            </div>
-            <div class="div-data message-width-member data-color">
-              <input type="text" style="display:none" value="{{item.sender.account}}" #userID>
-              <a routerLink="#" class="a-bottom" (click)="userIdSkip(userID.value)">{{item.sender.account}}</a>
-            </div>
-            <div class="div-data message-width-title data-color">
-              {{item.message.title}}
-            </div>
-            <div class="div-data message-width data-color">
-              {{item.message.content}}
-            </div>
-            <div class="div-data message-width-reply data-color">
-              []
-            </div>
-            <div class="div-data message-width-operation">
-              <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
-              <a routerLink="#" (click)="messageIdDelete(messageID.value)">删除</a>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="news-div-input">
-            <input type="button" (click)="messagesDelete()" class="button-2 button-2-input float-left" value="删除选定记录">
-          </div>
-          <div class="news-div-pagaData">
-            共1页{{messageData.total}}条记录
-          </div>
-          <div class="clear"></div>
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div>
+        <div class="message-div-history">
+          <a routerLink="/admin/message-history" class="a-history">历史留言</a>
         </div>
         <div class="clear"></div>
       </div>
+
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="div-header news-width-checkbox">
+            <input type="checkbox" [(checked)]="checkSum" (click)="checkAll()">
+          </div>
+          <div class="div-header message-width-state">
+            状态
+          </div>
+          <div class="div-header message-width-member">
+            留言会员
+          </div>
+          <div class="div-header message-width-title">
+            留言标题
+          </div>
+          <div class="div-header message-width">
+            留言内容
+          </div>
+          <div class="div-header message-width-reply">
+            管理回复
+          </div>
+          <div class="div-header message-width-operation">
+            操作
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="admin-div" *ngFor="let item of messageData.data;let i = index;">
+          <div class="div-data news-width-checkbox">
+            <input type="checkbox" name="checkboxid" [(checked)]="messageStatus[i]" (click)="checked(i);checkAllNo()">
+            <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
+          </div>
+          <div class="div-data message-width-state data-color">
+            {{item.status ? '未处理' : '已处理' }}
+          </div>
+          <div class="div-data message-width-member data-color">
+            <input type="text" style="display:none" value="{{item.sender.account}}" #userID>
+            <a routerLink="#" class="a-bottom" (click)="userIdSkip(userID.value)">{{item.sender.account}}</a>
+          </div>
+          <div class="div-data message-width-title data-color">
+            {{item.message.title}}
+          </div>
+          <div class="div-data message-width data-color">
+            {{item.message.content}}
+          </div>
+          <div class="div-data message-width-reply data-color">
+            []
+          </div>
+          <div class="div-data message-width-operation">
+            <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
+            <a routerLink="#" (click)="messageIdDelete(messageID.value)">删除</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="news-div-input">
+          <input type="button" (click)="messagesDelete()" class="button-2 button-2-input float-left" value="删除选定记录">
+        </div>
+        <div class="news-div-pagaData">
+          共1页{{messageData.total}}条记录
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
     </div>
   </div>
 </div>

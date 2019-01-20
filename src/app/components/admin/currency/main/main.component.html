@@ -1,131 +1,123 @@
-<div class="background-img">
-  <div>
-    <app-header></app-header>
+
+<div class="main-div">
+  <div class="main-Navigation">
+    快捷导航
+    <img src="../../../../../assets/images/kjdh.jpg">
   </div>
- <div>
-  <app-currency-menu></app-currency-menu>
-</div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      快捷导航
-      <img src="../../../../../assets/images/kjdh.jpg">
+  <div class="main-Navigation-img">
+    <img src="../../../../../assets/images/kjdh_bg.jpg">
+  </div>
+  <div class="main-index">
+    <div class="main-div-border float-left">
+      <div class="main-div-img">
+        <div class="main-personal-in main-padding">
+          <img src="../../../../../assets/images/k1.jpg">
+          个人信息
+        </div>
+        <div class="main-information">
+          您好，
+          <span class="main-name-color">{{adminData.data.account}}</span>
+          <br>
+          角色/职务：
+          <span class="main-color">{{adminData.data.roleList[0].name}}</span>
+          <br>
+          <span class="main-font-color">上次登陆事件： {{adminData.data.currentLoginTime}}</span>
+          <br>
+          <span class="main-font-color">上次登陆 IP ：{{adminData.data.currentLoginIp}}</span>
+        </div>
+      </div>
     </div>
-    <div class="main-Navigation-img">
-      <img src="../../../../../assets/images/kjdh_bg.jpg">
+    <div class="main-div-border float-right">
+      <div class="main-div-img">
+        <div class="main-personal-in main-padding">
+          <img src="../../../../../assets/images/k2.jpg">
+          系统参数
+        </div>
+        <div class="main-information">
+          当前域名端口：www.sqshtb.com
+          <br>
+          当前配置地址：http://www.sqshtb.com/admin/main
+          <br>
+          系统名称版本：Windows NT 6.1
+          <br>
+          系统解译引擎：Microsoft-IIS/7.5
+        </div>
+      </div>
     </div>
-    <div class="main-index">
+    <div class="padding-height">
+
+
       <div class="main-div-border float-left">
         <div class="main-div-img">
           <div class="main-personal-in main-padding">
-            <img src="../../../../../assets/images/k1.jpg">
-            个人信息
+            <img src="../../../../../assets/images/k3.jpg">
+            服务器参数
           </div>
-          <div class="main-information">
-            您好，
-            <span class="main-name-color">{{adminData.data.account}}</span>
-            <br>
-            角色/职务：
-            <span class="main-color">{{adminData.data.roleList[0].name}}</span>
-            <br>
-            <span class="main-font-color">上次登陆事件： {{adminData.data.currentLoginTime}}</span>
-            <br>
-            <span class="main-font-color">上次登陆 IP ：{{adminData.data.currentLoginIp}}</span>
-          </div>
-        </div>
-      </div>
-      <div class="main-div-border float-right">
-        <div class="main-div-img">
-          <div class="main-personal-in main-padding">
-            <img src="../../../../../assets/images/k2.jpg">
-            系统参数
-          </div>
-          <div class="main-information">
-            当前域名端口：www.sqshtb.com
-            <br>
-            当前配置地址：http://www.sqshtb.com/admin/main
-            <br>
-            系统名称版本：Windows NT 6.1
-            <br>
-            系统解译引擎：Microsoft-IIS/7.5
-          </div>
-        </div>
-      </div>
-      <div class="padding-height">
-
-
-        <div class="main-div-border float-left">
-          <div class="main-div-img">
-            <div class="main-personal-in main-padding">
-              <img src="../../../../../assets/images/k3.jpg">
-              服务器参数
-            </div>
-            <div class="main-server">
-              <div class="main-server-in">
-                软件版本号：
-                <span>
+          <div class="main-server">
+            <div class="main-server-in">
+              软件版本号：
+              <span>
                   v4.6.6 Beta
                 </span>
-              </div>
-              <div class="main-server-in">
-                <div>
-                  服务器版本：
-                  <span>
+            </div>
+            <div class="main-server-in">
+              <div>
+                服务器版本：
+                <span>
                   Microsoft-IIS
                 </span>
-                </div>
-                <div class="main-server-right">
-                  操作系统：
-                  <span>
+              </div>
+              <div class="main-server-right">
+                操作系统：
+                <span>
                     WINNT
                   </span>
-                </div>
               </div>
-              <div class="main-server-in">
-                <div>
-                  PHP版本号：
-                  <span>
+            </div>
+            <div class="main-server-in">
+              <div>
+                PHP版本号：
+                <span>
                   7.0.26
                 </span>
-                </div>
-                <div class="main-server-right">
-                  GDLibrary：
-                  <span>
+              </div>
+              <div class="main-server-right">
+                GDLibrary：
+                <span>
                     支持
                   </span>
-                </div>
               </div>
-              <div class="main-server-in">
-                <div>
+            </div>
+            <div class="main-server-in">
+              <div>
                 MySql版本：
                 <span>
                   5.60
                 </span>
-                </div>
-                <div class="main-server-right">
-                  ZEND支持：
-                  <span>
+              </div>
+              <div class="main-server-right">
+                ZEND支持：
+                <span>
                     支持
                   </span>
-                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="main-div-border  float-right">
-          <div class="main-div-img">
-            <div class="main-personal-in main-padding">
-              <img src="../../../../../assets/images/k4.jpg">
-              公司公告
-            </div>
-            <div class="main-Notice" *ngFor="let item of newData.data;">
-              <div>{{item.content}}</div>
-            </div>
+      </div>
+      <div class="main-div-border  float-right">
+        <div class="main-div-img">
+          <div class="main-personal-in main-padding">
+            <img src="../../../../../assets/images/k4.jpg">
+            公司公告
+          </div>
+          <div class="main-Notice" *ngFor="let item of newData.data;">
+            <div>{{item.content}}</div>
           </div>
         </div>
-          <div class="clear"></div>
-
       </div>
       <div class="clear"></div>
     </div>
+    <div class="clear"></div>
   </div>
 </div>

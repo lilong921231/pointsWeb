@@ -1,122 +1,115 @@
-<div class="background-img">
-  <div>
-    <app-header></app-header>
+
+<div class="main-div">
+  <div class="main-Navigation">
+    添加管理用户
+    <img src="../../../../../assets/images/xtgl.jpg">
   </div>
-  <div>
-    <app-system-management-menu></app-system-management-menu>
-  </div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      添加管理用户
-      <img src="../../../../../assets/images/xtgl.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="myinfo-div-inf">
-              <p>用户编号</p>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="myinfo-div-inf">
+            <p>用户编号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>系统生成</p>
+          </div>
+          <div class="myinfo-div-inf" >
+            <p>登陆账号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #account>
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
             </div>
-            <div class="myinfo-div-data">
-              <p>系统生成</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>登陆密码</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="password" value="" #password>
+              <span>&nbsp;&nbsp;&nbsp;* 留空则不更改密码！</span>
             </div>
-            <div class="myinfo-div-inf" >
-              <p>登陆账号</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>确认登陆密码</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="password" value="" #surePassword>
+              <span>&nbsp;&nbsp;&nbsp;* 留空则不更改密码！</span>
             </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #account>
-                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
-              </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>用户角色</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #roleId>
             </div>
-            <div class="myinfo-div-inf">
-              <p>登陆密码</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>工作职务</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #realName>
             </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="password" value="" #password>
-                <span>&nbsp;&nbsp;&nbsp;* 留空则不更改密码！</span>
-              </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>真实姓名</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #identityNumber>
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
             </div>
-            <div class="myinfo-div-inf">
-              <p>确认登陆密码</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>身份账号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #phone>
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
             </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="password" value="" #surePassword>
-                <span>&nbsp;&nbsp;&nbsp;* 留空则不更改密码！</span>
-              </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>联系电话</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #email>
             </div>
-            <div class="myinfo-div-inf">
-              <p>用户角色</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>电子邮件</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #order>
             </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #roleId>
-              </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>排序编号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" >
+              <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
             </div>
-            <div class="myinfo-div-inf">
-              <p>工作职务</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #realName>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>真实姓名</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #identityNumber>
-                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>身份账号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #phone>
-                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>联系电话</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #email>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>电子邮件</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #order>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>排序编号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" >
-                <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
-              </div>
-            </div>
-            </div>
-            <div class="clear"></div>
-          <div class="repass-button">
-            <input type="button" class="button-1 button-width" (click)="adminAdd(
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="repass-button">
+          <input type="button" class="button-1 button-width" (click)="adminAdd(
              account.value, password.value, surePassword.value, roleId.value,
              realName.value, identityNumber.value,phone.value, email.value, order.value
             )" value="确定添加">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
-            <div class="clear"></div>
-          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+          <div class="clear"></div>
         </div>
       </div>
     </div>

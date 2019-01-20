@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserMainComponent } from './components/user/currency/user-main/user-main.component';
 import { UserRepassComponent } from './components/user/currency/user-repass/user-repass.component';
 import { UserUserInfoComponent } from './components/user/currency/user-user-info/user-user-info.component';
 import { UserRegComponent } from './components/user/currency/user-reg/user-reg.component';
@@ -11,7 +10,8 @@ import { UserMessageComponent } from './components/user/currency/user-message/us
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
 import {UserLoginGuard} from './components/user/user-login.guard';
-import {AdminLoginGuard} from './components/admin/admin-login.guard';
+import {UserTbKlineModule} from './components/user/currency/user-tb-kline/user-tb-kline.module';
+import {LoginComponent} from './components/admin/login/login.component';
 
 /**
  * 设定路由界面
@@ -24,29 +24,61 @@ const routes: Routes = [
     component: UserLoginComponent
   },
   // 用户首页
-  { path: 'main', component: UserMainComponent, canActivate: [UserLoginGuard]},
+  { path: 'main',
+    loadChildren: './components/user/currency/user-main/user-main.module#UserMainModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户修改密码界面
-  { path: 'repass', component: UserRepassComponent, canActivate: [UserLoginGuard] },
+  { path: 'repass',
+    loadChildren: './components/user/currency/user-repass/user-repass.module#UserRepassModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户档案界面
-  { path: 'userInfo', component: UserUserInfoComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'userInfo',
+    loadChildren: './components/user/currency/user-user-info/user-user-info.module#UserUserInfoModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户居住权登记信息界面
-  { path: 'reg', component: UserRegComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'reg',
+    loadChildren: './components/user/currency/user-reg/user-reg.module#UserRegModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户消费记录
-  { path: 'money_user_list', component: UserMoneyComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'money_user_list',
+    loadChildren: './components/user/currency/user-money/user-money.module#UserMoneyModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户界面的天宝K线图
-  { path: 'tb-kline', component: UserTbKlineComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'tb-kline',
+    loadChildren: './components/user/currency/user-tb-kline/user-tb-kline.module#UserTbKlineModule',
+    canActivate: [UserLoginGuard],
+  },
   // 用户界面福利积分
-  { path: 'point', component: UserPointComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'point',
+    loadChildren: './components/user/currency/user-point/user-point.module#UserPointModule',
+    canActivate: [UserLoginGuard]
+  },
   // 用户界面留言
-  { path: 'message', component: UserMessageComponent, canActivate: [UserLoginGuard] },
+  {
+    path: 'message',
+    loadChildren: './components/user/currency/user-message/user-message.module#UserMessageModule',
+    canActivate: [UserLoginGuard]
+  },
   // 查看留言详情页面
-  { path: 'messageInfo/:id', component: UserMessageInfoComponent, canActivate: [UserLoginGuard] },
-  // 管理员界面
+  {
+    path: 'messageInfo/:id',
+    loadChildren: './components/user/currency/user-message-info/user-message-info.module#UserMessageInfoModule',
+    canActivate: [UserLoginGuard]
+  },
   {
     path: 'admin',
-    // canActivateChild: [AdminLoginGuard],
     loadChildren: './components/admin/admin.module#AdminModule'
-  }
+  },
 ];
 
 @NgModule({

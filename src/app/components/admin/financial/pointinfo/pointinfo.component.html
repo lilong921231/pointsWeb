@@ -1,81 +1,74 @@
-<div class="background-img">
+<div class="main-div">
   <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-financial-menu></app-financial-menu>
-  </div>
-  <div class="main-div">
-    <div>
-      <div class="main-Navigation">
-        增值积分明细
-        <img src="../../../../../assets/images/cwgl.jpg">
-        <div class="search-div">
-          <input type="text" class="search-input" #keyword>
-          <input type="button" class="search-button" (click)="pointSearch(keyword.value)">
-        </div>
+    <div class="main-Navigation">
+      增值积分明细
+      <img src="../../../../../assets/images/cwgl.jpg">
+      <div class="search-div">
+        <input type="text" class="search-input" #keyword>
+        <input type="button" class="search-button" (click)="pointSearch(keyword.value)">
       </div>
     </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="div-header Settlement-date">
-              结算日期
-            </div>
-            <div class="div-header Membership-number">
-              会员编号
-            </div>
-            <div class="div-header Weight-ratio">
-              权重比例
-            </div>
-            <div class="div-header before-settlement">
-              结算前总积分
-            </div>
-            <div class="div-header after-settlement">
-              结算后总积分
-            </div>
-            <div class="div-header pointinfo-State">
-              显示状态
-            </div>
-            <div class="div-header pointinfo-operation">
-              操作
-            </div>
-            <div class="clear"></div>
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="div-header Settlement-date">
+            结算日期
           </div>
-          <div class="admin-div" *ngFor="let item of data.data;let i = index">
-            <div class="div-data Settlement-date data-color">
-              {{item.createTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD'}}
-            </div>
-            <div class="div-data Membership-number data-color">
-              {{item.id}}
-              <input type="text" style="display:none" value="{{item.id}}" #pointId>
-            </div>
-            <div class="div-data Weight-ratio data-color">
-              {{item.ratio * 100}}%
-            </div>
-            <div class="div-data before-settlement data-color">
-              {{item.startPoints}}
-            </div>
-            <div class="div-data after-settlement data-color">
-              {{item.endPoints}}
-            </div>
-            <div class="div-data pointinfo-State data-color">
-             {{item.visible ? '隐藏' : '显示'}}
-            </div>
-            <div class="div-data pointinfo-operation">
-              <a routerLink="#" (click)="pointVisibleId(pointId.value)">{{item.visible ? '前台隐藏' : '前台显示'}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div class="clear"></div>
+          <div class="div-header Membership-number">
+            会员编号
           </div>
-          <div class="row ">
-            <div class="col-xs-12 col-12 div-center padding-top-15px">
-              <pagination [boundaryLinks]="true" [totalItems]="this.pointInfoTotal /2 "
-                          [maxSize]="10" (pageChanged)="pageChanged($event)"
-                          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
-            </div>
+          <div class="div-header Weight-ratio">
+            权重比例
+          </div>
+          <div class="div-header before-settlement">
+            结算前总积分
+          </div>
+          <div class="div-header after-settlement">
+            结算后总积分
+          </div>
+          <div class="div-header pointinfo-State">
+            显示状态
+          </div>
+          <div class="div-header pointinfo-operation">
+            操作
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="admin-div" *ngFor="let item of data.data;let i = index">
+          <div class="div-data Settlement-date data-color">
+            {{item.createTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD'}}
+          </div>
+          <div class="div-data Membership-number data-color">
+            {{item.id}}
+            <input type="text" style="display:none" value="{{item.id}}" #pointId>
+          </div>
+          <div class="div-data Weight-ratio data-color">
+            {{item.ratio * 100}}%
+          </div>
+          <div class="div-data before-settlement data-color">
+            {{item.startPoints}}
+          </div>
+          <div class="div-data after-settlement data-color">
+            {{item.endPoints}}
+          </div>
+          <div class="div-data pointinfo-State data-color">
+            {{item.visible ? '隐藏' : '显示'}}
+          </div>
+          <div class="div-data pointinfo-operation">
+            <a routerLink="#" (click)="pointVisibleId(pointId.value)">{{item.visible ? '前台隐藏' : '前台显示'}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="row ">
+          <div class="col-xs-12 col-12 div-center padding-top-15px">
+            <pagination [boundaryLinks]="true" [totalItems]="this.pointInfoTotal /2 "
+                        [maxSize]="10" (pageChanged)="pageChanged($event)"
+                        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

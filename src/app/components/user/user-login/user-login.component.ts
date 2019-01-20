@@ -30,6 +30,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {
 
     this.generateInfo();  // 初始化验证码
+
   }
 
   /**
@@ -81,7 +82,7 @@ export class UserLoginComponent implements OnInit {
           this.http.setToken(response.data['token']); // 获取的数据存入storage
           this.http.setId(response.data['id']); // 获取的数据存入storage
           this.http.setUser('user');
-          this.http.setCookie(true);
+          this.http.setCookie('user');
           this.router.navigate(['/main']); // 跳转到用户首页界面
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息

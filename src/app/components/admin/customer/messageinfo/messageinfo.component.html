@@ -1,141 +1,132 @@
-<div class="background-img height-div">
-  <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-customer-menu></app-customer-menu>
-  </div>
 
-
-  <div class="main-div">
-    <div class="main-Navigation">
-      管理回复
-      <img src="../../../../../assets/images/kfzx.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
+<div class="main-div">
+  <div class="main-Navigation">
+    管理回复
+    <img src="../../../../../assets/images/kfzx.jpg">
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="myinfo-div-inf">
+          <p>留言编号</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.messageId}}</p>
+          <input type="text" style="display:none" value="{{magData.data.messageId}}" #messageID>
+        </div>
+        <div class="myinfo-div-inf" >
+          <p>留言时间</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.createTime}}</p>
+        </div>
+        <div class="myinfo-div-inf">
+          <p>留言会员</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.sender.account}}</p>
+        </div>
+        <div class="myinfo-div-inf">
+          <p>会员姓名</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.sender.nickName}}</p>
+        </div>
+        <div class="myinfo-div-inf">
+          <p>联系方式</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.sender.phone}}</p>
+        </div>
+        <div class="myinfo-div-inf">
+          <p>留言标题</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.message.title}}</p>
+        </div>
+        <div class="myinfo-div-inf">
+          <p>留言内容</p>
+        </div>
+        <div class="myinfo-div-data">
+          <p>{{magData.data.message.content}}</p>
+        </div>
+        <div>
           <div class="myinfo-div-inf">
-            <p>留言编号</p>
+            <p>管理回复</p>
           </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.messageId}}</p>
-            <input type="text" style="display:none" value="{{magData.data.messageId}}" #messageID>
-          </div>
-          <div class="myinfo-div-inf" >
-            <p>留言时间</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.createTime}}</p>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>留言会员</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.sender.account}}</p>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>会员姓名</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.sender.nickName}}</p>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>联系方式</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.sender.phone}}</p>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>留言标题</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.message.title}}</p>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>留言内容</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>{{magData.data.message.content}}</p>
-          </div>
-          <div>
-            <div class="myinfo-div-inf">
-              <p>管理回复</p>
-            </div>
-            <div class="myinfo-div-data textarea-div">
-              <textarea class="textarea-div" id="meginfo-textarea" value="{{magData.data.message.reply}}" #reply></textarea>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="myinfo-div-inf">
-            <p>状态</p>
-          </div>
-          <div class="myinfo-div-data">
-            <p>
-              <input type="checkbox" [(checked)]="messageStatus" (click)="status()">
-              &nbsp;勾选表示问题处理完毕
-            </p>
-          </div>
-          <div class="repass-button">
-            <input type="button" (click)="messageUpdata(messageID.value, reply.value)" class="button-1 button-width" value="保存编辑">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+          <div class="myinfo-div-data textarea-div">
+            <textarea class="textarea-div" id="meginfo-textarea" value="{{magData.data.message.reply}}" #reply></textarea>
           </div>
           <div class="clear"></div>
         </div>
-
-      </div>
-      <div class="history-meg">
-        <div class="history-meg-title">
-          历史留言
+        <div class="myinfo-div-inf">
+          <p>状态</p>
         </div>
-        <div class="newinfo-div-table">
-          <div class="newinfo-div-padding">
-            <div>
-              <div class="div-header meginfo-width-member">
-                留言会员
-              </div>
-              <div class="div-header meginfo-width-title">
-                留言标题
-              </div>
-              <div class="div-header meginfo-width">
-                留言内容
-              </div>
-              <div class="div-header meginfo-width-reply">
-                管理回复
-              </div>
-              <div class="div-header meginfo-width-operation">
-                操作
-              </div>
-              <div class="clear"></div>
+        <div class="myinfo-div-data">
+          <p>
+            <input type="checkbox" [(checked)]="messageStatus" (click)="status()">
+            &nbsp;勾选表示问题处理完毕
+          </p>
+        </div>
+        <div class="repass-button">
+          <input type="button" (click)="messageUpdata(messageID.value, reply.value)" class="button-1 button-width" value="保存编辑">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
+        </div>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+    <div class="history-meg">
+      <div class="history-meg-title">
+        历史留言
+      </div>
+      <div class="newinfo-div-table">
+        <div class="newinfo-div-padding">
+          <div>
+            <div class="div-header meginfo-width-member">
+              留言会员
             </div>
-            <div *ngFor="let item of magList.data;">
-              <div class="div-data meginfo-width-member data-color">
-                {{item.sender.account}}
-                <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
-              </div>
-              <div class="div-data meginfo-width-title data-color">
-                {{item.message.title}}
-              </div>
-              <div class="div-data meginfo-width data-color">
-                {{item.message.content}}
-              </div>
-              <div class="div-data meginfo-width-reply data-color">
-                管理员
-              </div>
-              <div class="div-data meginfo-width-operation">
-                <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
-                <a href="#" (click)="userIdDelete(messageID.value)">删除</a>
-              </div>
-              <div class="clear"></div>
+            <div class="div-header meginfo-width-title">
+              留言标题
             </div>
-            <div class="meginfo-page">
-              <p class="display-page">共1页1条记录</p>
+            <div class="div-header meginfo-width">
+              留言内容
             </div>
+            <div class="div-header meginfo-width-reply">
+              管理回复
+            </div>
+            <div class="div-header meginfo-width-operation">
+              操作
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div *ngFor="let item of magList.data;">
+            <div class="div-data meginfo-width-member data-color">
+              {{item.sender.account}}
+              <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
+            </div>
+            <div class="div-data meginfo-width-title data-color">
+              {{item.message.title}}
+            </div>
+            <div class="div-data meginfo-width data-color">
+              {{item.message.content}}
+            </div>
+            <div class="div-data meginfo-width-reply data-color">
+              管理员
+            </div>
+            <div class="div-data meginfo-width-operation">
+              <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
+              <a href="#" (click)="userIdDelete(messageID.value)">删除</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="meginfo-page">
+            <p class="display-page">共1页1条记录</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
 </div>
+<div class="clear"></div>

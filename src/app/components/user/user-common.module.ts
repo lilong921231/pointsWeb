@@ -40,7 +40,6 @@ import {LoginComponent} from '../admin/login/login.component';
     UserMenuComponent,
     UserHeaderComponent,
     UserMessageInfoComponent,
-    LoginComponent
   ],
   imports: [
     CommonModule,

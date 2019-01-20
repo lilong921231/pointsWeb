@@ -32,85 +32,260 @@ import {AdmingroupUpdataComponent} from './system_management/admingroup-updata/a
 import {DeldataComponent} from './platform/deldata/deldata.component';
 import {MainComponent} from './currency/main/main.component';
 import {AdminLoginGuard} from './admin-login.guard';
+import {AdminHomeComponent} from './admin-home.component';
 
-const adminRouter: Routes = [
+const router: Routes = [
   {
     path: '',
-    // 管理员界面的子界面
- //   component: LoginComponent,
-  // },
-  // {
-  //   path: '',
-  //   component: AdminComponent,
     children: [
       { path: '', component: LoginComponent },
       // 首页
-      { path: 'main', component: MainComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'main',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: MainComponent, canActivate: [AdminLoginGuard] }
+        ]
+      },
       // 个人档案
-      { path: 'myinfo', component: MyinfoComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'myinfo',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: MyinfoComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改密码
-      { path: 'repass', component: RepassComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'repass',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: RepassComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改超级密码
-      { path: 'repass-spw', component: RepassSpwComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'repass-spw',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: RepassSpwComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 天宝指数
-      { path: 'tb-index', component: TbIndexComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'tb-index',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: TbIndexComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 添加天宝指数
-      { path: 'tb-index-add', component: TbIndexAddComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'tb-index-add',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: TbIndexAddComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改天宝指数
-      { path: 'tb-index-updata/:id', component: TbIndexUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'tb-index-updata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: TbIndexUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 天宝K线图
-      { path: 'tb-index-kline', component: TbIndexKlineComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'tb-index-kline',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: TbIndexKlineComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 增值积分结算
-      { path: 'point', component: PointComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'point',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: PointComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 增值积分列表
-      { path: 'pointlist', component: PointlistComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'pointlist',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: PointlistComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 增值分详情
-      { path: 'pointinfo/:id', component: PointinfoComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'pointinfo/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: PointinfoComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 会员留言 未处理状态
-      { path: 'message', component: MessageComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'message',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: MessageComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 会员留言历史 已处理状态
-      { path: 'message-history', component: MessageHistoryComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'message-history',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: MessageHistoryComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 管理回复页面
-      { path: 'messageinfo/:id', component: MessageinfoComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'messageinfo/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: MessageinfoComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 首页公告
-      { path: 'news', component: NewsComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'news',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: NewsComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 添加公告
-      { path: 'newinfo_add', component: NewinfoAddComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'newinfo_add',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: NewinfoAddComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改公告
-      { path: 'newinfo_updata/:id', component: NewinfoUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'newinfo_updata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: NewinfoUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 会员档案
-      { path: 'user', component: UserComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'user',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: UserComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 查询会员显示
-      { path: 'user/:id', component: UserIdComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'user/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: UserIdComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 查看会员档案
-      { path: 'usershow/:id', component: UsershowComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'usershow/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: UsershowComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改会员档案
-      { path: 'userUpdata/:id', component: UserUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'userUpdata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: UserUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 会员级别
-      { path: 'level', component: LevelComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'level',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: LevelComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 添加会员级别
-      { path: 'levelAdd', component: LevelAddComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'levelAdd',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: LevelAddComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改会员级别
-      { path: 'levelUpdata/:id', component: LevelUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'levelUpdata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: LevelUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 管理用户
-      { path: 'admin', component: AdminComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'admin',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: AdminComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 添加管理用户
-      { path: 'adminAdd', component: AdminAddComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'adminAdd',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: AdminAddComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改管理用户
-      { path: 'adminUpdata/:id', component: AdminUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'adminUpdata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: AdminUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 管理角色
-      { path: 'admingroup', component: AdmingroupComponent, canActivate: [AdminLoginGuard]  },
+      {
+        path: 'admingroup',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: AdmingroupComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 修改管理角色
-      { path: 'admingroupUpdata/:id', component: AdmingroupUpdataComponent, canActivate: [AdminLoginGuard] },
+      {
+        path: 'admingroupUpdata/:id',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: AdmingroupUpdataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
       // 清空数据
-      { path: 'deldata', component: DeldataComponent, canActivate: [AdminLoginGuard] }
+      {
+        path: 'deldata',
+        component: AdminHomeComponent,
+        children: [
+          { path: '', component: DeldataComponent, canActivate: [AdminLoginGuard]}
+        ]
+      },
     ],
   },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forChild(adminRouter)],
+  imports: [RouterModule.forChild(router)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }

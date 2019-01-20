@@ -1,60 +1,53 @@
-<div class="background-img">
+
+<div class="main-div">
   <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-system-management-menu></app-system-management-menu>
-  </div>
-  <div class="main-div">
-    <div>
-      <div class="main-Navigation">
-        管理角色
-        <img src="../../../../../assets/images/xtgl.jpg">
-      </div>
+    <div class="main-Navigation">
+      管理角色
+      <img src="../../../../../assets/images/xtgl.jpg">
     </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="div-header admingroup-num-width">
-              角色编号
-            </div>
-            <div class="div-header admingroup-account-width">
-              角色名称
-            </div>
-            <div class="div-header admingroup-roles-width">
-              角色描述
-            </div>
-            <div class="div-header admingroup-operation-width">
-              操作
-            </div>
-            <div class="clear"></div>
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="div-header admingroup-num-width">
+            角色编号
           </div>
-          <div class="admin-div" *ngFor="let item of admingroupData.data;let i = index">
-            <div class="div-data admingroup-num-width data-color">
-              {{item.id}}
-              <input type="text" style="display:none" value="{{item.id}}" #admingroupId>
-            </div>
-            <div class="div-data admingroup-account-width data-color">
-              {{item.name}}
-            </div>
-            <div class="div-data admingroup-roles-width data-color">
-              {{item.description}}
-            </div>
-            <div class="div-data admingroup-operation-width">
-              <a routerLink="#" (click)="admingroupUpdataId(admingroupId.value)">修改</a>
-            </div>
-            <div class="clear"></div>
+          <div class="div-header admingroup-account-width">
+            角色名称
           </div>
-          <div class="row">
-            <div class="col-xs-12 col-12 div-center padding-top-15px">
-              <pagination [boundaryLinks]="true" [totalItems]="this.groupTotal / 2"
-                          [maxSize]="10" (pageChanged)="pageChanged($event)"
-                          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
-            </div>
+          <div class="div-header admingroup-roles-width">
+            角色描述
+          </div>
+          <div class="div-header admingroup-operation-width">
+            操作
           </div>
           <div class="clear"></div>
         </div>
+        <div class="admin-div" *ngFor="let item of admingroupData.data;let i = index">
+          <div class="div-data admingroup-num-width data-color">
+            {{item.id}}
+            <input type="text" style="display:none" value="{{item.id}}" #admingroupId>
+          </div>
+          <div class="div-data admingroup-account-width data-color">
+            {{item.name}}
+          </div>
+          <div class="div-data admingroup-roles-width data-color">
+            {{item.description}}
+          </div>
+          <div class="div-data admingroup-operation-width">
+            <a routerLink="#" (click)="admingroupUpdataId(admingroupId.value)">修改</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-12 div-center padding-top-15px">
+            <pagination [boundaryLinks]="true" [totalItems]="this.groupTotal / 2"
+                        [maxSize]="10" (pageChanged)="pageChanged($event)"
+                        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+          </div>
+        </div>
+        <div class="clear"></div>
       </div>
     </div>
   </div>

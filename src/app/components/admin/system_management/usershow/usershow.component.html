@@ -1,70 +1,62 @@
-<div class="background-img">
-  <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-system-management-menu></app-system-management-menu>
-  </div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      查看
-      <img src="../../../../../assets/images/xtgl.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="myinfo-div-inf">
-              <p>会员编号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.id}}</p>
-            </div>
-            <div class="myinfo-div-inf" >
-              <p>登陆账号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.account}}</p>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>会员级别</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.rank.alias}}</p>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>身份证号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.identityNumber}}</p>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>真实姓名</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.account}}</p>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>移动电话</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.phone}}</p>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>收货地址</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>{{userData.data.address}}</p>
-            </div>
 
-            <div class="clear"></div>
+<div class="main-div">
+  <div class="main-Navigation">
+    查看
+    <img src="../../../../../assets/images/xtgl.jpg">
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="myinfo-div-inf">
+            <p>会员编号</p>
           </div>
-          <div class="repass-button">
-            <input type="button" (click)="goUser()" class="button-1 usershow-button" value="返回">
+          <div class="myinfo-div-data">
+            <p>{{userData.data.id}}</p>
           </div>
+          <div class="myinfo-div-inf" >
+            <p>登陆账号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.account}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>会员级别</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.rank.alias}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>身份证号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.identityNumber}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>真实姓名</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.account}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>移动电话</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.phone}}</p>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>收货地址</p>
+          </div>
+          <div class="myinfo-div-data">
+            <p>{{userData.data.address}}</p>
+          </div>
+
           <div class="clear"></div>
-
         </div>
+        <div class="repass-button">
+          <input type="button" (click)="goUser()" class="button-1 usershow-button" value="返回">
+        </div>
+        <div class="clear"></div>
       </div>
     </div>
   </div>

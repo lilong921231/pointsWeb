@@ -1,122 +1,117 @@
-<div class="background-img height-div">
-  <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-currency-menu></app-currency-menu>
-  </div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      天宝指数
-      <img src="../../../../../assets/images/cwgl.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div tb-index">
-            <div class="div-header tb-index-double-heigth tb-index-width">
-              记录编号
-            </div>
-            <div class="div-header-double tb-index-double-heigth">
-              <div class="div-header double-width-parent tbborder">
-                上证指数
-              </div>
-              <div class="div-header-bottom">
-                <div class="div-header double-width-son1">
-                  开盘
-                </div>
-                <div class="div-header double-width-son2">
-                  最高
-                </div>
-                <div class="div-header double-width-son2">
-                  最低
-                </div>
-                <div class="div-header double-width-son3">
-                  收盘
-                </div>
-              </div>
+<div class="ceshi-width">
 
+</div>
+<div class="main-div">
+  <div class="main-Navigation">
+    天宝指数
+    <img src="../../../../../assets/images/cwgl.jpg">
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div tb-index">
+          <div class="div-header tb-index-double-heigth tb-index-width">
+            记录编号
+          </div>
+          <div class="div-header-double tb-index-double-heigth">
+            <div class="div-header double-width-parent tbborder">
+              上证指数
             </div>
-            <div class="div-header-double tb-index-double-heigth">
-              <div class="div-header double-width-parent tbborder" >
-                天宝指数
-              </div>
-              <div class="div-header-bottom">
+            <div class="div-header-bottom">
               <div class="div-header double-width-son1">
-               开盘
-             </div>
-             <div class="div-header double-width-son2">
-               最高
-             </div>
-             <div class="div-header double-width-son2">
-               最低
-             </div>
-             <div class="div-header double-width-son3">
-               收盘
-             </div>
+                开盘
+              </div>
+              <div class="div-header double-width-son2">
+                最高
+              </div>
+              <div class="div-header double-width-son2">
+                最低
+              </div>
+              <div class="div-header double-width-son3">
+                收盘
               </div>
             </div>
-            <div class=" div-header tb-index-double-heigth tb-index-data-width">
-              日期
-            </div>
-            <div class=" div-header tb-index-double-heigth tb-index-operation-width">
-              操作
-            </div>
-            <div class="clear"></div>
+
           </div>
-          <div class="admin-div" *ngFor="let item of data.data;let i = index">
-            <div class="div-data data-color tb-index-width">
-              {{item.id}}
-                <input type="text" style="display:none" value="{{item.id}}" #tbExponentId>
+          <div class="div-header-double tb-index-double-heigth">
+            <div class="div-header double-width-parent tbborder" >
+              天宝指数
             </div>
-            <div class="div-data data-color tb-index-list-width1">
-              {{item.shOpenExponent}}
-            </div>
-            <div class="div-data data-color tb-index-list-width2">
-              {{item.shMaxExponent}}
-            </div>
-            <div class="div-data data-color tb-index-list-width2">
-              {{item.shMinExponent}}
-            </div>
-            <div class="div-data data-color td-index-list-width3">
-              {{item.shCloseExponent}}
-            </div>
-            <div class="div-data data-color tb-index-list-width1">
-              {{item.tbOpenExponent}}
-            </div>
-            <div class="div-data data-color tb-index-list-width2">
-              {{item.tbMaxExponent}}
-            </div>
-            <div class="div-data data-color tb-index-list-width2">
-              {{item.tbMinExponent}}
-            </div>
-            <div class="div-data data-color td-index-list-width3">
-              {{item.tbCloseExponent}}
-            </div>
-            <div class="div-data data-color td-index-list-date-width">
-              {{item.publishTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}
-            </div>
-            <div class="div-data td-index-list-operation-width">
-              <a routerLink="#" (click)="tbIdSkip(tbExponentId.value)">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a routerLink="#" (click)="tbDeleteId(tbExponentId.value)">删除</a>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="admin-div div-center-align">
-            <div class="news-div-input">
-              <input type="button" (click)="tbAdd()" class="button-2 button-2-input float-left" value="添加记录">
-            </div>
-            <div class="row div-news-width">
-              <div class="col-xs-12 col-12 div-center padding-top-15px">
-                <pagination [boundaryLinks]="true" [totalItems]="this.tbIndexTotal / 2 "
-                            [maxSize]="10" (pageChanged)="pageChanged($event)"
-                            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+            <div class="div-header-bottom">
+              <div class="div-header double-width-son1">
+                开盘
               </div>
-              <div class="clear"></div>
+              <div class="div-header double-width-son2">
+                最高
+              </div>
+              <div class="div-header double-width-son2">
+                最低
+              </div>
+              <div class="div-header double-width-son3">
+                收盘
+              </div>
             </div>
+          </div>
+          <div class=" div-header tb-index-double-heigth tb-index-data-width">
+            日期
+          </div>
+          <div class=" div-header tb-index-double-heigth tb-index-operation-width">
+            操作
           </div>
           <div class="clear"></div>
         </div>
+        <div class="admin-div" *ngFor="let item of data.data;let i = index">
+          <div class="div-data data-color tb-index-width">
+            {{item.id}}
+            <input type="text" style="display:none" value="{{item.id}}" #tbExponentId>
+          </div>
+          <div class="div-data data-color tb-index-list-width1">
+            {{item.shOpenExponent}}
+          </div>
+          <div class="div-data data-color tb-index-list-width2">
+            {{item.shMaxExponent}}
+          </div>
+          <div class="div-data data-color tb-index-list-width2">
+            {{item.shMinExponent}}
+          </div>
+          <div class="div-data data-color td-index-list-width3">
+            {{item.shCloseExponent}}
+          </div>
+          <div class="div-data data-color tb-index-list-width1">
+            {{item.tbOpenExponent}}
+          </div>
+          <div class="div-data data-color tb-index-list-width2">
+            {{item.tbMaxExponent}}
+          </div>
+          <div class="div-data data-color tb-index-list-width2">
+            {{item.tbMinExponent}}
+          </div>
+          <div class="div-data data-color td-index-list-width3">
+            {{item.tbCloseExponent}}
+          </div>
+          <div class="div-data data-color td-index-list-date-width">
+            {{item.publishTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}
+          </div>
+          <div class="div-data td-index-list-operation-width">
+            <a routerLink="#" (click)="tbIdSkip(tbExponentId.value)">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a routerLink="#" (click)="tbDeleteId(tbExponentId.value)">删除</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="admin-div div-center-align">
+          <div class="news-div-input">
+            <input type="button" (click)="tbAdd()" class="button-2 button-2-input float-left" value="添加记录">
+          </div>
+          <div class="row div-news-width">
+            <div class="col-xs-12 col-12 div-center padding-top-15px">
+              <pagination [boundaryLinks]="true" [totalItems]="this.tbIndexTotal / 2 "
+                          [maxSize]="10" (pageChanged)="pageChanged($event)"
+                          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="clear"></div>
       </div>
     </div>
   </div>

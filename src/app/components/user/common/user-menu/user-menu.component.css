@@ -35,6 +35,7 @@
   text-align: -webkit-left;
 }
 .menu-message>a{
+  cursor:pointer;
   text-decoration: none;
   font-size: 14px;
   color: #FFFFFF;

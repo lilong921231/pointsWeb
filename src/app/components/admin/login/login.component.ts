@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
           this.http.setToken(response.data['token']);
           this.http.setId(response.data['id']);
           this.http.setAdmin('admin');
-          this.http.setCookie(true);
+          this.http.setCookie('admin');
           this.router.navigate(['/admin/main']);
         } else {
           alert(response.message);

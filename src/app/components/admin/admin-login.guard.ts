@@ -32,10 +32,12 @@ export class AdminLoginGuard implements CanActivate {
     // 当前路由是nextRoute指定页时
     if (nextRoute.indexOf(path) >= 0) {
       if (!this.isLogin) {
+        console.log('if');
         // 未登录，跳转到login
         this.router.navigate(['admin']);
         return false;
       } else {
+        console.log(path);
         // 已登录，跳转到当前路由
         return true;
       }

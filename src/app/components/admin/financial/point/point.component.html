@@ -1,31 +1,23 @@
-<div class="background-img">
-  <div>
-    <app-header></app-header>
+<div class="main-div">
+  <div class="main-Navigation">
+    增值积分结算
+    <img src="../../../../../assets/images/cwgl.jpg">
   </div>
-  <div>
-    <app-financial-menu></app-financial-menu>
-  </div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      增值积分结算
-      <img src="../../../../../assets/images/cwgl.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="point-div-font">
-            <div class="point-div-now">
-              当前积分总数：{{data.data.totalPoints}}
-              &nbsp;&nbsp;&nbsp;
-              权重:{{data.data.systemRatio * 100 | number:'1.1-4'}}&nbsp;
-              <input type="text" style="display:none" value="{{data.data.systemRatio}}"  #systemRatio>
-              ％&nbsp;&nbsp;&nbsp;
-              <button type="button" class="point-button" (click)="checkPoint()">增值积分结算（2018-11-29）</button>
-            </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="point-div-font">
+          <div class="point-div-now">
+            当前积分总数：{{data.data.totalPoints}}
+            &nbsp;&nbsp;&nbsp;
+            权重:{{data.data.systemRatio * 100 | number:'1.1-4'}}&nbsp;
+            <input type="text" style="display:none" value="{{data.data.systemRatio}}"  #systemRatio>
+            ％&nbsp;&nbsp;&nbsp;
+            <button type="button" class="point-button" (click)="checkPoint()">增值积分结算（2018-11-29）</button>
           </div>
         </div>
-        <div class="clear"></div>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 </div>

@@ -1,85 +1,78 @@
-<div class="background-img">
+
+<div class="main-div">
   <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-customer-menu></app-customer-menu>
-  </div>
-  <div class="main-div">
-    <div>
-      <div class="main-Navigation">
-        会员留言
-        <img src="../../../../../assets/images/kfzx.jpg">
-        <div class="search-div">
-          <input type="text" class="search-input" value="" #keyword>
-          <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
-        </div>
+    <div class="main-Navigation">
+      会员留言
+      <img src="../../../../../assets/images/kfzx.jpg">
+      <div class="search-div">
+        <input type="text" class="search-input" value="" #keyword>
+        <input type="button" class="search-button" (click)="messageSearch(keyword.value)">
       </div>
     </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="div-header meg-history-width-checkbox">
-              <input type="checkbox" [(checked)]="checkSum" (click)="checkAll()">
-            </div>
-            <div class="div-header meg-history-width-state">
-              状态
-            </div>
-            <div class="div-header meg-history-width-member">
-              留言会员
-            </div>
-            <div class="div-header meg-history-width-title">
-              留言标题
-            </div>
-            <div class="div-header meg-history-width">
-              留言内容
-            </div>
-            <div class="div-header meg-history-width-reply">
-              管理回复
-            </div>
-            <div class="div-header meg-history-width-operation">
-              操作
-            </div>
-            <div class="clear"></div>
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="div-header meg-history-width-checkbox">
+            <input type="checkbox" [(checked)]="checkSum" (click)="checkAll()">
           </div>
-          <div class="admin-div" *ngFor="let item of historyData.data;let i = index">
-            <div class="div-data meg-history-width-checkbox">
-              <input type="checkbox"  [(checked)]="messageStatus[i]" (click)="checked(i);checkAllNo()">
-              <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
-            </div>
-            <div class="div-data meg-history-width-state data-color">
-              {{item.status ? '已处理' : '未处理' }}
-            </div>
-            <div class="div-data meg-history-width-member data-color">
-              <input type="text" style="display:none" value="{{item.sender.account}}" #userID>
-              <a routerLink="#" class="a-bottom" (click)="userIdSkip(userID.value)">{{item.sender.account}}</a>
-            </div>
-            <div class="div-data meg-history-width-title data-color">
-              {{item.message.title}}
-            </div>
-            <div class="div-data meg-history-width data-color">
-              {{item.message.content}}
-            </div>
-            <div class="div-data meg-history-width-reply data-color">
-              {{item.sender.realName}}
-            </div>
-            <div class="div-data meg-history-width-operation">
-              <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
-              <a routerLink="#" (click)="messageIdDelete(messageID.value)">删除</a>
-            </div>
-            <div class="clear"></div>
+          <div class="div-header meg-history-width-state">
+            状态
           </div>
-          <div class="news-div-input">
-            <input type="button" (click)="messagesDelete()" class="button-2 button-width message-float" value="删除选定记录">
+          <div class="div-header meg-history-width-member">
+            留言会员
           </div>
-          <div class="news-div-pagaData">
-            共1页{{messageHistoryTotal}}条记录
+          <div class="div-header meg-history-width-title">
+            留言标题
+          </div>
+          <div class="div-header meg-history-width">
+            留言内容
+          </div>
+          <div class="div-header meg-history-width-reply">
+            管理回复
+          </div>
+          <div class="div-header meg-history-width-operation">
+            操作
           </div>
           <div class="clear"></div>
         </div>
+        <div class="admin-div" *ngFor="let item of historyData.data;let i = index">
+          <div class="div-data meg-history-width-checkbox">
+            <input type="checkbox"  [(checked)]="messageStatus[i]" (click)="checked(i);checkAllNo()">
+            <input type="text" style="display:none" value="{{item.message.id}}" #messageID>
+          </div>
+          <div class="div-data meg-history-width-state data-color">
+            {{item.status ? '已处理' : '未处理' }}
+          </div>
+          <div class="div-data meg-history-width-member data-color">
+            <input type="text" style="display:none" value="{{item.sender.account}}" #userID>
+            <a routerLink="#" class="a-bottom" (click)="userIdSkip(userID.value)">{{item.sender.account}}</a>
+          </div>
+          <div class="div-data meg-history-width-title data-color">
+            {{item.message.title}}
+          </div>
+          <div class="div-data meg-history-width data-color">
+            {{item.message.content}}
+          </div>
+          <div class="div-data meg-history-width-reply data-color">
+            {{item.sender.realName}}
+          </div>
+          <div class="div-data meg-history-width-operation">
+            <a routerLink="#" (click)="messageIdInfo(messageID.value)">查看</a>&nbsp;&nbsp;
+            <a routerLink="#" (click)="messageIdDelete(messageID.value)">删除</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="news-div-input">
+          <input type="button" (click)="messagesDelete()" class="button-2 button-width message-float" value="删除选定记录">
+        </div>
+        <div class="news-div-pagaData">
+          共1页{{messageHistoryTotal}}条记录
+        </div>
         <div class="clear"></div>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 </div>

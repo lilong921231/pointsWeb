@@ -15,8 +15,28 @@ export class UserMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  tiaoye() {
-    this.router.navigate(['../repass']); // 跳转到用户首页界面
+  main() {
+    this.router.navigate(['main']);
   }
-
+  repass() {
+    this.router.navigate(['repass']); // 跳转到用户首页界面
+  }
+  userInfo() {
+    this.router.navigate(['userInfo']);
+  }
+  reg() {
+    this.router.navigate(['reg']);
+  }
+  money_user_list() {
+    this.router.navigate(['money_user_list']);
+  }
+  kline() {
+    this.router.navigate(['tb-kline']);
+  }
+  point() {
+    this.router.navigate(['point']);
+  }
+  message() {
+    this.router.navigate(['message']);
+  }
 }

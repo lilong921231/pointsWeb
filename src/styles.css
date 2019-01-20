@@ -6,6 +6,37 @@
 @import "app/components/admin/currency/repass/repass.component.css";
 @import "app/components/admin/customer/newinfo-add/newinfo-add.component.css";
 
+app-main{width: 79%;}
+app-myinfo{width: 79%;}
+app-repass{width: 79%;}
+app-repass-spw{width: 79%;}
+app-tb-index{width: 79%;}
+app-tb-index-add{width: 79%;}
+app-tb-index{width: 79%;}
+app-tb-index-kline{width: 79%;}
+app-tb-index-updata{width: 79%;}
+app-message{width: 79%}
+app-message-history{width: 79%;}
+app-messageinfo{width: 79%;}
+app-newinfo-add{width: 79%;}
+app-newinfo-updata{width: 79%;}
+app-news{width: 79%;}
+app-point{width: 79%;}
+app-pointinfo{width: 79%;}
+app-pointlist{width: 79%;}
+app-deldata{width: 79%;}
+app-admin{width: 79%;}
+app-admin-add{width: 79%;}
+app-admin-updata{width: 79%;}
+app-admingroup{width: 79%;}
+app-admingroup-updata{width: 79%;}
+app-level{width: 79%;}
+app-level-add{width: 79%;}
+app-level-updata{width: 79%;}
+app-user{width: 79%;}
+app-user-id{width: 79%;}
+app-user-updata{width: 79%;}
+app-usershow{width: 79%;}
 
 *{
   margin:0 ;

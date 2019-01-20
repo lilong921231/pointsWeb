@@ -1,100 +1,93 @@
-<div class="background-img">
-  <div>
-    <app-header></app-header>
-  </div>
-  <div>
-    <app-system-management-menu></app-system-management-menu>
-  </div>
-  <div class="main-div">
-    <div class="main-Navigation">
-      添加
-      <img src="../../../../../assets/images/xtgl.jpg">
-    </div>
-    <div class="myinfo-div">
-      <div class="myinfo-div-d1">
-        <div class="myinfo-div-table">
-          <div class="admin-div">
-            <div class="myinfo-div-inf">
-              <p>级别编号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <p>自动生成</p>
-            </div>
-            <div class="myinfo-div-inf" >
-              <p>级别名称</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #name>
-                <span>&nbsp;* 必须输入</span>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>级别别名</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #alias>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>级别标识色</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #color>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>级别积分</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #point>
-                <span>&nbsp; * 必须输入（正常是10元等于1积分）！</span>
-              </div>
-            </div>
 
-            <div class="myinfo-div-inf">
-              <p>级别金额</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #money>
-                <span>&nbsp; * 必须输入</span>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>奖金封顶</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #maxMonen>
-                <span>&nbsp; * 必须输入(加权分红的奖金)！</span>
-              </div>
-            </div>
-            <div class="myinfo-div-inf">
-              <p>排序编号</p>
-            </div>
-            <div class="myinfo-div-data">
-              <div class="repass-input">
-                <input type="text" value="" #order>
-                <span>&nbsp; * 必须输入！</span>
-              </div>
-            </div>
-            <div class="clear"></div>
+
+<div class="main-div">
+  <div class="main-Navigation">
+    添加
+    <img src="../../../../../assets/images/xtgl.jpg">
+  </div>
+  <div class="myinfo-div">
+    <div class="myinfo-div-d1">
+      <div class="myinfo-div-table">
+        <div class="admin-div">
+          <div class="myinfo-div-inf">
+            <p>级别编号</p>
           </div>
-          <div class="repass-button">
-            <input type="button" (click)="levelAdd(
+          <div class="myinfo-div-data">
+            <p>自动生成</p>
+          </div>
+          <div class="myinfo-div-inf" >
+            <p>级别名称</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #name>
+              <span>&nbsp;* 必须输入</span>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>级别别名</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #alias>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>级别标识色</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #color>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>级别积分</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #point>
+              <span>&nbsp; * 必须输入（正常是10元等于1积分）！</span>
+            </div>
+          </div>
+
+          <div class="myinfo-div-inf">
+            <p>级别金额</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #money>
+              <span>&nbsp; * 必须输入</span>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>奖金封顶</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #maxMonen>
+              <span>&nbsp; * 必须输入(加权分红的奖金)！</span>
+            </div>
+          </div>
+          <div class="myinfo-div-inf">
+            <p>排序编号</p>
+          </div>
+          <div class="myinfo-div-data">
+            <div class="repass-input">
+              <input type="text" value="" #order>
+              <span>&nbsp; * 必须输入！</span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="repass-button">
+          <input type="button" (click)="levelAdd(
             name.value, alias.value, color.valur, point.value,
             money.value, maxMonen.value, order.value
             )" class="button-1 button-width" value="保存编辑">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
-          </div>
-          <div class="clear"></div>
-
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="button" (click)="reset()" class="button-2 button-width" value="清空重填">
         </div>
+        <div class="clear"></div>
       </div>
     </div>
   </div>
