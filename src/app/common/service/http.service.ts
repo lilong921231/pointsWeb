@@ -28,6 +28,14 @@ export class HttpService {
     return sessionStorage.getItem(value);
   }
 
+  setMenuId(value) {
+    window.localStorage.menuId = value;
+  }
+
+  getMenuId() {
+    return window.localStorage.menuId;
+  }
+
   /**
    * 在storage处存入用户token
    * @param value token的值
@@ -50,7 +58,7 @@ export class HttpService {
         alert('账号过期，请重新登陆');
         this.router.navigate(['/admin']); // 跳转到admin登陆界面
       }
-    }, 1000 * 60 * 60 * 4);
+    }, 1000 * 60 * 60 * 8);
     return window.localStorage.token;
   }
 

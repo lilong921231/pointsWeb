@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router} from '@angular/router';
+import {HttpService} from '../../../../common/service/http.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,21 +9,25 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  showML1: Boolean;
-  showML2: Boolean;
-  showML3: Boolean;
-  showML4: Boolean;
-  showML5: Boolean;
+
+
+  showML1: boolean;
+  showML2: boolean;
+  showML3: boolean;
+  showML4: boolean;
+  showML5: boolean;
   constructor(
     private router: Router,
+    private http: HttpService
   ) { }
 
   ngOnInit() {
-    this.showML1 = false;
-    this.showML2 = true;
-    this.showML3 = true;
-    this.showML4 = true;
-    this.showML5 = true;
+    this.ShowHideButton(this.http.getMenuId());
+  }
+
+  menuId(value) {
+    this.http.setMenuId(value);
+    this.ShowHideButton(this.http.getMenuId());
   }
 
   /**
@@ -31,49 +36,44 @@ export class MenuComponent implements OnInit {
 
   ShowHideButton(menuID) {
     // 通用操作
-    if (menuID === 1) {
+    if (menuID === '1') {
       this.showML1 = this.showML1 ? false : true;
-      this.showML2 = true;
-      this.showML3 = true;
-      this.showML4 = true;
-      this.showML5 = true;
-      return;
+      this.showML2 = false;
+      this.showML3 = false;
+      this.showML4 = false;
+      this.showML5 = false;
     }
     // 财务管理
-    if (menuID === 2) {
-      this.showML1 = true;
+    if (menuID === '2') {
+      this.showML1 = false;
       this.showML2 = this.showML2 ? false : true;
-      this.showML3 = true;
-      this.showML4 = true;
-      this.showML5 = true;
-      return;
+      this.showML3 = false;
+      this.showML4 = false;
+      this.showML5 = false;
     }
     // 客服中心
-    if (menuID === 3) {
-      this.showML1 = true;
-      this.showML2 = true;
+    if (menuID === '3') {
+      this.showML1 = false;
+      this.showML2 = false;
       this.showML3 = this.showML3 ? false : true;
-      this.showML4 = true;
-      this.showML5 = true;
-      return;
+      this.showML4 = false;
+      this.showML5 = false;
     }
     // 系统管理
-    if (menuID === 4) {
-      this.showML1 = true;
-      this.showML2 = true;
-      this.showML3 = true;
+    if (menuID === '4') {
+      this.showML1 = false;
+      this.showML2 = false;
+      this.showML3 = false;
       this.showML4 = this.showML4 ? false : true;
-      this.showML5 = true;
-      return;
+      this.showML5 = false;
     }
     // 平台维护
-    if (menuID === 5) {
-      this.showML1 = true;
-      this.showML2 = true;
-      this.showML3 = true;
-      this.showML4 = true;
+    if (menuID === '5') {
+      this.showML1 = false;
+      this.showML2 = false;
+      this.showML3 = false;
+      this.showML4 = false;
       this.showML5 = this.showML5 ? false : true;
-      return;
     }
   }
 
