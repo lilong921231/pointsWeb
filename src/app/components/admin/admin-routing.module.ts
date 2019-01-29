@@ -30,7 +30,6 @@ import {AdminUpdataComponent} from './system_management/admin-updata/admin-updat
 import {AdmingroupComponent} from './system_management/admingroup/admingroup.component';
 import {AdmingroupUpdataComponent} from './system_management/admingroup-updata/admingroup-updata.component';
 import {DeldataComponent} from './platform/deldata/deldata.component';
-import {MainComponent} from './currency/main/main.component';
 import {AdminLoginGuard} from './admin-login.guard';
 import {AdminHomeComponent} from './admin-home.component';
 
@@ -44,7 +43,7 @@ const router: Routes = [
         path: 'main',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: MainComponent, canActivate: [AdminLoginGuard] }
+          { path: '', loadChildren: './currency/main/main.module#MainModule', canActivate: [AdminLoginGuard] }
         ]
       },
       // 个人档案
@@ -52,7 +51,7 @@ const router: Routes = [
         path: 'myinfo',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: MyinfoComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/myinfo/myinfo.module#MyinfoModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 修改密码
@@ -60,7 +59,7 @@ const router: Routes = [
         path: 'repass',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: RepassComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/repass/repass.module#RepassModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 修改超级密码
@@ -68,7 +67,7 @@ const router: Routes = [
         path: 'repass-spw',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: RepassSpwComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/repass-spw/repass-spw.module#RepassSpwModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 天宝指数
@@ -76,7 +75,7 @@ const router: Routes = [
         path: 'tb-index',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: TbIndexComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/tb-index/tb-index.module#TbIndexModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 添加天宝指数
@@ -84,7 +83,7 @@ const router: Routes = [
         path: 'tb-index-add',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: TbIndexAddComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/tb-index-add/tb-index-add.module#TbIndexAddModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 修改天宝指数
@@ -92,7 +91,7 @@ const router: Routes = [
         path: 'tb-index-updata/:id',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: TbIndexUpdataComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/tb-index-updata/tb-index-updata.module#TbIndexUpdataModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 天宝K线图
@@ -100,7 +99,7 @@ const router: Routes = [
         path: 'tb-index-kline',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: TbIndexKlineComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './currency/tb-index-kline/tb-index-kline.module#TbIndexKlineModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 增值积分结算
@@ -108,7 +107,7 @@ const router: Routes = [
         path: 'point',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: PointComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './financial/point/point.module#PointModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 增值积分列表
@@ -116,7 +115,7 @@ const router: Routes = [
         path: 'pointlist',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: PointlistComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './financial/pointlist/pointlist.module#PointlistModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 增值分详情
@@ -124,7 +123,7 @@ const router: Routes = [
         path: 'pointinfo/:id',
         component: AdminHomeComponent,
         children: [
-          { path: '', component: PointinfoComponent, canActivate: [AdminLoginGuard]}
+          { path: '', loadChildren: './financial/pointinfo/pointinfo.module#PointinfoModule', canActivate: [AdminLoginGuard]}
         ]
       },
       // 会员留言 未处理状态
