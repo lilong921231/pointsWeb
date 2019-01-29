@@ -1,9 +1,8 @@
-
 <div class="main-div">
   <div class="td-index-kline-title">
     盛华天宝K线图
   </div>
-  <div class="myinfo-div">
+  <div class="myinfo-div"  *ngIf="dataNull">
     <div class="kline-div">
       <div class="opening-quotation">
         <span>开盘：{{shExponentData[exponentTotal - 1][0]}}</span>
@@ -19,7 +18,7 @@
         <div echarts [options]="shExponent" class="demo-chart"></div>
       </div>
     </div>
-    <div class="kline-br"></div>
+    <div class="kline-br" ></div>
     <div class="kline-div">
       <div class="opening-quotation">
         <span>开盘：{{tbExponentData[exponentTotal - 1][0]}}</span>
@@ -33,6 +32,37 @@
       </div>
       <div class="kline-chart">
         <div echarts [options]="tbExponent" class="demo-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="myinfo-div" *ngIf="!dataNull">
+    <div class="kline-div">
+      <div class="opening-quotation">
+        <span>开盘：</span>
+        &nbsp;
+        <span class="opening-color">最高：</span>
+      </div>
+      <div class="closing-quotation">
+        <span>收盘：</span>
+        &nbsp;
+        <span class="quotation-color">最低：</span>
+      </div>
+      <div class="kline-chart">
+      </div>
+    </div>
+    <div class="kline-br"></div>
+    <div class="kline-div">
+      <div class="opening-quotation">
+        <span>开盘：</span>
+        &nbsp;
+        <span class="opening-color">最高：</span>
+      </div>
+      <div class="closing-quotation">
+        <span>收盘：</span>
+        &nbsp;
+        <span class="quotation-color">最低：</span>
+      </div>
+      <div class="kline-chart">
       </div>
     </div>
   </div>

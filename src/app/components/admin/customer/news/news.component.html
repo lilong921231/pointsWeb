@@ -30,7 +30,7 @@
             操作
           </div>
         </div>
-        <div class="admin-div" *ngFor="let item of data.data;let i = index">
+        <div class="admin-div" *ngFor="let item of data;let i = index">
           <div class="div-data news-width-checkbox">
             <input type="checkbox" [(checked)]="newsStatus[i]" (click)="checked(i);checkAllNo()">
           </div>

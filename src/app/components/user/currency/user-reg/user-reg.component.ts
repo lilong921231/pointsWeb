@@ -97,9 +97,11 @@ export class UserRegComponent implements OnInit {
       alert('请选择省份');
       return false;
     }
-    if (city === null || city === undefined || city === '') {
-      alert('城市不能为空');
-      return false;
+    if ( province !== '北京市' ) {
+      if (city === null || city === undefined || city === '') {
+        alert('城市不能为空');
+        return false;
+      }
     }
     if (address === null || address === undefined || address === '') {
       alert('详细地址不能为空');
@@ -121,7 +123,7 @@ export class UserRegComponent implements OnInit {
       'surePassword': surePassword,
       'phone': phone,
       'province': province,
-      'city': city,
+      'city': city + '市',
       'address': address,
       'certificationTime': certificationTime,
     };

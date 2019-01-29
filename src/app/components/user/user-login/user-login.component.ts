@@ -81,6 +81,7 @@ export class UserLoginComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.http.setToken(response.data['token']); // 获取的数据存入storage
           this.http.setId(response.data['id']); // 获取的数据存入storage
+          console.log(response);
           this.http.setUser('user');
           this.http.setCookie('user');
           this.router.navigate(['/main']); // 跳转到用户首页界面

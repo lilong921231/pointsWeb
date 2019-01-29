@@ -3,6 +3,7 @@ import { CurrencyService } from '../../services/currency.service';
 import {ManagementService} from '../../services/management.service';
 import {HttpService} from '../../../../common/service/http.service';
 import {catchError} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class MainComponent implements OnInit {
   constructor(
     private currency: CurrencyService,
     private management: ManagementService,
-    private http: HttpService
+    private http: HttpService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -32,10 +34,15 @@ export class MainComponent implements OnInit {
     this.currency.newService()
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          this.newData = response;
+          this.newData = response.data;
         } else {
-          alert(response.message);
-          return false;
+          if (response.code === 706) {
+            const data = [{content: '暂无内容...'}];
+            this.newData = data;
+          } else {
+            alert(response.message);
+          }
+            return ;
         }
       });
   }
@@ -50,8 +57,12 @@ export class MainComponent implements OnInit {
           this.adminData = response;
           this.http.setName(response.data.roleList[0].name);
         } else {
-          alert(response.message);
-          return false;
+          if (response.message === '用户没有该访问权限') {
+            return this.router.navigateByUrl('/admin');
+          } else {
+            alert(response.message);
+            return ;
+          }
         }
       });
   }

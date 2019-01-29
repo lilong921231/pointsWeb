@@ -1,17 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserRepassComponent } from './components/user/currency/user-repass/user-repass.component';
-import { UserUserInfoComponent } from './components/user/currency/user-user-info/user-user-info.component';
-import { UserRegComponent } from './components/user/currency/user-reg/user-reg.component';
-import { UserMoneyComponent } from './components/user/currency/user-money/user-money.component';
-import { UserTbKlineComponent } from './components/user/currency/user-tb-kline/user-tb-kline.component';
-import { UserPointComponent } from './components/user/currency/user-point/user-point.component';
-import { UserMessageComponent } from './components/user/currency/user-message/user-message.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
-import { UserMessageInfoComponent } from './components/user/currency/user-message-info/user-message-info.component';
 import {UserLoginGuard} from './components/user/user-login.guard';
-import {UserTbKlineModule} from './components/user/currency/user-tb-kline/user-tb-kline.module';
-import {LoginComponent} from './components/admin/login/login.component';
 
 /**
  * 设定路由界面

@@ -41,7 +41,25 @@ export class MessageHistoryComponent implements OnInit {
           this.status = response.data;
 
         } else {
-          alert(response.message);
+          if (response.code === 706) {
+            const messageNull = [
+              {
+                status: '',
+                message: {
+                  id: '',
+                  title: '',
+                  content: ''
+                },
+                sender: {
+                  account: ''
+                }
+              }
+            ];
+            this.historyData = messageNull;
+            this.messageHistoryTotal = 0;
+          } else {
+            alert(response.message);
+          }
           return false;
         }
       });
@@ -139,6 +157,21 @@ export class MessageHistoryComponent implements OnInit {
   checked(i) {
     // 根据当前i的顺序，判断check的状态
     this.messageStatus[i] = this.messageStatus[i] ? false : true;
+    // 设定自加变量值，并初始化
+    let k = 0;
+    // 循环查看数据长度查看状态
+    for (let j = 0; j < this.status.length; j++) {
+      // 查看所有状态是否都等于true
+      if (this.messageStatus[j] === true) {
+        // 数据状态等于true，则自加变量k加1
+        k++;
+        // k+1是为了等于数组长度
+        if ((k + 1) === this.status.length) {
+          // 返回全选状态为true
+          return this.checkSum = true;
+        }
+      }
+    }
   }
 
   /**

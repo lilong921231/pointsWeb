@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
-import {ManagementService} from "../../services/management.service";
+import { ManagementService } from '../../services/management.service';
 
 @Component({
   selector: 'app-message',
@@ -17,6 +17,7 @@ export class MessageComponent implements OnInit {
   status: any[] = [];
 
   messageData: any;
+  total: any;
   constructor(
     private customer: CustomerService,
     private management: ManagementService
@@ -38,8 +39,28 @@ export class MessageComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.messageData = response;
         this.status = response.data;
+        this.total = response.total;
       } else {
-        alert(response.message);
+        if (response.code === 706) {
+          const messageNull = [
+            {
+              status: '',
+              message: {
+                id: '',
+                title: '',
+                content: ''
+              },
+              sender: {
+                account: ''
+              }
+            }
+          ];
+          this.messageData = messageNull;
+          this.total = 0;
+        } else {
+          alert(response.message);
+        }
+
         return false;
       }
       });
@@ -134,6 +155,21 @@ export class MessageComponent implements OnInit {
   checked(i) {
     // 根据当前i的顺序，判断check的状态
     this.messageStatus[i] = this.messageStatus[i] ? false : true;
+    // 设定自加变量值，并初始化
+    let k = 0;
+    // 循环查看数据长度查看状态
+    for (let j = 0; j < this.status.length; j++) {
+      // 查看所有状态是否都等于true
+      if (this.messageStatus[j] === true) {
+        // 数据状态等于true，则自加变量k加1
+        k++;
+        // k+1是为了等于数组长度
+        if ((k + 1) === this.status.length) {
+          // 返回全选状态为true
+          return this.checkSum = true;
+        }
+      }
+    }
   }
 
   /**

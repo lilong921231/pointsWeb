@@ -55,11 +55,14 @@ export class NewsComponent implements OnInit {
     this.customer.newInfo(pageSize, pageNo)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
-          this.data = response;
+          this.data = response.data;
           this.newsTotal = response['total'];
           this.status = response.data;
         } else {
-          alert(response.message);
+          if (response.code === 706) {
+          } else {
+            alert(response.message);
+          }
           return false;
         }
       });
@@ -138,6 +141,21 @@ export class NewsComponent implements OnInit {
   checked(i) {
     // 根据当前i的顺序，判断check的状态
     this.newsStatus[i] = this.newsStatus[i] ? false : true;
+    // 设定自加变量值，并初始化
+    let k = 0;
+    // 循环查看数据长度查看状态
+    for (let j = 0; j < this.status.length; j++) {
+      // 查看所有状态是否都等于true
+      if (this.newsStatus[j] === true) {
+        // 数据状态等于true，则自加变量k加1
+        k++;
+        // k+1是为了等于数组长度
+        if ((k + 1) === this.status.length) {
+          // 返回全选状态为true
+          return this.checkSum = true;
+        }
+      }
+    }
   }
 
   /**
@@ -158,7 +176,6 @@ export class NewsComponent implements OnInit {
    * 删除选取的N个留言信息
    */
   newsDelete() {
-    alert('newsDelete');
     let num = 0; // 为了存储ID，赋予ids数据位置
     const messages = []; // 选择事件后，给ids至空
     // messageStatus
@@ -175,6 +192,10 @@ export class NewsComponent implements OnInit {
     const data = {
       'ids': messages.toString()
     };
+    if (num === 0) {
+      alert('当前为0条记录，请选择后删除');
+      return false;
+    }
 
     const userIdsDelete = confirm('确认删除以上' + num + '条记录？');
     if (userIdsDelete) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
  adminHeader: any;
   constructor(
-    private management: ManagementService
+    private management: ManagementService,
+    private router: Router
   ) {
   }
 
@@ -28,8 +30,12 @@ export class HeaderComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.adminHeader = response;
         } else {
-          alert(response.message);
-          return false;
+          if (response.message === '用户没有该访问权限') {
+            return this.router.navigateByUrl('/admin');
+          } else {
+            alert(response.message);
+            return ;
+          }
         }
       });
   }

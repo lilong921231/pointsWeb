@@ -13,8 +13,8 @@ import {Router} from '@angular/router';
 })
 export class HttpService {
 
-  // adminUrl = 'http://47.91.230.177:8001';
-  adminUrl = 'http://localhost:8001';
+  adminUrl = 'http://47.91.230.177:8001';
+  // adminUrl = 'http://localhost:8001';
 
   constructor(
     private router: Router, // 引入Router路由组件

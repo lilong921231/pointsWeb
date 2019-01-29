@@ -7,8 +7,8 @@ export const environment = {
   // 服务器url
  // apiUrl: 'http://192.168.249.110:8001',
  // apiUrl: 'http://47.91.230.177:8001',
- //  apiUserUrl: 'http://47.91.230.177:8002',
-  apiUserUrl: 'http://localhost:8002',
+  apiUserUrl: 'http://47.91.230.177:8002',
+  // apiUserUrl: 'http://localhost:8002',
  // apiUrl: 'http://localhost:8001',
   // 首页公告url
  // announcement: this.apiUrl + 'announcement/',

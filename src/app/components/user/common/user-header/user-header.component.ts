@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserCommonService} from '../../currency/user-common.service';
 import {HttpService} from '../../../../common/service/http.service';
+import {Router} from '@angular/router';
 
 /**
  * @desc header
@@ -22,6 +23,7 @@ export class UserHeaderComponent implements OnInit {
 
   constructor(
     private userCommon: UserCommonService, // 引用UserCommonService服务组件
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -40,8 +42,12 @@ export class UserHeaderComponent implements OnInit {
           this.userHeader = response; // 获取的返回值赋给newDate
           // 没有正确取到值
         } else {
-          alert(response.message); // 从后台报错误信息
-          return false; // 不跳转页面
+          if (response.message === '用户没有该访问权限') {
+            return this.router.navigateByUrl('');
+          } else {
+            alert(response.message); // 从后台报错误信息
+            return false; // 不跳转页面
+          }
         }
       });
   }

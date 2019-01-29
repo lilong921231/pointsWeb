@@ -37,9 +37,14 @@ export class UserMainComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           // 获取的返回值赋给newDate
-          this.newData = response;
+          this.newData = response.data;
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          if (response.code === 706) {
+            const data = [{content: '暂无内容...'}];
+            this.newData = data;
+          } else {
+            alert(response.message);  // 从后台报错误信息
+          }
           return false; // 不跳转页面
         }
       });
