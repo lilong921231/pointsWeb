@@ -89,9 +89,16 @@
           <div class="news-div-input ">
             <input type="button" (click)="idsDelete()" class="button-1 button-width message-float" value="屏蔽选定会员并禁止其登陆">
           </div>
-          <div class="row">
+          <div class="row" *ngIf="oneUser">
             <div class="col-xs-12 col-12 div-center padding-top-15px">
               <pagination [boundaryLinks]="true" [totalItems]="this.userTotal / 2"
+                          [maxSize]="10" (pageChanged)="pageChanged($event)"
+                          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+            </div>
+          </div>
+          <div class="row" *ngIf="!oneUser">
+            <div class="col-xs-12 col-12 div-center padding-top-15px">
+              <pagination [boundaryLinks]="true" [totalItems]="1"
                           [maxSize]="10" (pageChanged)="pageChanged($event)"
                           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
             </div>

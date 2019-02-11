@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FinancialService } from '../../services/financial.service';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pointlist',
@@ -41,6 +39,7 @@ export class PointlistComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.data = response;
           this.pointtotal = response['total'];
+          console.log(response);
         } else {
           alert(response.message);
           return false;

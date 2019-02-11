@@ -62,7 +62,7 @@
                <div class="user-header-message font-size user-header-14">内容</div>
                <div class="user-header-message font-size user-header-14">回复</div>
                <div class="user-header-message font-size user-header-14">回复日期</div>
-               <div class="user-header-message font-size user-header-3">详情</div>
+               <div class="user-header-message font-size user-header-7">详情</div>
              </div>
              <div class="button-center" *ngFor="let item of messageData.data;let i = index">
                <div class="ngFor-user-header-message font-size user-header-9">{{messageData.total - i}}</div>
@@ -72,7 +72,7 @@
                <div class="ngFor-user-header-message font-size user-header-14">{{item.message.content}}</div>
                <div class="ngFor-user-header-message font-size user-header-14">{{item.message.reply}}</div>
                <div class="ngFor-user-header-message font-size user-header-14">{{item.message.replyTime}}</div>
-               <div class="ngFor-user-header-message font-size user-header-3">
+               <div class="ngFor-user-header-message font-size user-header-7">
                  <a routerLink="#" (click)="messageInfoSkip(messageId.value)" >查看</a>
                </div>
              </div>

@@ -20,13 +20,15 @@ export class UserPointComponent implements OnInit {
   pointTotal: any;  // 个人福利积分数据总数
   pageNo = 1; // 当前页数
   pageSize = 20;  // 每页显示的数据数量  // 公司报告页面显示数据数量固定为20
+  endPoint: any;
 
   constructor(
-    private userCommon : UserCommonService  // 引入UserCommonService服务
+    private userCommon: UserCommonService  // 引入UserCommonService服务
   ) { }
 
   ngOnInit() {
     this.pointInfo(this.pageSize, this.pageNo);  // 初始化个人福利积分
+    this.pointEndPoint();
   }
 
   /**
@@ -49,11 +51,24 @@ export class UserPointComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.pointData = response;  // 获取的数据赋值给定义变量pointData
+          this.pointTotal = response['total'];
         } else { // 没有正确取到值
           alert(response.message);  // 从后台报错误信息
           return false; // 不跳转页面
         }
-      })
-
+      });
   }
+  pointEndPoint() {
+    // 访问pointService请求方法
+    this.userCommon.pointService(1, 20)
+      .subscribe((response: any) => {
+        if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
+          this.endPoint = response.data[0].endPoints;
+        } else { // 没有正确取到值
+          alert(response.message);  // 从后台报错误信息
+          return false; // 不跳转页面
+        }
+      });
+  }
+
 }

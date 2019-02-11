@@ -13,12 +13,10 @@ import {UserMenuComponent} from './common/user-menu/user-menu.component';
 import {UserHeaderComponent} from './common/user-header/user-header.component';
 import {UserMessageInfoComponent} from './currency/user-message-info/user-message-info.component';
 import {MomentModule} from 'ngx-moment';
-import {NgxEchartsModule} from 'ngx-echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {PaginationModule} from 'ngx-bootstrap';
-import {AppRoutingModule} from '../../app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {LoginComponent} from '../admin/login/login.component';
 
 /**
  * @desc user端公共组件及声明模块

@@ -14,7 +14,7 @@
         </div>
         <div class="user-bottom">
           <div class="button-center">
-            <p>当前总积分：</p>
+            <p>当前总积分：{{endPoint}}</p>
           </div>
           <div class="user-header-width">
             <div class="user-header-message user-header-38">结算日期</div>
@@ -24,10 +24,10 @@
           </div>
           <div class="user-header-width" *ngFor="let item of pointData.data;let i = index">
             <div class="ngFor-user-header-message user-header-38">
-              {{item.updateTime}}
+              {{item.createTime}}
             </div>
             <div class="ngFor-user-header-message user-header-15">
-              {{item.ratio * 100}}%
+              {{item.ratio * 100 | number:'1.1-4'}}%
             </div>
             <div class="ngFor-user-header-message user-header-19">
               {{item.startPoints}}

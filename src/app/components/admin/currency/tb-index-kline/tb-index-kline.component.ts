@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 import { DatePipe } from '@angular/common';
+declare var echarts: any;
 
 /**
  * @desc 天宝k线图

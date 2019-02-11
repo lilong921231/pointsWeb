@@ -50,7 +50,12 @@ export class UserMoneyComponent implements OnInit {
           this.moneyData = response;  // 获取的数据赋值给定义变量moneyData
           this.moneyTotal = response['total'];  // 获取消费总条数
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          if (response.code === 706) {
+            this.moneyData = '';
+            this.moneyTotal = 0;
+          } else {
+            alert(response.message);  // 从后台报错误信息
+          }
           return false; // 不跳转页面
         }
       });

@@ -1,15 +1,6 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {UserComponent} from './system_management/user/user.component';
-import {UserIdComponent} from './system_management/user-id/user-id.component';
-import {UsershowComponent} from './system_management/usershow/usershow.component';
-import {UserUpdataComponent} from './system_management/user-updata/user-updata.component';
-import {LevelComponent} from './system_management/level/level.component';
-import {LevelAddComponent} from './system_management/level-add/level-add.component';
-import {LevelUpdataComponent} from './system_management/level-updata/level-updata.component';
-import {AdmingroupComponent} from './system_management/admingroup/admingroup.component';
-import {AdmingroupUpdataComponent} from './system_management/admingroup-updata/admingroup-updata.component';
 import {AdminLoginGuard} from './admin-login.guard';
 import {AdminHomeComponent} from './admin-home.component';
 

@@ -150,7 +150,7 @@ export class NewsComponent implements OnInit {
         // 数据状态等于true，则自加变量k加1
         k++;
         // k+1是为了等于数组长度
-        if ((k + 1) === this.status.length) {
+        if (k === this.status.length) {
           // 返回全选状态为true
           return this.checkSum = true;
         }

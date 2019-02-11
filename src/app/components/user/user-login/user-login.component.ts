@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserCommonService} from '../currency/user-common.service';
+import { UserCommonService } from '../currency/user-common.service';
 import * as $ from 'jquery';
 import { HttpService } from '../../../common/service/http.service';
 
@@ -55,17 +55,17 @@ export class UserLoginComponent implements OnInit {
    */
   checkInput(account, password, userCaptcha) {
     // 检查用户是否为空
-    if ($('input[name="username"]').val() === null || $('input[name="username"]').val() === '') {
+    if (account === null || account === '') {
       alert('用户名或密码错误!');
       return false;
     }
     // 检查密码是否为空
-    if ($('input[name="password"]').val() === null || $('input[name="password"]').val() === '') {
+    if (password === null || password === '') {
       alert('用户名或密码错误!');
       return false;
     }
     // 检查验证码是否为空
-    if ($('input[name="validateCode"]').val() === null || $('input[name="validateCode"]').val() === '') {
+    if (userCaptcha === null || userCaptcha === '') {
       alert('验证码不能为空');
       return false;
     }
@@ -97,7 +97,7 @@ export class UserLoginComponent implements OnInit {
   /**
    * 重置事件
    */
-  reset() {
+  reset(account, password) {
     //  账户和验证码
     $('input[type="text"]').prop('value', '');
     //  密码

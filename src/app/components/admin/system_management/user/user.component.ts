@@ -20,10 +20,11 @@ export class UserComponent implements OnInit {
 
   rankName: any[] = [];
 
+  oneUser = true;
   userdata: any;
   userTotal: any;
   pageNo = 1;
-  pageSize = 10;
+  pageSize = 20;
   constructor(
     private management: ManagementService,
     private router: Router,
@@ -107,6 +108,9 @@ export class UserComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.userdata = response;
+        this.oneUser = false;
+        this.status = response.data;
+        console.log(this.status);
       } else {
         alert(response.message);
         return false;
@@ -136,7 +140,6 @@ export class UserComponent implements OnInit {
         this.userStatus[i] = false;
       }
     }
-
   }
 
   /**
@@ -155,7 +158,7 @@ export class UserComponent implements OnInit {
         // 数据状态等于true，则自加变量k加1
         k++;
         // k+1是为了等于数组长度
-        if ((k + 1) === this.status.length) {
+        if (k === this.status.length) {
           // 返回全选状态为true
           return this.checkSum = true;
         }
@@ -175,6 +178,7 @@ export class UserComponent implements OnInit {
         this.checkSum = false;
       }
     }
+    console.log(this.checkSum);
   }
 
   /**

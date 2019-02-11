@@ -10,12 +10,14 @@ export class PointComponent implements OnInit {
 
   data: any;
   systemRatio: any;
+  date: Date;
   constructor(
-    private financial: FinancialService
+    private financial: FinancialService,
   ) { }
 
   ngOnInit() {
     this.pointBalance();
+    this.date = new Date();
   }
   setRatio(value) {
     window.localStorage.ratio = value;
@@ -35,8 +37,13 @@ export class PointComponent implements OnInit {
           this.systemRatio = this.data.data['systemRatio'];
           this.setRatio(this.systemRatio);
         } else {
-          alert(response.message);
-          return false;
+          if (response.code === 706) {
+            this.systemRatio = 0.01;
+            console.log(0.01);
+          } else {
+            alert(response.message);
+            return false;
+          }
         }
       });
   }

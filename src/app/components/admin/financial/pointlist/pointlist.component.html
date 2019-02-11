@@ -55,7 +55,7 @@
             {{item.endPoints}}
           </div>
           <div class="div-data pointlist-ratio-width">
-            {{item.ratio * 100}}%
+            {{item.ratio * 100 | number:'1.1-4'}}%
           </div>
           <div class="div-data pointlist-display-width">
             {{item.visible ? '隐藏' : '显示'}}

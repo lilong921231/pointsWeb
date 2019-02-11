@@ -21,7 +21,7 @@
             权重:{{data.data.systemRatio * 100 | number:'1.1-4'}}&nbsp;
             <input type="text" style="display:none" value="{{data.data.systemRatio}}"  #systemRatio>
             ％&nbsp;&nbsp;&nbsp;
-            <button type="button" class="point-button" (click)="checkPoint()">增值积分结算（2018-11-29）</button>
+            <button type="button" class="point-button" (click)="checkPoint()">增值积分结算（{{date | amDateFormat: 'YYYY-MM-DD' }}）</button>
           </div>
         </div>
       </div>

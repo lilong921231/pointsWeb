@@ -121,7 +121,13 @@ export class UserMessageComponent implements OnInit {
           this.messageTotal = response['total'];  // 获取留言总条数
           this.userId = response.data[0].sender['account'];
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          if (response.code === 1) {
+            this.messageData = '';
+            this.messageTotal = 0;
+            return;
+          } else {
+            alert(response.message);
+          }
           return false; // 不跳转页面
         }
       });
