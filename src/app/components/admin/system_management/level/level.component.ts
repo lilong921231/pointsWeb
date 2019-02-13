@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../../services/management.service';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { PageChangedEvent } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
 
 @Component({

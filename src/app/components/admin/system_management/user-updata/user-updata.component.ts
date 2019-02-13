@@ -19,6 +19,7 @@ export class UserUpdataComponent implements OnInit {
     {'levelName': '钻石会员', 'state': true}
     ];
 
+  genderSelect: boolean;
   ceshi: any;
 
   constructor(
@@ -42,6 +43,12 @@ export class UserUpdataComponent implements OnInit {
         this.dataUpdata = response;
         this.ceshi = response.data.rank['name'];
 
+        if (response.data.gender === 0) {
+          this.genderSelect = false;
+        } else {
+          this.genderSelect = true;
+        }
+        console.log(this.genderSelect);
         for (let i = 0; i < this.leveldata.length; i++) {
           if (this.ceshi ===  this.leveldata[i].levelName) {
             this.leveldata[i].state = false;
@@ -67,7 +74,7 @@ export class UserUpdataComponent implements OnInit {
    */
   updataUser(
     id, realName, rankId, phone, province,
-    city, address, identityNumber
+    city, address, identityNumber, gender
   ) {
     const data = {
       'id': id,
@@ -77,9 +84,21 @@ export class UserUpdataComponent implements OnInit {
       'province': province,
       'city': city,
       'address': address,
-      'identityNumber': identityNumber
+      'identityNumber': identityNumber,
+      'gender': gender
 
     };
+    if ( gender === '' || gender === null || gender === undefined ) {
+      alert('请选择会员性别');
+    } else if ( gender === 0) {
+      alert('请选择会员性别');
+    }
+    if ( realName === '' || realName === null || realName === undefined ) {
+      alert('请输入真实姓名');
+    }
+    if ( identityNumber === '' || identityNumber === null || identityNumber === undefined ) {
+      alert('请输入身份账号');
+    }
     this.management.updataUser(data)
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {

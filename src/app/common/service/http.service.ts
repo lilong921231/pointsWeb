@@ -13,8 +13,8 @@ import {Router} from '@angular/router';
 })
 export class HttpService {
 
-  adminUrl = 'http://47.91.230.177:8001';
-  // adminUrl = 'http://localhost:8001';
+  // adminUrl = 'http://47.91.230.177:8001';
+  adminUrl = 'http://localhost:8001';
 
   constructor(
     private router: Router, // 引入Router路由组件
@@ -150,6 +150,7 @@ export class HttpService {
    * @param url api接口地址
    */
   getData(url: string) {
+    console.log(url);
     // headers请求参数头
     return this.http.get(url, {headers: {
        'Authorization': this.getToken(), '_current_id': this.getId()}

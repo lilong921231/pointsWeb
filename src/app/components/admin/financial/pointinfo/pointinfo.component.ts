@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FinancialService } from '../../services/financial.service';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { PageChangedEvent } from 'ngx-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -66,14 +66,14 @@
         <div class="admin-div div-center-align">
           <div class="news-div-input">
             <input type="button" (click)="new_add()" class="button-1 button-width" value="添加记录">
+            &nbsp;&nbsp;&nbsp;
             <input type="button" (click)="newsDelete()" class="button-2 button-width" value="删除选定记录">
+
           </div>
-          <div class="row div-news-width">
-            <div class="col-xs-12 col-12 div-center padding-top-15px">
+            <div class="col-xs-12 col-12 div-center padding-top-15px page-width-70">
               <pagination [boundaryLinks]="true" [totalItems]="this.newsTotal / 2 "
                           [maxSize]="10" (pageChanged)="pageChanged($event)"
                           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
-            </div>
           </div>
           <div class="clear"></div>
         </div>
