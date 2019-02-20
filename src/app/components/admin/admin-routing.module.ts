@@ -7,7 +7,6 @@ import {AdminHomeComponent} from './admin-home.component';
 const router: Routes = [
   {
     path: '',
-
     children: [
       // login
       { path: '', component: LoginComponent},

@@ -8,10 +8,15 @@ import { UserIphoneRegComponent } from './user-iphone-reg/user-iphone-reg.compon
 import { UserIphoneInfoComponent } from './user-iphone-info/user-iphone-info.component';
 import { UserIphonePointComponent } from './user-iphone-point/user-iphone-point.component';
 import { UserIphoneMessageInfoComponent } from './user-iphone-message-info/user-iphone-message-info.component';
+import {UserIphoneRoutingModule} from './user-iphone-routing.module';
+import {MomentModule} from 'ngx-moment';
+import {UserIphoneLoginComponent} from './user-iphone-login/user-iphone-login.component';
+import {UserIphoneComponent} from './user-iphone.component';
 
 @NgModule({
   declarations: [
-    UserIphoneCommonModule,
+    UserIphoneComponent,
+    UserIphoneLoginComponent,
     UserIphoneMainComponent,
     UserIphoneMessageComponent,
     UserIphoneMoneyComponent,
@@ -23,9 +28,21 @@ import { UserIphoneMessageInfoComponent } from './user-iphone-message-info/user-
   ],
   imports: [
     CommonModule,
+    UserIphoneRoutingModule,
+    MomentModule
   ],
   exports: [
-    UserIphoneCommonModule,
+    MomentModule,
+    UserIphoneComponent,
+    UserIphoneLoginComponent,
+    UserIphoneMainComponent,
+    UserIphoneMessageComponent,
+    UserIphoneMoneyComponent,
+    UserIphoneRepassComponent,
+    UserIphoneRegComponent,
+    UserIphoneInfoComponent,
+    UserIphonePointComponent,
+    UserIphoneMessageInfoComponent,
   ]
 })
 export class UserIphoneCommonModule { }
