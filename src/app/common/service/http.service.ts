@@ -13,8 +13,8 @@ import {Router} from '@angular/router';
 })
 export class HttpService {
 
-  // adminUrl = 'http://47.91.230.177:8001';
-  adminUrl = 'http://localhost:8001';
+  adminUrl = 'http://47.91.230.177:8001';
+  // adminUrl = 'http://localhost:8001';
 
   constructor(
     private router: Router, // 引入Router路由组件
@@ -42,6 +42,17 @@ export class HttpService {
    */
   setToken(value) {
     window.localStorage.token = value;
+
+    setTimeout(() => {
+      alert('账号过期，请重新登陆');
+      if (this.getUser() === 'user') {
+        this.router.navigate(['']); // 跳转到用户登陆界面
+        return this.setUser('');
+      } else if (this.getAdmin() === 'admin') {
+        this.router.navigate(['/admin']); // 跳转到admin登陆界面
+        return this.setAdmin('');
+      }
+    }, 1000 * 60 * 60 * 8);
   }
   /**
    * 从storage处取出用户token
@@ -50,15 +61,7 @@ export class HttpService {
     if (window.localStorage.token == null) {
       window.localStorage.token = '';
     }
-    setTimeout(() => {
-      alert('账号过期，请重新登陆');
-      if (this.getUser() === 'user') {
-        this.router.navigate(['']); // 跳转到用户登陆界面
-      } else if (this.getAdmin() === 'admin') {
-        alert('账号过期，请重新登陆');
-        this.router.navigate(['/admin']); // 跳转到admin登陆界面
-      }
-    }, 1000 * 60 * 60 * 8);
+
     return window.localStorage.token;
   }
 

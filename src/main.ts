@@ -12,3 +12,7 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+// 在 DOMContentLoaded 时运行我们的代码，以使 TransferState 正常工作
+/*document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule);
+});*/

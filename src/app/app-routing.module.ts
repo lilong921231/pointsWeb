@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import {UserLoginGuard} from './components/user/user-login.guard';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 /**
  * 设定路由界面
@@ -69,10 +70,14 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: './components/admin/admin.module#AdminModule'
   },
+  {
+    path: 'pc',
+    loadChildren: './components/user-iphone/user-iphone.module#UserIphoneModule'
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

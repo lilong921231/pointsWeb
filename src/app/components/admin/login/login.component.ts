@@ -79,6 +79,7 @@ export class LoginComponent implements OnInit {
           this.http.setCookie('admin');
           this.http.setMenuId(1);
           this.router.navigate(['/admin/main']);
+          console.log('tiao?');
         } else {
           alert(response.message);
           return false;

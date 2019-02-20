@@ -5,6 +5,7 @@
 @import "app/components/admin/customer/news/news.component.css";
 @import "app/components/admin/currency/repass/repass.component.css";
 @import "app/components/admin/customer/newinfo-add/newinfo-add.component.css";
+@import "app/components/user/currency/user-main/user-main.component.css";
 
 app-main{width: 79%;}
 app-myinfo{width: 79%;}
@@ -37,6 +38,14 @@ app-user{width: 79%;}
 app-user-id{width: 79%;}
 app-user-updata{width: 79%;}
 app-usershow{width: 79%;}
+
+
+
+.main-background{
+  min-height: 719px;
+  min-width: 1200px;
+  height: 100%;
+}
 
 *{
   margin:0 ;

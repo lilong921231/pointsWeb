@@ -53,6 +53,7 @@ export class PointComponent implements OnInit {
    * 结算总积分和个人积分
    */
   checkPoint() {
+    alert('结算中。点击确定后，请稍等，不要离开页面');
     const ratio = '?systemRatio=' + this.getRatio();
     this.financial.pointSystemRatio(ratio)
       .subscribe((response: any) => {

@@ -7,8 +7,10 @@ import {AdminHomeComponent} from './admin-home.component';
 const router: Routes = [
   {
     path: '',
+
     children: [
-      { path: '', component: LoginComponent },
+      // login
+      { path: '', component: LoginComponent},
       // 首页
       {
         path: 'main',
