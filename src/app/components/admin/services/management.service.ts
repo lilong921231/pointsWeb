@@ -244,4 +244,8 @@ export class ManagementService {
     this.httpService.setAdmin('');
     return this.router.navigate(['/admin']);
   }
+
+  managementCode(code, response) {
+    this.httpService.codeSelect(code, response);
+  }
 }

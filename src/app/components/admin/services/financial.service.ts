@@ -103,4 +103,8 @@ export class FinancialService {
     const url = this.httpService.adminUrl + '/personal/bonus/list/page/' + sysBonusId + '/condition/?' + keyWord + '&' + size + '&' + pageno;
     return this.httpService.getData(url);
   }
+
+  financialCode(code, response) {
+    this.httpService.codeSelect(code, response);
+  }
 }

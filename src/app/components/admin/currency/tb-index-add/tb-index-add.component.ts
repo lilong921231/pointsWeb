@@ -98,7 +98,7 @@ export class TbIndexAddComponent implements OnInit {
         alert('添加成功');
         this.router.navigateByUrl('/admin/tb-index');
       } else {
-        alert(response.message);
+        this.currency.currencyCode(response.code, response);
         return false;
       }
       });

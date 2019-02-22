@@ -41,7 +41,7 @@ export class AdmingroupComponent implements OnInit {
         this.admingroupData = response;
         this.groupTotal = response['total'];
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

@@ -43,7 +43,7 @@ export class LevelComponent implements OnInit {
         this.levelData = response;
         this.levelTotal = response['total'];
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

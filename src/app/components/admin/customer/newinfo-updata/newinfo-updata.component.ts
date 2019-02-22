@@ -31,7 +31,7 @@ export class NewinfoUpdataComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.newUpdataData = response;
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
           return false;
         }
       });
@@ -52,7 +52,8 @@ export class NewinfoUpdataComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('/admin/news');
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
+          return false;
         }
       });
   }

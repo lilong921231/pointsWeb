@@ -39,7 +39,7 @@ export class UserMessageInfoComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.data = response; // 获取的数据赋值给定义变量data
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });

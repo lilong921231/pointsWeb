@@ -39,9 +39,8 @@ export class PointlistComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.data = response;
           this.pointtotal = response['total'];
-          console.log(response);
         } else {
-          alert(response.message);
+          this.financial.financialCode(response.code, response);
           return false;
         }
       });
@@ -63,7 +62,7 @@ export class PointlistComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.pointList(this.pageSize, this.pageNo);
       } else {
-        alert(response.message);
+        this.financial.financialCode(response.code, response);
         return false;
       }
       });
@@ -81,7 +80,7 @@ export class PointlistComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.pointList(this.pageSize, this.pageNo);
         } else {
-          alert(response.message);
+          this.financial.financialCode(response.code, response);
           return false;
         }
         });

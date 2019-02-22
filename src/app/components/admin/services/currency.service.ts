@@ -112,4 +112,8 @@ export class CurrencyService {
     const url = this.httpService.adminUrl + '/stock/list/' + num;
     return this.httpService.getData(url);
   }
+
+  currencyCode(code, response) {
+    this.httpService.codeSelect(code, response);
+  }
 }

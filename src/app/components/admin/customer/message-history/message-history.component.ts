@@ -58,7 +58,8 @@ export class MessageHistoryComponent implements OnInit {
             this.historyData = messageNull;
             this.messageHistoryTotal = 0;
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
+            return false;
           }
           return false;
         }
@@ -83,7 +84,7 @@ export class MessageHistoryComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.historyData = response;
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
           return false;
         }
       });
@@ -115,7 +116,7 @@ export class MessageHistoryComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.messageHistory();
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });
@@ -216,7 +217,7 @@ export class MessageHistoryComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.ngOnInit();
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });

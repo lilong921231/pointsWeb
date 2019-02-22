@@ -61,7 +61,8 @@ export class NewsComponent implements OnInit {
         } else {
           if (response.code === 706) {
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
+            return false;
           }
           return false;
         }
@@ -100,7 +101,7 @@ export class NewsComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.newListInit(this.pageSize, this.pageNo);
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });
@@ -205,7 +206,7 @@ export class NewsComponent implements OnInit {
             alert('删除成功');
             this.newListInit(this.pageSize, this.pageNo);
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });

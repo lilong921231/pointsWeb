@@ -69,7 +69,7 @@ export class RepassSpwComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           alert('修改成功');
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });

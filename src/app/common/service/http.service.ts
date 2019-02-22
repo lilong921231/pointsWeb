@@ -16,16 +16,18 @@ export class HttpService {
   adminUrl = 'http://47.91.230.177:8001';
   // adminUrl = 'http://localhost:8001';
 
+  resAdmin: any;
+  resUser: any;
   constructor(
     private router: Router, // 引入Router路由组件
     private http: HttpClient,  // 引入http组件
   ) { }
 
   setCookie(value) {
-    sessionStorage.setItem(value, value);
+    window.localStorage.cookie = value;
   }
-  getCookie(value) {
-    return sessionStorage.getItem(value);
+  getCookie() {
+    return window.localStorage.cookie;
   }
 
   setMenuId(value) {
@@ -144,20 +146,23 @@ export class HttpService {
    */
   postData(url: string, data: any) {
     // headers请求参数头
-    return this.http.post(url, data, {headers: {
-      'Content-Type': 'application/json', 'Authorization': this.getToken(), '_current_id': this.getId()}
+
+    return this.resAdmin = this.http.post(url, data, {headers: {
+        'Content-Type': 'application/json', 'Authorization': this.getToken(), '_current_id': this.getId()}
     });
+
   }
   /**
    * get请求
    * @param url api接口地址
    */
   getData(url: string) {
-    console.log(url);
-    // headers请求参数头
-    return this.http.get(url, {headers: {
-       'Authorization': this.getToken(), '_current_id': this.getId()}
+
+    this.resUser = this.http.get(url, {headers: {
+        'Authorization': this.getToken(), '_current_id': this.getId()}
     });
+    // headers请求参数头
+    return this.resUser;
   }
   /**
    * code
@@ -171,4 +176,18 @@ export class HttpService {
     });
   }
 
+
+  codeSelect(code, response) {
+    if (code === 407 && this.getUser() === 'user') {
+      alert(response.message);
+      this.router.navigate(['']); // 跳转到用户登陆界面
+      return this.setUser('');
+    } else if (code === 407 && this.getAdmin() === 'admin') {
+      alert(response.message);
+      this.router.navigate(['/admin']); // 跳转到admin登陆界面
+      return this.setAdmin('');
+    } else {
+      alert(response.message);
+    }
+  }
 }

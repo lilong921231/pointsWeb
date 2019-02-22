@@ -27,7 +27,6 @@ export class MessageComponent implements OnInit {
     this.messageInfo();
   }
 
-
   /**
    * 表示查询未处理的留言信息
    */
@@ -58,7 +57,8 @@ export class MessageComponent implements OnInit {
           this.messageData = messageNull;
           this.total = 0;
         } else {
-          alert(response.message);
+         this.customer.customerCode(response.code, response);
+         return false;
         }
 
         return false;
@@ -77,7 +77,7 @@ export class MessageComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.messageData = response;
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
           return false;
         }
       });
@@ -114,7 +114,7 @@ export class MessageComponent implements OnInit {
             alert('删除成功');
             this.messageInfo();
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });
@@ -215,7 +215,7 @@ export class MessageComponent implements OnInit {
             alert('删除成功');
             this.messageInfo();
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });

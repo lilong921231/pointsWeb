@@ -39,9 +39,8 @@ export class PointComponent implements OnInit {
         } else {
           if (response.code === 706) {
             this.systemRatio = 0.01;
-            console.log(0.01);
           } else {
-            alert(response.message);
+            this.financial.financialCode(response.code, response);
             return false;
           }
         }
@@ -61,7 +60,7 @@ export class PointComponent implements OnInit {
           alert('结算成功');
         } else {
           // 返回error信息
-          alert(response.message);
+          this.financial.financialCode(response.code, response);
           return false;
         }
       });

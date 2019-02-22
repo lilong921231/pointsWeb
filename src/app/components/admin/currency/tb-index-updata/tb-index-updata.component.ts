@@ -32,7 +32,7 @@ export class TbIndexUpdataComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.updateDate = response;
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });
@@ -77,7 +77,7 @@ export class TbIndexUpdataComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('/admin/tb-index');
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });

@@ -52,7 +52,7 @@ export class AdminAddComponent implements OnInit {
           alert('添加成功');
           this.router.navigateByUrl('/admin/admin');
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
       });

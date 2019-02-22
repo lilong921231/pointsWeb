@@ -32,7 +32,7 @@ export class AdmingroupUpdataComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.groupData = response;
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -59,7 +59,7 @@ export class AdmingroupUpdataComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('/admin/admingroup');
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
       });

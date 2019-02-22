@@ -26,7 +26,7 @@ export class UserUserInfoComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.userData = response;
         } else {
-          alert(response.message);
+          this.userCommon.userCommonCode(response.code, response);
           return false;
         }
       });

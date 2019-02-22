@@ -21,7 +21,6 @@ export class UserMainComponent implements OnInit {
   newData: any; // 公告数据
   constructor(
     private userCommon: UserCommonService,  // 引入UserCommonService服务
-    private http: HttpService,
   ) { }
 
   ngOnInit() {
@@ -43,7 +42,8 @@ export class UserMainComponent implements OnInit {
             const data = [{content: '暂无内容...'}];
             this.newData = data;
           } else {
-            alert(response.message);  // 从后台报错误信息
+            this.userCommon.userCommonCode(response.code, response);
+            return false;
           }
           return false; // 不跳转页面
         }

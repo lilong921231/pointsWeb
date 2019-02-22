@@ -48,7 +48,7 @@ export class TbIndexComponent implements OnInit {
           this.data = response;
           this.tbIndexTotal = response['total'];
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });
@@ -81,7 +81,7 @@ export class TbIndexComponent implements OnInit {
             alert('删除成功');
             this.tbInfo(this.pageSize, this.pageNo);
           } else {
-            alert(response.message);
+            this.currency.currencyCode(response.code, response);
             return false;
           }
         });

@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
           if (response.message === '用户没有该访问权限') {
             return this.router.navigateByUrl('/admin');
           } else {
-            alert(response.message);
+            this.management.managementCode(response.code, response);
             return ;
           }
         }

@@ -150,4 +150,8 @@ export class UserCommonService {
     this.httpService.setUser('');
     return this.router.navigate(['']);
   }
+
+  userCommonCode(code, response) {
+    this.httpService.codeSelect(code, response);
+  }
 }

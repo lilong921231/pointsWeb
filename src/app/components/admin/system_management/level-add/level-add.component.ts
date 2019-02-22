@@ -45,11 +45,11 @@ export class LevelAddComponent implements OnInit {
     // 访问添加会员等级的service
     this.management.levelAddService(data)
       .subscribe((response: any) => {
-      if (response.code = 200 || response.ok) {
+      if (response.code === 200 || response.ok) {
         alert('添加成功');
         this.router.navigateByUrl('/admin/level');
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

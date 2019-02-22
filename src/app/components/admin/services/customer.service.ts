@@ -148,4 +148,8 @@ export class CustomerService {
     const url = this.httpService.adminUrl + '/user/message/delete';
     return this.httpService.postData(url, messages);
   }
+
+  customerCode(code, response) {
+    this.httpService.codeSelect(code, response);
+  }
 }

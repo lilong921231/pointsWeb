@@ -61,7 +61,7 @@ export class UserComponent implements OnInit {
         }
 
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -92,7 +92,7 @@ export class UserComponent implements OnInit {
         alert('重置成功!密码为：888888');
         this.router.navigateByUrl('/admin/user');
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -110,9 +110,8 @@ export class UserComponent implements OnInit {
         this.userdata = response;
         this.oneUser = false;
         this.status = response.data;
-        console.log(this.status);
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -178,7 +177,6 @@ export class UserComponent implements OnInit {
         this.checkSum = false;
       }
     }
-    console.log(this.checkSum);
   }
 
   /**
@@ -207,7 +205,7 @@ export class UserComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.ngOnInit();
           } else {
-            alert(response.message);
+            this.management.managementCode(response.code, response);
             return false;
           }
         });

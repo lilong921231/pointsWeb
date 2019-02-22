@@ -54,7 +54,8 @@ export class UserMoneyComponent implements OnInit {
             this.moneyData = '';
             this.moneyTotal = 0;
           } else {
-            alert(response.message);  // 从后台报错误信息
+            this.userCommon.userCommonCode(response.code, response); // 从后台报错误信息
+            return false;
           }
           return false; // 不跳转页面
         }

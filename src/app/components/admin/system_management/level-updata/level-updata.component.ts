@@ -31,7 +31,7 @@ export class LevelUpdataComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.updataData = response;
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
       });
@@ -67,11 +67,11 @@ export class LevelUpdataComponent implements OnInit {
     // 访问添加会员等级的service
     this.management.levelUpdataService(data)
       .subscribe((response: any) => {
-        if (response.code = 200 || response.ok) {
+        if (response.code === 200 || response.ok) {
           alert('修改成功');
           this.router.navigateByUrl('/admin/level');
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
       });

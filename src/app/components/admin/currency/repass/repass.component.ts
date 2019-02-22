@@ -74,7 +74,7 @@ export class RepassComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('/admin');
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });
@@ -90,7 +90,7 @@ export class RepassComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.adminData = response;
         } else {
-          alert(response.message);
+          this.currency.currencyCode(response.code, response);
           return false;
         }
       });

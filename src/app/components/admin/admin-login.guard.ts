@@ -25,7 +25,7 @@ export class AdminLoginGuard implements CanActivate {
       'user/:id', 'usershow/:id', 'userUpdata/:id', 'level', 'levelAdd', 'levelUpdata/:id',
       'admin', 'adminAdd', 'adminUpdata/:id', 'admingroup', 'admingroupUpdata/:id', 'deldata'];
 
-    if (this.http.getCookie('admin') === 'admin') {
+    if (this.http.getCookie() === 'admin') {
       return this.isLogin = true;
     }
     // 当前路由是nextRoute指定页时

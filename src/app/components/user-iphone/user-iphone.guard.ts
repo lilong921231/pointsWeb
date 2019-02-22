@@ -22,7 +22,7 @@ export class UserIphoneGuard implements CanActivate {
     // nextRoute: 设置需要路由守卫的路由集合
     const nextRoute = ['main', 'repass', 'info', 'reg', 'money_user_list', 'point', 'message', 'messageInfo/:id'];
 
-    if (this.http.getCookie('pc') === 'pc') {
+    if (this.http.getCookie() === 'pc') {
       return this.isLogin = true;
     }
     // 当前路由是nextRoute指定页时

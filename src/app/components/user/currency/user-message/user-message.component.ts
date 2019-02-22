@@ -46,7 +46,7 @@ export class UserMessageComponent implements OnInit {
         if (response.code === 200 || response.ok) { // 判断是否正确取得数据
           this.userId = response.data.account; // 获取的返回值赋给newDate
         } else { // 没有正确取到值
-          alert(response.message); // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response); // 从后台报错误信息
           return false; // 不跳转页面
         }
       });
@@ -81,7 +81,7 @@ export class UserMessageComponent implements OnInit {
           // 留言界面刷新数据
           this.messageInfo(this.pageSize, this.pageNo);
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });
@@ -126,7 +126,8 @@ export class UserMessageComponent implements OnInit {
             this.messageTotal = 0;
             return;
           } else {
-            alert(response.message);
+            this.userCommon.userCommonCode(response.code, response);
+            return false;
           }
           return false; // 不跳转页面
         }

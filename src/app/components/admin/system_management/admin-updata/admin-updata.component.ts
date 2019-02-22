@@ -32,7 +32,7 @@ export class AdminUpdataComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.adminData = response;
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -72,7 +72,7 @@ export class AdminUpdataComponent implements OnInit {
         alert('添加成功');
         this.router.navigateByUrl('/admin/admin');
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

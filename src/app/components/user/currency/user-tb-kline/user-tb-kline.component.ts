@@ -120,8 +120,8 @@ export class UserTbKlineComponent implements OnInit {
             ],
             series : [
               {
-                name:'上证指数',
-                type:'k',
+                name: '上证指数',
+                type: 'k',
                 data: this.shExponentData
               }
             ]
@@ -178,17 +178,17 @@ export class UserTbKlineComponent implements OnInit {
             ],
             series : [
               {
-                name:'上证指数',
-                type:'k',
+                name: '上证指数',
+                type: 'k',
                 data: this.tbExponentData
               }
             ]
           };
 
         } else { // 没有正确取到值
-            alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
             return false; // 不跳转页面
           }
-      })
+      });
   }
 }

@@ -53,7 +53,7 @@ export class UserPointComponent implements OnInit {
           this.pointData = response;  // 获取的数据赋值给定义变量pointData
           this.pointTotal = response['total'];
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });
@@ -65,7 +65,7 @@ export class UserPointComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.endPoint = response.data[0].endPoints;
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });

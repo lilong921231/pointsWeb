@@ -55,7 +55,7 @@ export class UserUpdataComponent implements OnInit {
           }
         }
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -104,7 +104,7 @@ export class UserUpdataComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.router.navigateByUrl('/admin/user');
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

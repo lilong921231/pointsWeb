@@ -40,7 +40,7 @@ export class UserRepassComponent implements OnInit {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.userRepass = response;  // 获取的数据赋值给定义变量userRepass
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });
@@ -91,7 +91,7 @@ export class UserRepassComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('');
         } else { // 没有正确取到值
-          alert(response.message);  // 从后台报错误信息
+          this.userCommon.userCommonCode(response.code, response);  // 从后台报错误信息
           return false; // 不跳转页面
         }
       });

@@ -42,7 +42,7 @@ export class PointinfoComponent implements OnInit {
         this.data = response;
         this.pointInfoTotal = response['total'];
       } else {
-        alert(response.message);
+        this.financial.financialCode(response.code, response);
       }
       });
   }
@@ -57,7 +57,7 @@ export class PointinfoComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.pointIdInfo(this.pageSize, this.pageNo);
       } else {
-        alert(response.message);
+        this.financial.financialCode(response.code, response);
         return false;
       }
       });
@@ -76,7 +76,7 @@ export class PointinfoComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.data = response;
       } else {
-        alert(response.message);
+        this.financial.financialCode(response.code, response);
         return false;
       }
       });

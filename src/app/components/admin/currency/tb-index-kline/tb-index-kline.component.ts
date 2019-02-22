@@ -206,7 +206,8 @@ export class TbIndexKlineComponent implements OnInit {
           console.log(response);
           if (response.code === 706) {
           } else {
-            alert(response.message);
+            this.currency.currencyCode(response.code, response);
+            return false;
           }
           return false;
         }

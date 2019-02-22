@@ -32,7 +32,7 @@ export class UsershowComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.userData = response;
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });

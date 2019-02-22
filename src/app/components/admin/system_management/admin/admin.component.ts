@@ -40,7 +40,7 @@ export class AdminComponent implements OnInit {
         this.adminData = response;
         this.adminTotal = response.total;
       } else {
-        alert(response.message);
+        this.management.managementCode(response.code, response);
         return false;
       }
       });
@@ -72,7 +72,7 @@ export class AdminComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           alert('删除成功');
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
         });

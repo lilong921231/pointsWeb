@@ -34,7 +34,7 @@ export class MyinfoComponent implements OnInit {
         this.phone = response.data.phone;
         this.email = response.data.email;
       } else {
-        alert(response.message);
+        this.currency.currencyCode(response.code, response);
         return false;
       }
       });

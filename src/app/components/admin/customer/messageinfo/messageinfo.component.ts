@@ -42,7 +42,7 @@ export class MessageinfoComponent implements OnInit {
         }
         this.messageList(this.userId);
       } else {
-        alert(response.message);
+        this.customer.customerCode(response.code, response);
         return false;
       }
       });
@@ -59,7 +59,7 @@ export class MessageinfoComponent implements OnInit {
       if (response.code === 200 || response.ok) {
         this.magList = response;
       } else {
-        alert(response.message);
+        this.customer.customerCode(response.code, response);
         return false;
       }
       });
@@ -90,7 +90,7 @@ export class MessageinfoComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.router.navigateByUrl('/admin/message');
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
           return false;
         }
       });
@@ -110,7 +110,7 @@ export class MessageinfoComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.messageInfo();
           } else {
-            alert(response.message);
+            this.customer.customerCode(response.code, response);
             return false;
           }
         });

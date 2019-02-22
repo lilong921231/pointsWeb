@@ -45,7 +45,7 @@ export class UserHeaderComponent implements OnInit {
           if (response.message === '用户没有该访问权限') {
             return this.router.navigateByUrl('');
           } else {
-            alert(response.message); // 从后台报错误信息
+            this.userCommon.userCommonCode(response.code, response);
             return false; // 不跳转页面
           }
         }

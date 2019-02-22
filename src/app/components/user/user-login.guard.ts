@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
-import { Observable } from 'rxjs';
 import {HttpService} from '../../common/service/http.service';
 
 @Injectable({
@@ -21,7 +20,7 @@ export class UserLoginGuard implements CanActivate {
     // nextRoute: 设置需要路由守卫的路由集合
     const nextRoute = ['main', 'repass', 'userInfo', 'reg', 'money_user_list', 'point', 'message', 'messageInfo/:id', 'tb-kline'];
 
-    if (this.http.getCookie('user') === 'user') {
+    if (this.http.getCookie() === 'user') {
       this.isLogin = true;
       return this.isLogin;
     }

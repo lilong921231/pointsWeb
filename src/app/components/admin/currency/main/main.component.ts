@@ -40,9 +40,10 @@ export class MainComponent implements OnInit {
             const data = [{content: '暂无内容...'}];
             this.newData = data;
           } else {
-            alert(response.message);
+            this.currency.currencyCode(response.code, response);
+            return false;
           }
-            return ;
+            return false;
         }
       });
   }
@@ -60,8 +61,8 @@ export class MainComponent implements OnInit {
           if (response.message === '用户没有该访问权限') {
             return this.router.navigateByUrl('/admin');
           } else {
-            alert(response.message);
-            return ;
+           this.currency.currencyCode(response.code, response);
+            return false;
           }
         }
       });

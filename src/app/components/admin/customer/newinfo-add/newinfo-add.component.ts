@@ -31,7 +31,7 @@ export class NewinfoAddComponent implements OnInit {
           alert('添加成功');
           this.router.navigateByUrl('/admin/news');
         } else {
-          alert(response.message);
+          this.customer.customerCode(response.code, response);
           return false;
         }
       });

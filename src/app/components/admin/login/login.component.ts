@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.code = response;
         } else {
-          alert(response.message);
+         this.http.codeSelect(response.code, response);
           return false;
         }
       });
@@ -79,9 +79,8 @@ export class LoginComponent implements OnInit {
           this.http.setCookie('admin');
           this.http.setMenuId(1);
           this.router.navigate(['/admin/main']);
-          console.log('tiao?');
         } else {
-          alert(response.message);
+          this.http.codeSelect(response.code, response);
           return false;
         }
       });

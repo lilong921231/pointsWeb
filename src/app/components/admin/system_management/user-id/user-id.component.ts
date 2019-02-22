@@ -53,7 +53,8 @@ export class UserIdComponent implements OnInit {
           this.status = response.data;
           this.userTotal = response['total'];
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
+          return false;
         }
       });
   }
@@ -67,7 +68,8 @@ export class UserIdComponent implements OnInit {
         if (response.code === 200 || response.ok) {
           this.userdata = response;
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
+          return;
         }
       });
   }
@@ -161,7 +163,7 @@ export class UserIdComponent implements OnInit {
           if (response.code === 200 || response.ok) {
             this.ngOnInit();
           } else {
-            alert(response.message);
+            this.management.managementCode(response.code, response);
             return false;
           }
         });
@@ -195,7 +197,7 @@ export class UserIdComponent implements OnInit {
           alert('重置成功!密码为：888888');
           this.router.navigateByUrl('/admin/user');
         } else {
-          alert(response.message);
+          this.management.managementCode(response.code, response);
           return false;
         }
       });
