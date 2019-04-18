@@ -25,6 +25,7 @@ export class UserUserInfoComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.userData = response;
+          console.log(response);
         } else {
           this.userCommon.userCommonCode(response.code, response);
           return false;

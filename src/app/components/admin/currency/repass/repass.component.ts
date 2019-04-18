@@ -89,6 +89,7 @@ export class RepassComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.adminData = response;
+
         } else {
           this.currency.currencyCode(response.code, response);
           return false;

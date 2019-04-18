@@ -29,13 +29,10 @@ export class HeaderComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.adminHeader = response;
+          console.log(response);
         } else {
-          if (response.message === '用户没有该访问权限') {
-            return this.router.navigateByUrl('/admin');
-          } else {
             this.management.managementCode(response.code, response);
             return ;
-          }
         }
       });
   }

@@ -19,8 +19,10 @@ export class UserUpdataComponent implements OnInit {
     {'levelName': '钻石会员', 'state': true}
     ];
 
+  genderSex: any;
   genderSelect: boolean;
-  ceshi: any;
+  genderSexInfo: boolean;
+  name: any;
 
   constructor(
     private router: Router,
@@ -41,16 +43,22 @@ export class UserUpdataComponent implements OnInit {
       .subscribe((response: any) => {
       if (response.code === 200 || response.ok) {
         this.dataUpdata = response;
-        this.ceshi = response.data.rank['name'];
+        this.name = response.data.rank['name'];
 
         if (response.data.gender === 0) {
           this.genderSelect = false;
         } else {
           this.genderSelect = true;
+          if (response.data.gender === 1) {
+            this.genderSex = '男';
+            this.genderSexInfo = true;
+          } else {
+            this.genderSex = '女';
+            this.genderSexInfo = false;
+          }
         }
-        console.log(this.genderSelect);
         for (let i = 0; i < this.leveldata.length; i++) {
-          if (this.ceshi ===  this.leveldata[i].levelName) {
+          if (this.name ===  this.leveldata[i].levelName) {
             this.leveldata[i].state = false;
           }
         }
@@ -76,6 +84,11 @@ export class UserUpdataComponent implements OnInit {
     id, realName, rankId, phone, province,
     city, address, identityNumber, gender
   ) {
+    if (gender === '男') {
+      gender = 1;
+    } else if (gender === '女') {
+      gender = 2;
+    }
     const data = {
       'id': id,
       'realName': realName,

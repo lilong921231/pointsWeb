@@ -58,12 +58,8 @@ export class MainComponent implements OnInit {
           this.adminData = response;
           this.http.setName(response.data.roleList[0].name);
         } else {
-          if (response.message === '用户没有该访问权限') {
-            return this.router.navigateByUrl('/admin');
-          } else {
            this.currency.currencyCode(response.code, response);
             return false;
-          }
         }
       });
   }

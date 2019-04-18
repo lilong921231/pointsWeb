@@ -17,6 +17,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {PaginationModule} from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
+import { UserUpdateComponent } from './currency/user-update/user-update.component';
 
 /**
  * @desc user端公共组件及声明模块
@@ -38,6 +39,7 @@ import {HttpClientModule} from '@angular/common/http';
     UserMenuComponent,
     UserHeaderComponent,
     UserMessageInfoComponent,
+    UserUpdateComponent,
   ],
   imports: [
     CommonModule,

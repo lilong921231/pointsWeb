@@ -60,7 +60,7 @@ export class UserPointComponent implements OnInit {
   }
   pointEndPoint() {
     // 访问pointService请求方法
-    this.userCommon.pointService(1, 20)
+    this.userCommon.pointService(20, 1)
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.endPoint = response.data[0].endPoints;

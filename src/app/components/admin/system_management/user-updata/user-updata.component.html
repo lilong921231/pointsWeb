@@ -1,4 +1,4 @@
-<div class="background-img">
+<div class="background-img  main-background">
   <div>
     <app-header></app-header>
   </div>
@@ -35,8 +35,9 @@
             <div class="repass-input">
             <select #gender>
               <option *ngIf="!genderSelect" selected="selected">请选择性别</option>
-              <option value="1">{{dataUpdata.data.gender ? '女' : '男'}}</option>
-              <option value="2">{{dataUpdata.data.gender ? '男' : '女'}}</option>
+              <option *ngIf="genderSelect" selected="selected">{{genderSex}}</option>
+              <option *ngIf="!genderSexInfo" value="1">男</option>
+              <option *ngIf="genderSexInfo" value="2">女</option>
             </select>
               <span>&nbsp;&nbsp;&nbsp;* 必须选择！</span>
             </div>
@@ -57,7 +58,7 @@
           </div>
           <div class="myinfo-div-data">
             <div class="repass-input">
-              <input type="text" value="{{dataUpdata.data.account}}" #realName>
+              <input type="text" value="{{dataUpdata.data.realName}}" #realName>
               <span>&nbsp;&nbsp;&nbsp;* 必须输入！</span>
             </div>
           </div>

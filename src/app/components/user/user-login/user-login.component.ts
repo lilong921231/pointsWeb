@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserCommonService } from '../currency/user-common.service';
 import * as $ from 'jquery';
 import { HttpService } from '../../../common/service/http.service';
+import {lang} from 'moment';
 
 /**
  * @desc 用户登陆界面

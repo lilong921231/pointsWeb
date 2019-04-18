@@ -5,12 +5,13 @@ header{
   float: right;
 }
 .header-div{
+  min-width: 881px;
   position: absolute;
   left: 280px;
   width: 78%;
   float: right;
   height: 60px;
-  padding: 5px 40px 0 0;
+  padding-top: 5px;
 }
 
 .div-img{

@@ -6,7 +6,7 @@
         <div class="login-name">
           欢迎 <span class="name">{{adminHeader.data.realName}}</span>，角色：
           <img src="../../../../../assets/images/gly.jpg">
-          <a routerLink="/admin/admin"> 管理员 </a>
+          <a routerLink="/admin/admin"><span class="name"> {{adminHeader.data.roleList[0].name}} </span></a>
           <img src="../../../../../assets/images/tcdl.jpg">
           <a routerLink="#" (click)="loginOut()"> 退出登陆 </a>
           <img src="../../../../../assets/images/ptsy.jpg">

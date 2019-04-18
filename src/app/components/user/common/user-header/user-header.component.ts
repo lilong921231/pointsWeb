@@ -42,12 +42,8 @@ export class UserHeaderComponent implements OnInit {
           this.userHeader = response; // 获取的返回值赋给newDate
           // 没有正确取到值
         } else {
-          if (response.message === '用户没有该访问权限') {
-            return this.router.navigateByUrl('');
-          } else {
             this.userCommon.userCommonCode(response.code, response);
             return false; // 不跳转页面
-          }
         }
       });
   }

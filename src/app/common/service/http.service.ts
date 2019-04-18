@@ -12,9 +12,12 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
+  adminUrl = 'http://47.91.230.177:8001';  // 统一明天
+  // adminUrl = 'http://47.75.130.164:8001';  // 莫忘初心
+  // adminUrl = 'http://47.52.167.119:8001'; // liudoumin
+  // adminUrl = 'http://47.75.67.209:8001'; // 唯我独尊
+  // adminUrl = 'http://47.75.164.238:8001'; // 不会选
 
-  adminUrl = 'http://47.91.230.177:8001';
-  // adminUrl = 'http://localhost:8001';
 
   resAdmin: any;
   resUser: any;
@@ -176,16 +179,11 @@ export class HttpService {
     });
   }
 
-
   codeSelect(code, response) {
-    if (code === 407 && this.getUser() === 'user') {
-      alert(response.message);
-      this.router.navigate(['']); // 跳转到用户登陆界面
-      return this.setUser('');
-    } else if (code === 407 && this.getAdmin() === 'admin') {
-      alert(response.message);
-      this.router.navigate(['/admin']); // 跳转到admin登陆界面
-      return this.setAdmin('');
+    if (code === 407 && this.getCookie() === 'user') {
+      this.router.navigateByUrl('/main'); // 跳转到用户登陆界面
+    } else if (code === 407 && this.getCookie() === 'admin') {
+      this.router.navigateByUrl('/admin/main'); // 跳转到admin登陆界面
     } else {
       alert(response.message);
     }

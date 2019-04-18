@@ -18,7 +18,8 @@ export class UserLoginGuard implements CanActivate {
 
     const path = route.routeConfig.path;
     // nextRoute: 设置需要路由守卫的路由集合
-    const nextRoute = ['main', 'repass', 'userInfo', 'reg', 'money_user_list', 'point', 'message', 'messageInfo/:id', 'tb-kline'];
+    const nextRoute = ['main', 'repass', 'userInfo', 'reg', 'money_user_list',
+      'point', 'message', 'messageInfo/:id', 'tb-kline', 'user-update'];
 
     if (this.http.getCookie() === 'user') {
       this.isLogin = true;

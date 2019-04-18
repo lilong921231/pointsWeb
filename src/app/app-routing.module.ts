@@ -71,9 +71,14 @@ const routes: Routes = [
     loadChildren: './components/admin/admin.module#AdminModule'
   },
   {
+    path: 'user-update',
+    loadChildren: './components/user-update/user-update.module#UserUpdateModule',
+    canActivate: [UserLoginGuard]
+  }
+ /* {
     path: 'pc',
     loadChildren: './components/user-iphone/user-iphone.module#UserIphoneModule'
-  }
+  }*/
 ];
 
 @NgModule({
