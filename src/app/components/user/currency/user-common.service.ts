@@ -158,4 +158,9 @@ export class UserCommonService {
   userInfoUpdateSkip(account) {
     this.router.navigateByUrl('/user-update/' + account);  // 根据id跳转网页
   }
+
+  userInfoUpdate(data) {
+    const url = environment.apiUserUrl + '';
+    return this.httpService.postData(url, data);
+  }
 }

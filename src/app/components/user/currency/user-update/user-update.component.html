@@ -10,56 +10,88 @@
       <div class="user-padding-border">
         <div class="user-top">
           <img src="../../../../../assets/images/menu-repass.png">
-          个人档案
+          修改信息
         </div>
         <div class="user-bottom">
           <div class="user-left">
             <p>会员编号</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.account}}</p>
+            <p>{{user.data.account}}</p>
           </div>
           <div class="user-left">
             <p>真实姓名</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.realName}}</p>
+            <div class="user-input">
+              <input type="text" value="{{user.data.realName}}" #RealName>
+              <span> *必须输入</span>
+            </div>
           </div>
           <div class="user-left">
             <p>会员性别</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.gender ? '女' : '男'}}</p>
+            <div class="user-input">
+              <select #gender>
+                <option *ngIf="!genderSelect" selected="selected">请选择性别</option>
+                <option *ngIf="genderSelect" selected="selected">{{genderSex}}</option>
+                <option *ngIf="!genderSexMan" value="1">男</option>
+                <option *ngIf="genderSexWoman" value="2">女</option>
+              </select>
+              <span> * 必须选择！</span>
+            </div>
           </div>
           <div class="user-left">
             <p>身份证号</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.identityNumber}}</p>
+            <div class="user-input">
+              <input type="text" value="{{user.data.identityNumber}}">
+              <span> *必须输入</span>
+            </div>
           </div>
           <div class="user-left">
             <p>家庭地址</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.province}}省{{userData.data.city}}市{{userData.data.address}}</p>
+            <div class="user-input">
+              <select value="" #province>
+                <option *ngFor="let item of addresses;">{{item}}</option>
+              </select>
+              省
+              <input type="text" value="" #city>市
+              <input type="text" value="" #address>
+              <span> *必须输入</span>
+            </div>
+
           </div>
           <div class="user-left">
             <p>联系电话</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.phone}}</p>
+            <div class="user-input">
+              <input type="text" value="{{user.data.phone}}" #phone>
+              <span> * 必须输入！</span>
+            </div>
           </div>
           <div class="user-left">
             <p>会员级别</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.rank.name}}</p>
+            <p>{{user.data.rank.name}}</p>
           </div>
           <div class="user-left">
             <p>发证日期</p>
           </div>
           <div class="user-right">
-            <p>{{userData.data.createTime}}</p>
+            <p>{{user.data.createTime}}</p>
+          </div>
+          <div class="button-center">
+            <img src="../../../../../assets/images/confirm.jpg" (click)="userUpdate(user.data.account, RealName.value, gender.value,
+             province.value, city.value, address.value, phone.value)">
+            &nbsp;&nbsp;&nbsp;
+            <img src="../../../../../assets/images/reset.jpg" (click)="reset()">
           </div>
           <div class="clear"></div>
         </div>

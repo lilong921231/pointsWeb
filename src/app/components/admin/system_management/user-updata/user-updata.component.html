@@ -36,8 +36,8 @@
             <select #gender>
               <option *ngIf="!genderSelect" selected="selected">请选择性别</option>
               <option *ngIf="genderSelect" selected="selected">{{genderSex}}</option>
-              <option *ngIf="!genderSexInfo" value="1">男</option>
-              <option *ngIf="genderSexInfo" value="2">女</option>
+              <option *ngIf="!genderSexMan" value="1">男</option>
+              <option *ngIf="genderSexWoman" value="2">女</option>
             </select>
               <span>&nbsp;&nbsp;&nbsp;* 必须选择！</span>
             </div>
@@ -85,7 +85,9 @@
           </div>
           <div class="myinfo-div-data">
             <div class="repass-input div-color">
-              <input type="text" value="{{dataUpdata.data.province}}" #province>
+              <select value="" #province>
+                <option *ngFor="let item of addresses;">{{item}}</option>
+              </select>
               省
               <input type="text" value="{{dataUpdata.data.city}}" #city>
               市

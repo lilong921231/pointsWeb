@@ -21,8 +21,17 @@ export class UserUpdataComponent implements OnInit {
 
   genderSex: any;
   genderSelect: boolean;
-  genderSexInfo: boolean;
+  genderSexMan: boolean;
+  genderSexWoman: boolean;
   name: any;
+
+  addresses = [];
+  // 各个省名
+  provinces = ['北京市', '上海市', '天津市', '重庆市', '河北省', '山西省',
+    '内蒙古省', '辽宁省', '吉林省', '黑龙江省', '江苏省', '浙江省', '安徽省', '福建省', '江西省',
+    '山东省', '河南省', '湖北省', '湖南省', '广东省', '广西省', '海南省', '四川省', '贵州省',
+    '云南省', '西藏省', '陕西省', '甘肃省', '宁夏省', '青海省', '新疆省', '香港', '澳门', '台湾'];
+
 
   constructor(
     private router: Router,
@@ -45,16 +54,37 @@ export class UserUpdataComponent implements OnInit {
         this.dataUpdata = response;
         this.name = response.data.rank['name'];
 
-        if (response.data.gender === 0) {
+
+        let dataProvince = '';
+        dataProvince = response.data.province;
+        console.log(dataProvince);
+
+        let j = 1;
+        for (let i = 0; i < this.provinces.length; i++) {
+
+          if (dataProvince === null || dataProvince === '' || dataProvince === undefined) {
+            this.addresses[0] = '请选择省份';
+          }
+          if (this.provinces[i] === dataProvince) {
+            this.addresses[0] = dataProvince;
+          } else {
+            this.addresses[j] = this.provinces[i];
+            j++;
+          }
+        }
+
+
+        if (response.data.gender === 2) {
           this.genderSelect = false;
+          this.genderSexWoman = true;
         } else {
           this.genderSelect = true;
-          if (response.data.gender === 1) {
+          if (response.data.gender === 0) {
             this.genderSex = '男';
-            this.genderSexInfo = true;
+            this.genderSexMan = true;
           } else {
             this.genderSex = '女';
-            this.genderSexInfo = false;
+            this.genderSexWoman = true;
           }
         }
         for (let i = 0; i < this.leveldata.length; i++) {
