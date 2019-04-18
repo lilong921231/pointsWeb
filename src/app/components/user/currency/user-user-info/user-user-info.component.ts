@@ -32,4 +32,8 @@ export class UserUserInfoComponent implements OnInit {
         }
       });
   }
+
+  userInfoUpdate(account) {
+    this.userCommon.userInfoUpdateSkip(account);
+  }
 }

@@ -1,7 +1,7 @@
-import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
-import {APP_ID, Inject, NgModule, PLATFORM_ID} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
-import {CommonModule, HashLocationStrategy, isPlatformBrowser, LocationStrategy} from '@angular/common';
+import {CommonModule } from '@angular/common';
 import {UserCommonModule} from './components/user/user-common.module';
 import {PaginationModule} from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module';

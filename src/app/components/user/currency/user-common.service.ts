@@ -154,4 +154,8 @@ export class UserCommonService {
   userCommonCode(code, response) {
     this.httpService.codeSelect(code, response);
   }
+
+  userInfoUpdateSkip(account) {
+    this.router.navigateByUrl('/user-update/' + account);  // 根据id跳转网页
+  }
 }

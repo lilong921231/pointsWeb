@@ -66,6 +66,7 @@ import { UserUpdateComponent } from './currency/user-update/user-update.componen
     UserMenuComponent,
     UserHeaderComponent,
     UserMessageInfoComponent,
+    UserUpdateComponent,
   ]
 })
 export class UserCommonModule { }
