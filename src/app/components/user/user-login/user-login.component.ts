@@ -21,6 +21,7 @@ export class UserLoginComponent implements OnInit {
    * 定义接收数据变量
    */
   code: any;  // 验证码
+  identityId: any;
 
   constructor(
     private router: Router, // 引入Router路由组件
@@ -43,6 +44,7 @@ export class UserLoginComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.code = response;
+          this.identityId = response.identityId;
         } else { // 没有正确取到值
           this.userCommon.userCommonCode(response.code, response); // 从后台报错误信息
           return false; // 不跳转页面
@@ -74,7 +76,8 @@ export class UserLoginComponent implements OnInit {
     const data = {
       'account': account,
       'password': password,
-      'userCaptcha': userCaptcha
+      'userCaptcha': userCaptcha,
+      'identityId': this.identityId
     };
     // 访问loginService请求方法
     this.userCommon.loginService(data)

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ManagementService } from '../../services/management.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import {connectableObservableDescriptor} from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-user-updata',
@@ -12,11 +13,13 @@ import * as $ from 'jquery';
 export class UserUpdataComponent implements OnInit {
 
   dataUpdata: any;
+
+  level = [];
   leveldata = [
-    {'levelName': '普通会员', 'state': true},
-    {'levelName': '银卡会员', 'state': true},
-    {'levelName': '金卡会员', 'state': true},
-    {'levelName': '钻石会员', 'state': true}
+    {'levelName': '普通会员', 'rankId': 1},
+    {'levelName': '银卡会员', 'rankId': 2},
+    {'levelName': '金卡会员', 'rankId': 3},
+    {'levelName': '钻石会员', 'rankId': 4}
     ];
 
   genderSex: any;
@@ -58,7 +61,6 @@ export class UserUpdataComponent implements OnInit {
 
         let dataProvince = '';
         dataProvince = response.data.province;
-        console.log(dataProvince);
 
         let j = 1;
         for (let i = 0; i < this.provinces.length; i++) {
@@ -75,6 +77,17 @@ export class UserUpdataComponent implements OnInit {
         }
 
 
+        let m = 1;
+        for (let i = 0; i < this.leveldata.length; i++) {
+          console.log(response.data.rank.id - 1);
+          if (response.data.rank.id == (i + 1)) {
+            this.level[0] = this.leveldata[response.data.rank.id - 1];
+          } else {
+            this.level[m] = this.leveldata[i];
+            m++;
+          }
+        }
+
         if (response.data.gender === 2) {
           this.genderSelect = false;
           this.genderSexWoman = true;
@@ -83,16 +96,13 @@ export class UserUpdataComponent implements OnInit {
           if (response.data.gender === 0) {
             this.genderSex = '男';
             this.genderSexMan = true;
+            this.genderSexWoman = true;
           } else {
             this.genderSex = '女';
-            this.genderSexWoman = true;
+            this.genderSexWoman = false;
           }
         }
-        for (let i = 0; i < this.leveldata.length; i++) {
-          if (this.name ===  this.leveldata[i].levelName) {
-            this.leveldata[i].state = false;
-          }
-        }
+
       } else {
         this.management.managementCode(response.code, response);
         return false;
@@ -115,10 +125,11 @@ export class UserUpdataComponent implements OnInit {
     id, realName, rankId, phone, province,
     city, address, identityNumber, gender
   ) {
+
     if (gender === '男') {
-      gender = 1;
+      gender = 0;
     } else if (gender === '女') {
-      gender = 2;
+      gender = 1;
     }
     const data = {
       'id': id,
@@ -132,16 +143,21 @@ export class UserUpdataComponent implements OnInit {
       'gender': gender
 
     };
-    if ( gender === '' || gender === null || gender === undefined ) {
+
+    if ( gender === '' || gender === null || gender === undefined || gender === '请选择性别') {
       alert('请选择会员性别');
+      return false;
     } else if ( gender === 0) {
       alert('请选择会员性别');
+      return false;
     }
     if ( realName === '' || realName === null || realName === undefined ) {
       alert('请输入真实姓名');
+      return false;
     }
     if ( identityNumber === '' || identityNumber === null || identityNumber === undefined ) {
       alert('请输入身份账号');
+      return false;
     }
     this.management.updataUser(data)
       .subscribe((response: any) => {

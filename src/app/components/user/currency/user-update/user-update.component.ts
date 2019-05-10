@@ -44,6 +44,7 @@ export class UserUpdateComponent implements OnInit {
           this.user = response;
           console.log(response);
           let dataProvince = '';
+          console.log(response.data.gender);
           dataProvince = response.data.province;
 
           let j = 1;
@@ -68,6 +69,7 @@ export class UserUpdateComponent implements OnInit {
             if (response.data.gender === 0) {
               this.genderSex = '男';
               this.genderSexMan = true;
+              this.genderSexWoman = true;
             } else {
               this.genderSex = '女';
               this.genderSexWoman = false;
@@ -81,22 +83,25 @@ export class UserUpdateComponent implements OnInit {
   }
 
 
-  userUpdate(account, realName, gender,
+  userUpdate(account, realName, gender, identityNumber,
              province, city, address, phone) {
-
 
     /**
      * 判断值不能为空
      */
     if (account === null || account === undefined || account === '') {
-      alert('证书编号不能为空');
+      alert('会员编号不能为空');
       return false;
     }
     if (realName === null || realName === undefined || realName === '') {
       alert('真实姓名不能为空');
       return false;
     }
-    if (gender === null || gender === undefined || gender === '') {
+    if (identityNumber === null || identityNumber === undefined || identityNumber === '') {
+      alert('身份账号不能为空');
+      return false;
+    }
+    if (gender === null || gender === undefined || gender === '' || gender === '请选择性别') {
       alert('请选择性别');
       return false;
     }
@@ -119,14 +124,16 @@ export class UserUpdateComponent implements OnInit {
       return false;
     }
 
+    console.log(gender);
     const data = {
       'account': account,
       'realName': realName,
       'gender': gender,
+      'identityNumber': identityNumber,
       'phone': phone,
       'province': province,
       'city': city + '市',
-      'address': address,
+      'address': address
     };
 
     this.userCommon.userInfoUpdate(data)
@@ -135,7 +142,6 @@ export class UserUpdateComponent implements OnInit {
           alert('修改成功');
           this.router.navigateByUrl('/userInfo');
         } else {
-          this.userCommon.userCommonCode(response.code, response);
           return false;
         }
       });

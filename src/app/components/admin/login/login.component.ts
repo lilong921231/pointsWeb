@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   password: string;
 
   code: any;
+  identityId: any;
 
   constructor(
     private router: Router,
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.code = response;
+          console.log(response);
+          this.identityId = response.identityId;
         } else {
          this.http.codeSelect(response.code, response);
           return false;
@@ -67,8 +70,13 @@ export class LoginComponent implements OnInit {
     const data = {
       'account': account,
       'password': password,
-      'userCaptcha': userCaptcha
+      'userCaptcha': userCaptcha,
+      'identityId': this.identityId
     };
+
+    console.log(data);
+
+
     const url = this.http.adminUrl + '/security/login';
     this.http.postData(url, data)
       .subscribe((response: any) => {

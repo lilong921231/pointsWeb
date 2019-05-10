@@ -12,11 +12,12 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  adminUrl = 'http://47.91.230.177:8001';  // 统一明天
-  // adminUrl = 'http://47.75.130.164:8001';  // 莫忘初心
-  // adminUrl = 'http://47.52.167.119:8001'; // liudoumin
-  // adminUrl = 'http://47.75.67.209:8001'; // 唯我独尊
-  // adminUrl = 'http://47.75.164.238:8001'; // 不会选
+  // adminUrl = 'http://sqshtb.com:8001';  // 统一明天
+  // adminUrl = 'http://chinaljxl.com:8001';  // 莫忘初心
+  adminUrl = 'http://lyshtbpro.com:8001'; // liudoumin
+  // adminUrl = 'http://gzljxl.com:8001'; // 唯我独尊
+  // adminUrl = 'http://gzshtbyl.com:8001'; // 不会选
+
 
 
   resAdmin: any;
@@ -150,6 +151,7 @@ export class HttpService {
   postData(url: string, data: any) {
     // headers请求参数头
 
+    console.log('post');
     return this.resAdmin = this.http.post(url, data, {headers: {
         'Content-Type': 'application/json', 'Authorization': this.getToken(), '_current_id': this.getId()}
     });

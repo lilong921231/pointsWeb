@@ -36,8 +36,8 @@
             <select #gender>
               <option *ngIf="!genderSelect" selected="selected">请选择性别</option>
               <option *ngIf="genderSelect" selected="selected">{{genderSex}}</option>
-              <option *ngIf="!genderSexMan" value="1">男</option>
-              <option *ngIf="genderSexWoman" value="2">女</option>
+              <option *ngIf="!genderSexMan" value="0">男</option>
+              <option *ngIf="genderSexWoman" value="1">女</option>
             </select>
               <span>&nbsp;&nbsp;&nbsp;* 必须选择！</span>
             </div>
@@ -48,8 +48,7 @@
           <div class="myinfo-div-data">
             <div class="repass-input">
               <select #rankId>
-                <option selected="selected" value="{{dataUpdata.data.rank.id}}">{{dataUpdata.data.rank.name}}</option>
-                <option *ngFor="let item of leveldata;let i = index;" value="{{i + 1}}">{{item.levelName}}</option>
+                <option *ngFor="let item of level;let i = index;" value="{{item.rankId}}">{{item.levelName}}</option>
               </select>
             </div>
           </div>

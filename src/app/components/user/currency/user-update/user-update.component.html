@@ -36,8 +36,8 @@
               <select #gender>
                 <option *ngIf="!genderSelect" selected="selected">请选择性别</option>
                 <option *ngIf="genderSelect" selected="selected">{{genderSex}}</option>
-                <option *ngIf="!genderSexMan" value="1">男</option>
-                <option *ngIf="genderSexWoman" value="2">女</option>
+                <option *ngIf="!genderSexMan" value="0">男</option>
+                <option *ngIf="genderSexWoman" value="1">女</option>
               </select>
               <span> * 必须选择！</span>
             </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="user-right">
             <div class="user-input">
-              <input type="text" value="{{user.data.identityNumber}}">
+              <input type="text" value="{{user.data.identityNumber}}" #identityNumber>
               <span> *必须输入</span>
             </div>
           </div>
@@ -89,7 +89,7 @@
           </div>
           <div class="button-center">
             <img src="../../../../../assets/images/confirm.jpg" (click)="userUpdate(user.data.account, RealName.value, gender.value,
-             province.value, city.value, address.value, phone.value)">
+             identityNumber.value, province.value, city.value, address.value, phone.value)">
             &nbsp;&nbsp;&nbsp;
             <img src="../../../../../assets/images/reset.jpg" (click)="reset()">
           </div>

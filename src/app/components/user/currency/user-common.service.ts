@@ -160,7 +160,8 @@ export class UserCommonService {
   }
 
   userInfoUpdate(data) {
-    const url = environment.apiUserUrl + '';
+    const url = environment.apiUserUrl + '/user/update';
+    console.log('server');
     return this.httpService.postData(url, data);
   }
 }
