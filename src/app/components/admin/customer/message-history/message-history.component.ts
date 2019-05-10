@@ -108,6 +108,7 @@ export class MessageHistoryComponent implements OnInit {
     const data = {
       'ids': messageId
     };
+
     const message_select = confirm('确认删除？');
     if (message_select) {
       alert('您选择了确认删除信息');

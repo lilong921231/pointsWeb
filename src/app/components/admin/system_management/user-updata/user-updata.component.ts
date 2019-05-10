@@ -55,6 +55,7 @@ export class UserUpdataComponent implements OnInit {
         this.name = response.data.rank['name'];
 
 
+
         let dataProvince = '';
         dataProvince = response.data.province;
         console.log(dataProvince);

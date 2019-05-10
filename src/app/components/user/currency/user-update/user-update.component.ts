@@ -42,7 +42,7 @@ export class UserUpdateComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.code === 200 || response.ok) {
           this.user = response;
-          console.log(response.data);
+          console.log(response);
           let dataProvince = '';
           dataProvince = response.data.province;
 
